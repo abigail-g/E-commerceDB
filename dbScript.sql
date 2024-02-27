@@ -1,4 +1,51 @@
 -- !This is the sql script to create the ecommerce db 
+CREATE TABLE 'Products' ( 
+'product_id' VARCHAR(250) PRIMARY KEY, 
+'product_name' VARCHAR(250) NOT NULL,     
+'product_price' FLOAT(10,2) NOT NULL, 
+FOREIGN KEY 'category_id'
+REFERENCES CATEGORY ('category_id'), 
+FOREIGN KEY ('supplier_id') 
+REFERENCES SUPPLIERS ('supplier_id'),  
+'product_availability' VARCHAR(25) 
+); 
+
+Customers 
+
+CREATE TABLE 'Customers' ( 
+'cust_id' VARCHAR(250) PRIMARY KEY,  
+'cust_name' VARCHAR(250), 
+'cust_zip' VARCHAR(25), 
+'cust_address' VARCHAR(250), 
+'cust_email' VARCHAR(250) NOT NULL, 
+'cust_no' INT NOT NULL 
+); 
+
+Order_details 
+
+CREATE TABLE 'Order_Details' ( 
+'order_id'  VARCHAR(250) PRIMARY KEY, 
+'order_date' DATE NOT NULL,  
+'order_price' FLOAT(10,2) NOT NULL, 
+'discount' FLOAT(10,2), 
+'order_total' FLOAT(10,2), 
+FOREIGN KEY ('customer_id') 
+REFERENCES Customers ('customer_id'),  
+'delivery_charge' FLOAT(10,2), 
+'expedited_delivery' VARCHAR(250), 
+FOREIGN KEY ('Payment_id') 
+REFERENCES Payment_details ('Payment_id') 
+);  
+
+Order_stage 
+
+CREATE TABLE 'Order_stage'( 
+'id' VARCHAR(250) PRIMARY KEY,  
+'status_name' VARCHAR(250), 
+'status_code' VARCHAR(250) NOT NULL 
+); 
+
+
 
 CREATE TABLE REVIEWS(
 'review_id' VARCHAR(50) PRIMARY KEY,
