@@ -1,5 +1,6 @@
 -- !This is the sql script to create the ecommerce db 
 
+
 CREATE TABLE REVIEWS(
 'review_id' VARCHAR(50) PRIMARY KEY,
 'product_id' VARCHAR(50),
