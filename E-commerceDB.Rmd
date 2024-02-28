@@ -29,6 +29,10 @@ This section describes and illustrates the entities and their respective attribu
 #### 1.1.2.2.	Supplier
 Vendors who provide products. Represent the source of the stockItems.
 
+#### 1.1.2.3. Product
+	Indicates all products available for sale.
+	
+
 
 # Design Considerations
 
