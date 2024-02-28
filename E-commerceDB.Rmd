@@ -9,3 +9,10 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+# Design Considerations
+
+- Absence of an Order Entity: The model intentionally skips direct order management. Instead, it focuses on product management, customer interactions (through reviews), and payment methods. Inventory tracking is simplified through the StockItem entity.
+- Customer Engagement: By including Reviews, the model emphasizes customer engagement and feedback without directly managing transactions.
+- Payment Information: Including PaymentMethod without an Order entity suggests a pre-registration of payment preferences or a simplified transaction model that could be expanded in the future.
+
