@@ -9,10 +9,36 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Part 1: Database Design and Implementation
+
+## 1.1 Entity Relationship Diagram
+
+* Here Insert ERD *
+
+The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
+
+### 1.1.1.Assumptions
+- The company only distributes products within the United Kingdom (UK).
+
+- The Currency used is Pound Sterling (GBP).
+
+### 1.1.2. Entities and Attributes
+This section describes and illustrates the entities and their respective attributes of the ER diagram above.
+#### 1.1.2.1. Customer 
+	Users who previously have at least once purchased products and placed an order.
+#### 1.1.2.2.	Supplier
+Vendors who provide products. Represent the source of the stockItems.
+
 
 # Design Considerations
 
-- Absence of an Order Entity: The model intentionally skips direct order management. Instead, it focuses on product management, customer interactions (through reviews), and payment methods. Inventory tracking is simplified through the StockItem entity.
+- Absence of an Order Entity: 
+
+- The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods. Moreover, Inventory tracking is simplified through the StockItem entity.
+
+- Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval. 
+
 - Customer Engagement: By including Reviews, the model emphasizes customer engagement and feedback without directly managing transactions.
-- Payment Information: Including PaymentMethod without an Order entity suggests a pre-registration of payment preferences or a simplified transaction model that could be expanded in the future.
+
+- Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.
 
