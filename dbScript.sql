@@ -86,6 +86,46 @@ CREATE TABLE PAYMENT_DETAILS(
 FOREIGN KEY (order_id) REFERENCES ORDERS(order_id)
 );
 
+CREATE TABLE 'ORDER_STATUS'(
+  'Order_ID' INT NOT NULL,
+  'Order_Status' VARCHAR(250) NOT NULL,
+  'Order_Purchase_Timestamp' DATE,
+  'Order_Approved_Timestamp' DATE,
+  'Order_Delivered_Date' DATE,
+  'Order_Estimated_Delivery_Date' DATE,
+  FOREIGN KEY ("Order_ID")
+    REFERENCES ORDERS ("Order_ID"),
+  FOREIGN KEY ("Order_Status")
+    REFERENCES ORDER_STAGE("Status_Code")
+);
+
+CREATE TABLE "ORDER_ITEM" (
+  "ID" INT PRIMARY KEY,
+  "Order_ID" INT NOT NULL, 
+  "Product_ID" INT NOT NULL, 
+  "Quantity" INT NOT NULL,
+  FOREIGN KEY ("Order_ID") 
+    REFERENCES ORDERS("Order_ID"),
+  FOREIGN KEY ("Product_ID") 
+    REFERENCES PRODUCTS("Product_ID")
+);
+
+CREATE TABLE "SUPPLIERS" (
+  "Supplier_ID" INT PRIMARY KEY,
+  "Supplier_Name" VARCHAR(250) NOT NULL,
+  "Street_Name" VARCHAR(250) NOT NULL,
+  "Building_Name" VARCHAR(250),
+  "Supplier_Zip" VARCHAR(250) NOT NULL,
+  "Supplier_Email" VARCHAR(250) NOT NULL,
+  "Supplier_Status" VARCHAR(250) NOT NULL,
+  CONSTRAINT Supplier_Address UNIQUE ("Street_Name", "Building_Name", "Supplier_Zip")
+);
+
+
+CREATE TABLE "CATEGORY"(
+  "Category_ID" INT NOT NULL, 
+  "CATEGORY_NAME" VARCHAR(250) NOT NULL
+);
 
 # Hello World !
 
