@@ -89,6 +89,13 @@ CREATE TABLE "Category"(
   "Category_Name" VARCHAR(250) NOT NULL
 );
 
-# Hello World !
-
-# adding another comment 1
+CREATE TABLE "Order_Items"(
+  FOREIGN KEY ('Order_ID') 
+  REFERENCES Orders ('Order_ID'),
+  FOREIGN KEY ('Cust_ID') 
+  REFERENCES Customers ('Cust_ID'),
+  FOREIGN KEY ('Product_ID') 
+  REFERENCES Products('Product_ID'),
+  "Quantity" INT NOT NULL,
+  "Sum_Price" INT NOT NULL
+);
