@@ -1,130 +1,93 @@
 -- !This is the sql script to create the ecommerce db 
 CREATE TABLE 'Products' ( 
-'product_id' VARCHAR(250) PRIMARY KEY, 
-'product_name' VARCHAR(250) NOT NULL,     
-'product_price' FLOAT(10,2) NOT NULL, 
-FOREIGN KEY 'category_id'
-REFERENCES CATEGORY ('category_id'), 
-FOREIGN KEY ('supplier_id') 
-REFERENCES SUPPLIERS ('supplier_id'),  
-'product_availability' VARCHAR(25) 
+'Product_ID' VARCHAR(250) PRIMARY KEY, 
+'Product_Name' VARCHAR(250) NOT NULL,     
+'Product_Price' FLOAT(10,2) NOT NULL, 
+'Category_ID' INT NOT NULL,
+'Supplier_ID' INT NOT NULL,
+FOREIGN KEY 'Category_ID'
+  REFERENCES Category ('Category_ID'), 
+FOREIGN KEY ('Supplier_ID') 
+  REFERENCES Suppliers ('Supplier_ID'),  
+'Product_Availability' VARCHAR(25) 
 ); 
 
 Customers 
 
 CREATE TABLE 'Customers' ( 
-'cust_id' VARCHAR(250) PRIMARY KEY,  
-'cust_name' VARCHAR(250), 
-'cust_zip' VARCHAR(25), 
-'cust_address' VARCHAR(250), 
-'cust_email' VARCHAR(250) NOT NULL, 
-'cust_no' INT NOT NULL 
+'Cust_ID' VARCHAR(250) PRIMARY KEY,  
+'Cust_Name' VARCHAR(250) NOT NULL, 
+'Cust_Building_Name' VARCHAR(250)
+'Cust_Street_Name' VARCHAR(250) NOT NULL, 
+'Cust_Zip' VARCHAR(25) NOT NULL, 
+'Cust_Email' VARCHAR(250) NOT NULL, 
+'Cust_Phone_Number' INT NOT NULL,
+'Cust_Country_Code' VARCHAR(250)
 ); 
 
 Order_details 
 
 CREATE TABLE 'Order_Details' ( 
-'order_id'  VARCHAR(250) PRIMARY KEY, 
-'order_date' DATE NOT NULL,  
-'order_price' FLOAT(10,2) NOT NULL, 
-'discount' FLOAT(10,2), 
-'order_total' FLOAT(10,2), 
-FOREIGN KEY ('customer_id') 
-REFERENCES Customers ('customer_id'),  
-'delivery_charge' FLOAT(10,2), 
-'expedited_delivery' VARCHAR(250), 
-FOREIGN KEY ('Payment_id') 
-REFERENCES Payment_details ('Payment_id') 
+'Order_ID'  VARCHAR(250) PRIMARY KEY, 
+'Order_Date' DATE NOT NULL,  
+'Shipping_Building_Name' VARCHAR(250),
+'Shipping_Street_Name' VARCHAR(250) NOT NULL,
+'Shipping_Zip_Code' VARCHAR(250) NOT NULL,
+'Discount' FLOAT(10,2), 
+'Order_Total' FLOAT(10,2), NOT NULL,
+'Order_Status' VARCHAR(50) NOT NULL,
+'Payment_Type' VARCHAR(50) NOT NULL,
+'Payment_Status' VARCHAR(50) NOT NULL,
+'Billing_Building_Name' VARCHAR(250),
+'Billing_Street_Name' VARCHAR(250) NOT NULL,
+'Billing_Zip' VARCHAR(50) NOT NULL,
+FOREIGN KEY ('Cust_ID') 
+  REFERENCES Customers ('Cust_ID'),
+FOREIGN KEY ('Discount') 
+  REFERENCES DISCOUNTS ('Discount_Amount')
 );  
 
-Order_stage 
-
-CREATE TABLE 'Order_stage'( 
-'id' VARCHAR(250) PRIMARY KEY,  
-'status_name' VARCHAR(250), 
-'status_code' VARCHAR(250) NOT NULL 
-); 
 
 
-
-CREATE TABLE REVIEWS(
-'review_id' VARCHAR(50) PRIMARY KEY,
-'product_id' VARCHAR(50),
-'review_timestamp' DATETIME NOT NULL,
-'product_rating' INT NOT NULL,
-'review_text' TEXT,
-'review_likes' INT,
-FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
+CREATE TABLE "Reviews"(
+'Review_ID' VARCHAR(50) PRIMARY KEY,
+'Product_ID' VARCHAR(50),
+'Review_Timestamp' DATETIME NOT NULL,
+'Product_Rating' INT NOT NULL,
+'Review_Text' TEXT,
+'Review_Likes' INT,
+FOREIGN KEY ('Product_ID') 
+  REFERENCES Products('Product_ID')
 );
 
-CREATE TABLE CART(
-'cust_id' VARCHAR(50) NOT NULL,
-'product_id' VARCHAR(50) NOT NULL,
-'quantity' INT NOT NULL,
-'cart_cost' INT NOT NULL,
-FOREIGN KEY (cust_id) REFERENCES CUSTOMERS(cust_id),
-FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
+
+CREATE TABLE "Discounts"(
+'Discount_Code' VARCHAR(50) PRIMARY KEY,
+'Product_ID' VARCHAR(50),
+'Category_ID' VARCHAR(50),
+'Discount_Amount' FLOAT(10,2) NOT NULL,
+'Discount_Status' BOOLEAN NOT NULL,
+FOREIGN KEY ('Category_ID') 
+  REFERENCES Category('Category_ID'),
+FOREIGN KEY ('Product_ID') 
+  REFERENCES Products('Product_ID')
 );
 
-CREATE TABLE DISCOUNTS(
-'discount_code' VARCHAR(50) PRIMARY KEY,
-'product_id' VARCHAR(50),
-'category_id' VARCHAR(50),
-'discount_amount' INT NOT NULL,
-'discount_status' BOOLEAN NOT NULL,
-FOREIGN KEY (category_id) REFERENCES CATEGORY(category_id),
-FOREIGN KEY (product_id) REFERENCES PRODUCTS(product_id)
-);
 
-CREATE TABLE PAYMENT_DETAILS(
-'payment_id' VARCHAR(50) PRIMARY KEY, 
-'order_id' VARCHAR(50) NOT NULL,
-'payment_type' VARCHAR(20),
-'payment_timestamp' DATETIME,
-'billing_address' TEXT,
-'payment_status' VARCHAR(10),
-FOREIGN KEY (order_id) REFERENCES ORDERS(order_id)
-);
-
-CREATE TABLE 'ORDER_STATUS'(
-  'Order_ID' INT NOT NULL,
-  'Order_Status' VARCHAR(250) NOT NULL,
-  'Order_Purchase_Timestamp' DATE,
-  'Order_Approved_Timestamp' DATE,
-  'Order_Delivered_Date' DATE,
-  'Order_Estimated_Delivery_Date' DATE,
-  FOREIGN KEY ("Order_ID")
-    REFERENCES ORDERS ("Order_ID"),
-  FOREIGN KEY ("Order_Status")
-    REFERENCES ORDER_STAGE("Status_Code")
-);
-
-CREATE TABLE "ORDER_ITEM" (
-  "ID" INT PRIMARY KEY,
-  "Order_ID" INT NOT NULL, 
-  "Product_ID" INT NOT NULL, 
-  "Quantity" INT NOT NULL,
-  FOREIGN KEY ("Order_ID") 
-    REFERENCES ORDERS("Order_ID"),
-  FOREIGN KEY ("Product_ID") 
-    REFERENCES PRODUCTS("Product_ID")
-);
-
-CREATE TABLE "SUPPLIERS" (
+CREATE TABLE "Suppliers"(
   "Supplier_ID" INT PRIMARY KEY,
   "Supplier_Name" VARCHAR(250) NOT NULL,
-  "Street_Name" VARCHAR(250) NOT NULL,
-  "Building_Name" VARCHAR(250),
+  "Supplier_Building_Name" VARCHAR(250),
+  "Supplier_Street_Name" VARCHAR(250) NOT NULL,
   "Supplier_Zip" VARCHAR(250) NOT NULL,
   "Supplier_Email" VARCHAR(250) NOT NULL,
-  "Supplier_Status" VARCHAR(250) NOT NULL,
-  CONSTRAINT Supplier_Address UNIQUE ("Street_Name", "Building_Name", "Supplier_Zip")
+  "Supplier_Status" VARCHAR(250) NOT NULL
 );
 
 
-CREATE TABLE "CATEGORY"(
+CREATE TABLE "Category"(
   "Category_ID" INT NOT NULL, 
-  "CATEGORY_NAME" VARCHAR(250) NOT NULL
+  "Category_Name" VARCHAR(250) NOT NULL
 );
 
 # Hello World !
