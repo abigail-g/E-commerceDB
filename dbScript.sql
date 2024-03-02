@@ -84,7 +84,7 @@ CREATE TABLE "Suppliers"(
   "Supplier_Status" VARCHAR(250) NOT NULL
 );
 
-# I have found this way, but i am not sure if it will work. 
+# I have found this way, what we will get is a column called supplier_address and inside each row of that column we get building and street name and zip code. 
 CREATE TABLE "Suppliers"(
 "Supplier_ID" INT PRIMARY KEY,
 "Supplier_Name" VARCHAR(250) NOT NULL,
