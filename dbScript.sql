@@ -86,7 +86,7 @@ CREATE TABLE "Suppliers"(
 
 
 CREATE TABLE "Category"(
-  "Category_ID" INT NOT NULL, 
+  "Category_ID" INT PRIMARY KEY, 
   "Category_Name" VARCHAR(250) NOT NULL
 );
 
