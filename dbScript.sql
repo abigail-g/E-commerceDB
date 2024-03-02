@@ -84,6 +84,16 @@ CREATE TABLE "Suppliers"(
   "Supplier_Status" VARCHAR(250) NOT NULL
 );
 
+# I have found this way, but i am not sure if it will work. 
+CREATE TABLE "Suppliers"(
+"Supplier_ID" INT PRIMARY KEY,
+"Supplier_Name" VARCHAR(250) NOT NULL,
+"Supplier_Address" VARCHAR(250) AS 
+(CONCAT("Supplier_Building_Name",',',"Supplier_Street_Name",',',"Supplier_Zip"))STORED,
+ "Supplier_Email" VARCHAR(250) NOT NULL,
+  "Supplier_Status" VARCHAR(250) NOT NULL
+);
+
 
 CREATE TABLE "Category"(
   "Category_ID" INT PRIMARY KEY, 
