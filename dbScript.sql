@@ -49,7 +49,7 @@ FOREIGN KEY ('Discount')
 
 
 
-CREATE TABLE "Reviews"(
+CREATE TABLE 'Reviews'(
 'Review_ID' VARCHAR(50) PRIMARY KEY,
 'Product_ID' VARCHAR(50),
 'Review_Timestamp' DATETIME NOT NULL,
@@ -61,7 +61,7 @@ FOREIGN KEY ('Product_ID')
 );
 
 
-CREATE TABLE "Discounts"(
+CREATE TABLE 'Discounts'(
 'Discount_Code' VARCHAR(50) PRIMARY KEY,
 'Product_ID' VARCHAR(50),
 'Category_ID' VARCHAR(50),
@@ -74,28 +74,28 @@ FOREIGN KEY ('Product_ID')
 );
 
 
-CREATE TABLE "Suppliers"(
-  "Supplier_ID" INT PRIMARY KEY,
-  "Supplier_Name" VARCHAR(250) NOT NULL,
-  "Supplier_Building_Name" VARCHAR(250),
-  "Supplier_Street_Name" VARCHAR(250) NOT NULL,
-  "Supplier_Zip" VARCHAR(250) NOT NULL,
-  "Supplier_Email" VARCHAR(250) NOT NULL,
-  "Supplier_Status" VARCHAR(250) NOT NULL
+CREATE TABLE 'Suppliers'(
+  'Supplier_ID' INT PRIMARY KEY,
+  'Supplier_Name' VARCHAR(250) NOT NULL,
+  'Supplier_Building_Name' VARCHAR(250),
+  'Supplier_Street_Name' VARCHAR(250) NOT NULL,
+  'Supplier_Zip' VARCHAR(250) NOT NULL,
+  'Supplier_Email' VARCHAR(250) NOT NULL,
+  'Supplier_Status' VARCHAR(250) NOT NULL
 );
 
-CREATE TABLE "Category"(
-  "Category_ID" INT PRIMARY KEY, 
-  "Category_Name" VARCHAR(250) NOT NULL
+CREATE TABLE 'Category'(
+  'Category_ID' INT PRIMARY KEY, 
+  'Category_Name' VARCHAR(250) NOT NULL
 );
 
-CREATE TABLE "Order_Items"(
+CREATE TABLE 'Order_Items'(
   FOREIGN KEY ('Order_ID') 
   REFERENCES Orders ('Order_ID'),
   FOREIGN KEY ('Cust_ID') 
   REFERENCES Customers ('Cust_ID'),
   FOREIGN KEY ('Product_ID') 
   REFERENCES Products('Product_ID'),
-  "Quantity" INT NOT NULL,
-  "Sum_Price" INT NOT NULL
+  'Quantity' INT NOT NULL,
+  'Sum_Price' INT NOT NULL
 );
