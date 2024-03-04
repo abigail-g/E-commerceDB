@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.1)  4 MAR 2024 03:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2024.3.4)  4 MAR 2024 19:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -624,14 +624,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.220 Customers (\underline{Customer_id}
-                                        , Customer\_Email, Cust\_F\_Name, 
+l.224 ...{Product_id}\), \({\textit{Discount_Code}
+                                                  }\), 
 Here is how much of TeX's memory you used:
- 15183 strings out of 476077
- 240291 string characters out of 5792802
+ 15190 strings out of 476056
+ 240348 string characters out of 5791242
  1938187 words of memory out of 5000000
- 36931 multiletter control sequences out of 15000+600000
- 608018 words of font info for 112 fonts, out of 8000000 for 9000
+ 36955 multiletter control sequences out of 15000+600000
+ 612541 words of font info for 115 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,7n,93p,1009b,518s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

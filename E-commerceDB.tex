@@ -217,38 +217,41 @@ Indicates all products in the stock and available for sale.
 \hypertarget{logical-schema}{%
 \subsection{Logical Schema}\label{logical-schema}}
 
-Customers (\underline{Customer_id}, Customer\_Email, Cust\_F\_Name,
+Customers (\(\underline{Customer_id}\), Customer\_Email, Cust\_F\_Name,
 Cust\_L\_Name, Phone\_Country\_Code, Phone\_Num, Cust\_Street\_Name,
 Cust\_Building\_Name, Cust\_Zip\_Code)
 
-Products (Product\_id, Discount\_id, Category\_id, Product\_Name,
-Product\_Price, Product\_Availability)
+Products (\(\underline{Product_id}\), \({\textit{Discount_Code}}\),
+\({\textit{Category_id}}\), Product\_Name, Product\_Price,
+Product\_Availability)
 
-Suppliers (Supplier\_id, Supplier\_Email, Supplier\_Name,
-Supplier\_Status, Sup\_Building\_Name, Sup\_Street\_Name, Sup\_
-Zip\_Code)
+Suppliers (\(\underline{Supplier_id}\), Supplier\_Email, Supplier\_Name,
+Supplier\_Status, Sup\_Building\_Name, Sup\_Street\_Name,
+Sup\_Zip\_Code)
 
-Order\_Details (Order\_id, Customer\_id, Order\_Date, Order\_Total,
-Order\_Status, S\_Building\_Name, S\_Street\_Name, S\_Zip\_Code,
-Street\_Name, B\_Building\_Name, B\_Street\_Name, B\_Zip\_Code,
-Payment\_Type, Payment\_Status)
+Order\_Details (\(\underline{Order_id}\), \({\textit{Customer_id}}\),
+Order\_Date, Order\_Total, Order\_Status, S\_Building\_Name,
+S\_Street\_Name, S\_Zip\_Code, Street\_Name, B\_Building\_Name,
+B\_Street\_Name, B\_Zip\_Code, Payment\_Type, Payment\_Status)
 
-Discounts (Discount\_Code, Discount\_Status, Discount\_Amount) Reviews
-(Review\_id, Product\_id, Review\_Rating, Review\_Timestamp,
-Review\_Text, Review\_Likes)
+Discounts (\(\underline{Discount_Code}\), Discount\_Status,
+Discount\_Amount)
 
-Categories (Category\_id, Category\_Name)
+Reviews (\(\underline{Review_id}\), \({\textit{Product_id}}\),
+Review\_Rating, Review\_Timestamp, Review\_Text, Review\_Likes)
 
-Order\_Items ( Order\_id, Customer\_id, Product\_id, Quantity,
-Unit\_Price)
+Categories (\(\underline{Category_id}\), Category\_Name)
 
-Supplied\_Items (Supplier\_id, Product\_id, Supply\_Contracts,
-Delivery\_Terms, Pricing\_Agreements)
+Order\_Items (\({\textit{Order_id}}\), \({\textit{Customer_id}}\),
+\({\textit{Product_id}}\), Quantity, Unit\_Price)
+
+Supplied\_Items (\(\textit{Supplier_id}\), \({\textit{Product_id}}\),
+Supply\_Contracts, Delivery\_Terms, Pricing\_Agreements)
 
 Many to Many relation Table of Supplier and Product SupplierProduct
-(Supplier\_id, Product\_id)
+(\(\underline{Supplier_id,Product_id}\))
 
 Many to Many relation Table of Order\_details and Product
-ProductOrder\_details (Order\_id, Product\_id)
+ProductOrder\_details (\(\underline{Order_id, Product_id}\))
 
 \end{document}
