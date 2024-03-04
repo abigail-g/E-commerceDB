@@ -22,15 +22,17 @@ The E-R diagram above simulates a real-world e-commerce data ecosystem, capturin
 
 - The Currency used is Pound Sterling (GBP).
 
+- Attributes formats will be aligned with UK standard formats such as date , addresses , names ...etc 
+
 ### 1.1.2. Entities and Attributes
 This section describes and illustrates the entities and their respective attributes of the ER diagram above.
 #### 1.1.2.1. Customer 
 	Users who previously have at least once purchased products and placed an order.
 #### 1.1.2.2.	Supplier
-Vendors who provide products. Represent the source of the stockItems.
+Vendors who provide products. Represent the source of the product items.
 
 #### 1.1.2.3. Product
-	Indicates all products available for sale.
+	Indicates all products in the stock and available for sale.
 	
 
 
@@ -38,7 +40,7 @@ Vendors who provide products. Represent the source of the stockItems.
 
 - Absence of an Order Entity: 
 
-- The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods. Moreover, Inventory tracking is simplified through the StockItem entity.
+- The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.   
 
 - Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval. 
 
@@ -46,3 +48,11 @@ Vendors who provide products. Represent the source of the stockItems.
 
 - Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.
 
+
+## Logical Schema 
+
+Customers (Customer_id , Customer_Email , Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+
+Products (Product_id ,  Discount_id , Category_id , Product_Name , Product_Price,Product_Availability)
+
+Suppliers (Supplier_id, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_ Zip_Code)
