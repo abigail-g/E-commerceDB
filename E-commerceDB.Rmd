@@ -5,10 +5,6 @@ date: "2024-02-27"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
@@ -51,7 +47,7 @@ Vendors who provide products. Represent the source of the product items.
 
 ## Logical Schema 
 
-Customers (Customer_id, Customer_Email, Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+Customers (<u>Customer_id</u>, Customer_Email, Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
 
 Products (Product_id, Discount_id, Category_id, Product_Name, Product_Price, Product_Availability)
 
