@@ -1,4 +1,6 @@
 -- !This is the sql script to create the ecommerce db 
+
+#PRODUCTS TABLE
 CREATE TABLE 'Products' ( 
 'Product_ID' VARCHAR(250) PRIMARY KEY, 
 'Product_Name' VARCHAR(250) NOT NULL,     
@@ -10,10 +12,11 @@ FOREIGN KEY ('Discount_Code')
   REFERENCES DISCOUNTS ('Discount_Code')
 );
  
+#PRODUCT SUPPLIERS TABLE
 CREATE TABLE 'Supplier_Product' (
 'Supply_Contracts' BLOB,
 'Delivery_Terms' BLOB,
-'Pricing_Agreement' BLOB
+'Pricing_Agreement' BLOB,
 FOREIGN KEY 'Product_ID'
   REFERENCES Products ('Product_ID'),
 FOREIGN KEY 'Supplier_ID'
@@ -21,6 +24,7 @@ FOREIGN KEY 'Supplier_ID'
 )
  
  
+#CUSTOMER TABLE
 CREATE TABLE 'Customers' ( 
 'Cust_ID' VARCHAR(250) PRIMARY KEY,  
 'Cust_First_Name' VARCHAR(250) NOT NULL,
@@ -35,6 +39,7 @@ CREATE TABLE 'Customers' (
 );
  
  
+#ORDER DETAILS TABLE
 CREATE TABLE 'Order_Details' ( 
 'Order_ID'  VARCHAR(250) PRIMARY KEY, 
 'Order_Date' DATETIME NOT NULL,
@@ -53,7 +58,7 @@ FOREIGN KEY ('Cust_ID')
   REFERENCES Customers ('Cust_ID')
 );  
  
- 
+#PRODUCT REVIEWS TABLE
 CREATE TABLE 'Reviews'(
 'Review_ID' VARCHAR(50) PRIMARY KEY,
 'Review_Timestamp' DATETIME NOT NULL,
@@ -64,14 +69,14 @@ FOREIGN KEY ('Product_ID')
   REFERENCES Products('Product_ID')
 );
  
- 
+#PRODUCT DISCOUNTS TABLE
 CREATE TABLE 'Discounts'(
 'Discount_Code' VARCHAR(50) PRIMARY KEY,
 'Discount_Amount' FLOAT(10,2) NOT NULL,
 'Discount_Status' BOOLEAN NOT NULL,
 );
  
-
+#SUPPLIERS TABLE
 CREATE TABLE "Suppliers"(
   'Supplier_ID' INT PRIMARY KEY,
   'Supplier_Name' VARCHAR(250) NOT NULL,
@@ -79,28 +84,18 @@ CREATE TABLE "Suppliers"(
   'Supplier_Building_Name' VARCHAR(250),
   'Supplier_Street_Name' VARCHAR(250) NOT NULL,
   'Supplier_Zip_Code' VARCHAR(250) NOT NULL,
-
-CREATE TABLE 'Suppliers'(
-  'Supplier_ID' INT PRIMARY KEY,
-  'Supplier_Name' VARCHAR(250) NOT NULL,
-  'Supplier_Building_Name' VARCHAR(250),
-  'Supplier_Street_Name' VARCHAR(250) NOT NULL,
-  'Supplier_Zip' VARCHAR(250) NOT NULL,
   'Supplier_Email' VARCHAR(250) NOT NULL,
-  'Supplier_Status' VARCHAR(250) NOT NULL
-);
- 
+  'Supplier_Status' VARCHAR(250) NOT NULL,
+)
+  
+#PRODUCT CATEGORY TABLE
 CREATE TABLE "Category"(
   "Category_ID" INT PRIMARY KEY, 
   "Category_Name" VARCHAR(250) NOT NULL,
   FOREIGN KEY ('Category_ID')
     REFERENCES Category('Category_ID')
-
-CREATE TABLE 'Category'(
-  'Category_ID' INT PRIMARY KEY, 
-  'Category_Name' VARCHAR(250) NOT NULL
-);
  
+#ORDER DETAILS TABLE
 CREATE TABLE 'Order_Items'(
   FOREIGN KEY ('Order_ID') 
     REFERENCES Orders ('Order_ID'),
