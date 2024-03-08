@@ -1,5 +1,6 @@
-Customers_Unique_Addresses
+Customers
 Cust_ID,Cust_First_Name,Cust_Last_Name,Cust_Building_Number,Cust_Building_Name,Cust_Street_Name,Cust_Zip_Code,Cust_Email,Cust_Phone_Number,Phone_Country_Code
+,,,,,,,,,
 CU6445877,John,Smith,67,Robinson Residence 1,Norwich Nook 1,BS24 02AB,john.smith@test.com,10386857,61
 CU6859254,Michael,Mortenson,29,Walker Workshop 1,Albert Avenue 2,W03 02AB,michael.mm@example.com,15198784,61
 CU0948361,Henry,Miller,3,Edwards Estate 2,Milton Mount 2,W23 01AB,william.miller@example.com,88150851,91
