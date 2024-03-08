@@ -42,6 +42,17 @@ Order_details <- read_csv("Files/Order_Details.csv",
 Reviews <- read_csv("Files/Reviews.csv",
     skip = 1)
 
+Suppliers <- read_csv("Files/Suppliers.csv")
+View(Suppliers)
+
+Product_Discounts <- read_csv("Files/Product_Discounts.csv")
+View(Product_Discounts)
+
+Product_Category <- read_csv("Files/Product_Category.csv")
+View(Product_Category)
+
+Order_Items <- read_csv("Files/Order_Items.csv")
+View(Order_Items)
 ```
 
 ```{sql connection=con}
