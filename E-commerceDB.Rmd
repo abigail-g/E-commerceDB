@@ -6,7 +6,7 @@ output:
   pdf_document:
   extra_dependencies: ["bbm", "threeparttable"]
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 # Load necessary libraries
@@ -18,6 +18,7 @@ library(kableExtra)
 library(readr)
 library(RSQLite)
 library(dplyr)
+library(stringr)
 ```
 
 ```{r}
@@ -68,9 +69,6 @@ View(Order_Items)
 ```{r}
 # To create empty column for the Products table 
 Products <- Products %>%
-  mutate(Supplier_ID = NA)
-
-Products <- Products %>%
   mutate(Category_ID = NA)
 
 # To apply the foreign key into the table 
@@ -106,20 +104,45 @@ Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
 ```
 
 ```{r}
-# This is for suppliers_id 
-
+# This is to add suppliers_id in Products
+Products <- Products %>%
+  mutate(Supplier_ID = NA)
 # Create a function to find matching supplier ID or assign randomly if no match is found
-# assign_supplier_id <- function(Product_Name, Suppliers){
-#   for (i in 1:nrow(Suppliers)) {
-#     if (str_detect(Product_Name, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
-#       return(suppliers$supplier_ID[i])
-#     }
-#   }
-#   # If no match found, assign a random supplier ID
-#   random_supplier_id <- sample(suppliers$supplier_ID, 1)
-#   return(random_supplier_id)
-# 
-#   Products$Supplier_ID <- sapply(Products$Product_Name, assign_supplier_id)
+assign_supplier_id <- function(Product_Name, Suppliers) {
+  for (i in 1:nrow(Suppliers)) {
+    if (str_detect(Product_Name, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
+      return(Suppliers$Supplier_ID[i])
+    }
+  }
+  # If no match found, assign a random supplier ID
+  random_supplier_id <- sample(Suppliers$Supplier_ID, 1)
+  return(random_supplier_id)
+}
+
+Products$Supplier_ID <- sapply(Products$Product_Name, function(x) assign_supplier_id(x, Suppliers))
+
+# Adding Discount_Code column into Products 
+set.seed(123) # This is to ensure reproducibility
+
+Products <- Products %>%
+  mutate(Discount_Code = NA)
+
+codes_to_assign <- sample(1:nrow(Products), 50)
+
+random_discounts <- sample(Product_Discounts$Discount_Code, 50)
+
+Products$Discount_Code[codes_to_assign] <- random_discounts
+```
+
+```{r}
+# Product_ID column for reviews table 
+
+Reviews <- Reviews %>% 
+  mutate(Product_ID = sample(Products$Product_ID, nrow(Reviews), replace = TRUE))
+
+# Adding Cust_ID column for Order_details table. 
+Order_details <- Order_details %>%
+  mutate(Cust_ID = sample(Customers$Cust_ID, nrow(Order_details), replace = TRUE))
 
 ```
 
