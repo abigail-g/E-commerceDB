@@ -5,6 +5,8 @@ date: "2024-02-27"
 output: 
   pdf_document:
   extra_dependencies: ["bbm", "threeparttable"]
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Load necessary libraries
@@ -24,8 +26,7 @@ con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 Customers <- read_csv("Files/Customers.csv")
 View(Customers)
 
-Products <- read_csv("Files/Products.csv", 
-    skip = 1)
+Products <- read_csv("Files/Products.csv")
 View(Products)
 
 Order_details <- read_csv("Files/Order_Details.csv",
@@ -48,17 +49,60 @@ View(Order_Items)
 ```
 
 ```{r}
-# To create empty column 
-# 
+# To create empty column for the Products table 
+Products <- Products %>%
+  mutate(Supplier_ID = NA)
 
 Products <- Products %>%
-  mutate(Category_ID = sample(Product_Category$Category_ID, nrow(Products), replace = TRUE))
+  mutate(Category_ID = NA)
 
-Products <- Products %>%
-  mutate(Supplier_ID = sample(Suppliers$Supplier_ID, nrow(Products), replace = TRUE))
+# To apply the foreign key into the table 
+# Define a function to assign Category_ID based on keywords in Product_Name
+assign_category_id <- function(Product_Name) {
+  if (grepl("TV|Television", Product_Name, ignore.case = TRUE)) {
+    return("CAT1")
+  } else if (grepl("Phone|Galaxy|Mi|P Series|OnePlus", Product_Name, ignore.case = TRUE)) {
+    return("CAT3")
+  } else if (grepl("Laptop|Tablet|Computing|Book|Surface|Monitor", Product_Name, ignore.case = TRUE)) {
+    return("CAT2")
+  } else if (grepl("Refrigerator|Washing Machine|Home Appliance|Microwave|Vacuum|Dishwasher", Product_Name, ignore.case = TRUE)){
+    return("CAT4")
+  } else if (grepl("Headphones|Speakers|Sound System|Earbuds|Speaker|Technica|Soundbar", Product_Name, ignore.case = TRUE)) {
+    return("CAT5")
+  } else if (grepl("Camera|Photography|GoPro|Mirrorless|Nikon|Camcorder|Compact", Product_Name, ignore.case = TRUE)) {
+    return("CAT6")
+  } else if (grepl("Xbox|PS|Gaming|Switch", Product_Name, ignore.case = TRUE)) {
+    return("CAT7")
+  } else if (grepl("Smart Home|Echo|Smart Lock|Steam Deck|Hue Light", Product_Name, ignore.case = TRUE)) {
+    return("CAT8")
+  } else if (grepl("Watch|Wearable|Quest|Tracker|Gear|Band|Glasses", Product_Name, ignore.case = TRUE)) {
+    return("CAT9")
+  } else if (grepl("Keyboard|Mouse|Peripheral|Thermostat", Product_Name, ignore.case = TRUE)) {
+    return("CAT10")
+  } else {
+    return(NA) # For products that do not match any category
+  }
+}
 
-# To paste the foreign key into 
+# Apply the function to assign Category_ID to each product
+Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
+```
 
+```{r}
+# This is for suppliers_id 
+
+# Create a function to find matching supplier ID or assign randomly if no match is found
+assign_supplier_id <- function(Product_Name, Suppliers){
+  for (i in 1:nrow(Suppliers)) {
+    if (str_detect(Product_Name, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
+      return(suppliers$supplier_ID[i])
+    }
+  }
+  # If no match found, assign a random supplier ID
+  random_supplier_id <- sample(suppliers$supplier_ID, 1)
+  return(random_supplier_id)
+
+  Products$Supplier_ID <- sapply(Products$Product_Name, assign_supplier_id)
 
 ```
 
