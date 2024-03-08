@@ -144,7 +144,27 @@ Reviews <- Reviews %>%
 # Adding Cust_ID column for Order_details table. 
 Order_details <- Order_details %>%
   mutate(Cust_ID = sample(Customers$Cust_ID, nrow(Order_details), replace = TRUE))
+```
 
+```{r}
+# Filter out the rows from Products that have a Disocunt_Code assigned 
+discounted_products <- Products %>%
+  filter(!is.na(Discount_Code)) %>%
+  select(Product_ID, Discount_Code)
+
+# Do a left join to join it together 
+Product_Discounts <- Product_Discounts %>%
+  left_join(discounted_products, by = "Discount_Code")
+
+# Same step for cat_id
+# Filter out the rows from Products that have a discount code assigned on the cat ID
+discounted_cat <- Products %>%
+  filter(!is.na(Category_ID)) %>%
+  select(Category_ID, Discount_Code)
+
+# Do a left join to join it together, thus we get to see which discount code assign to which category of goods
+Product_Discounts <- Product_Discounts %>%
+  left_join(discounted_cat, by = "Discount_Code")
 ```
 
 # Part 1: Database Design and Implementation
