@@ -20,16 +20,6 @@ library(RSQLite)
 ```{r}
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
-# sql_file <- readLines("dbScript.sql")
- 
-# for (sql_command in sql_file) {
-#   if (sql_command!=""){
-#    dbExecute(con, sql_command)}}
-  
- # dbExecute(con, sql_file)
-
-# for (sql_command in sql_file) {  dbExecute(con, sql_command)}
-
 Customers <- read_csv("Files/Customers.csv")
 View(Customers)
 
@@ -45,17 +35,13 @@ Reviews <- read_csv("Files/Reviews.csv",
 
 ```
 
+```{r}
+
+
+
+```
+
 ```{sql connection=con}
-CREATE TABLE 'Customers' (  
-'Cust_ID' VARCHAR(250) PRIMARY KEY,   
-'Cust_Name' VARCHAR(250) NOT NULL,  
-'Cust_Building_Name' VARCHAR(250) ,
-'Cust_Street_Name' VARCHAR(250) NOT NULL,  
-'Cust_Zip' VARCHAR(25) NOT NULL,  
-'Cust_Email' VARCHAR(250) NOT NULL,  
-'Cust_Phone_Number' INT NOT NULL, 
-'Cust_Country_Code' VARCHAR(250) 
-); 
 
 ```
 
