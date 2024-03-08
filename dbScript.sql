@@ -1,31 +1,20 @@
 -- !This is the sql script to create the ecommerce db 
-CREATE TABLE 'Products' ( 
-'Product_ID' VARCHAR(250) PRIMARY KEY, 
-'Product_Name' VARCHAR(250) NOT NULL,     
-'Product_Price' FLOAT(10,2) NOT NULL, 
-'Category_ID' INT NOT NULL,
-'Supplier_ID' INT NOT NULL,
-FOREIGN KEY 'Category_ID'
-  REFERENCES Category ('Category_ID'), 
-FOREIGN KEY ('Supplier_ID') 
-  REFERENCES Suppliers ('Supplier_ID'),  
-'Product_Availability' VARCHAR(25) 
+CREATE TABLE 'Products' ( 'Product_ID' VARCHAR(250) PRIMARY KEY, 'Product_Name' VARCHAR(250) NOT NULL,     'Product_Price' FLOAT(10,2) NOT NULL, 'Category_ID' INT NOT NULL,'Supplier_ID' INT NOT NULL,FOREIGN KEY 'Category_ID' REFERENCES Category ('Category_ID'), FOREIGN KEY ('Supplier_ID') REFERENCES Suppliers ('Supplier_ID'),  'Product_Availability' VARCHAR(25) ); 
+
+
+
+CREATE TABLE 'Customers' (  
+'Cust_ID' VARCHAR(250) PRIMARY KEY,   
+'Cust_Name' VARCHAR(250) NOT NULL,  
+'Cust_Building_Name' VARCHAR(250) ,
+'Cust_Street_Name' VARCHAR(250) NOT NULL,  
+'Cust_Zip' VARCHAR(25) NOT NULL,  
+'Cust_Email' VARCHAR(250) NOT NULL,  
+'Cust_Phone_Number' INT NOT NULL, 
+'Cust_Country_Code' VARCHAR(250) 
 ); 
 
-Customers 
 
-CREATE TABLE 'Customers' ( 
-'Cust_ID' VARCHAR(250) PRIMARY KEY,  
-'Cust_Name' VARCHAR(250) NOT NULL, 
-'Cust_Building_Name' VARCHAR(250)
-'Cust_Street_Name' VARCHAR(250) NOT NULL, 
-'Cust_Zip' VARCHAR(25) NOT NULL, 
-'Cust_Email' VARCHAR(250) NOT NULL, 
-'Cust_Phone_Number' INT NOT NULL,
-'Cust_Country_Code' VARCHAR(250)
-); 
-
-Order_details 
 
 CREATE TABLE 'Order_Details' ( 
 'Order_ID'  VARCHAR(250) PRIMARY KEY, 
