@@ -76,10 +76,10 @@ Products <- Products %>%
 assign_category_id <- function(Product_Name) {
   if (grepl("TV|Television", Product_Name, ignore.case = TRUE)) {
     return("CAT1")
-  } else if (grepl("Phone|Galaxy|Mi|P Series|OnePlus", Product_Name, ignore.case = TRUE)) {
-    return("CAT3")
   } else if (grepl("Laptop|Tablet|Computing|Book|Surface|Monitor", Product_Name, ignore.case = TRUE)) {
     return("CAT2")
+  } else if (grepl("Phone|Galaxy|Mi|P Series|OnePlus", Product_Name, ignore.case = TRUE)) {
+    return("CAT3")
   } else if (grepl("Refrigerator|Washing Machine|Home Appliance|Microwave|Vacuum|Dishwasher", Product_Name, ignore.case = TRUE)){
     return("CAT4")
   } else if (grepl("Headphones|Speakers|Sound System|Earbuds|Speaker|Technica|Soundbar", Product_Name, ignore.case = TRUE)) {
