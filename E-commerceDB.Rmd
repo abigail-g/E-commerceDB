@@ -20,7 +20,7 @@ library(RSQLite)
 ```{r}
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
-sql_file <- readLines("dbScript.sql")
+# sql_file <- readLines("dbScript.sql")
  
 # for (sql_command in sql_file) {
 #   if (sql_command!=""){
@@ -31,6 +31,16 @@ sql_file <- readLines("dbScript.sql")
 # for (sql_command in sql_file) {  dbExecute(con, sql_command)}
 Customers <- read_csv("Files/Customers.csv")
 View(Customers)
+
+Products <- read_csv("Files/Products.csv", 
+    skip = 1)
+View(Products)
+
+Order_details <- read_csv("Files/Order_Details.csv",
+    skip = 1)
+
+Reviews <- read_csv("Files/Reviews.csv",
+    skip = 1)
 
 ```
 

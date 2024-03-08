@@ -1,5 +1,15 @@
 -- !This is the sql script to create the ecommerce db 
-CREATE TABLE 'Products' ( 'Product_ID' VARCHAR(250) PRIMARY KEY, 'Product_Name' VARCHAR(250) NOT NULL,     'Product_Price' FLOAT(10,2) NOT NULL, 'Category_ID' INT NOT NULL,'Supplier_ID' INT NOT NULL,FOREIGN KEY 'Category_ID' REFERENCES Category ('Category_ID'), FOREIGN KEY ('Supplier_ID') REFERENCES Suppliers ('Supplier_ID'),  'Product_Availability' VARCHAR(25) ); 
+CREATE TABLE 'Products' ( 
+'Product_ID' VARCHAR(250) PRIMARY KEY, 
+'Product_Name' VARCHAR(250) NOT NULL,     
+'Product_Price' FLOAT(10,2) NOT NULL, 
+'Category_ID' INT NOT NULL,
+'Supplier_ID' INT NOT NULL,
+FOREIGN KEY 'Category_ID' 
+  REFERENCES Category ('Category_ID'), 
+FOREIGN KEY ('Supplier_ID') 
+  REFERENCES Suppliers ('Supplier_ID'),  
+'Product_Availability' VARCHAR(25) ); 
 
 
 
