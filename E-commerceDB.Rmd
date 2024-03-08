@@ -19,6 +19,23 @@ library(dplyr)
 ```
 
 ```{r}
+
+con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
+sql_file <- readLines("dbScript.sql")
+
+for (sql_command in sql_file) {
+   if (sql_command!=""){
+    print(sql_command)
+    dbExecute(con, sql_command)
+    print("-------------DONE---------")
+   }
+  }
+
+```
+
+
+```{r}
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 Customers <- read_csv("Files/Customers.csv")
@@ -61,11 +78,6 @@ Products <- Products %>%
 
 
 ```
-
-```{sql connection=con}
-
-```
-
 
 # Part 1: Database Design and Implementation
 
