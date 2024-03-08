@@ -1,4 +1,4 @@
-Reviews_Amended
+Updated_Reviews
 Review_ID,Review_Timestamp,Product_Rating,Review_Text,Review_Likes
 R1775367,2023-04-06 00:47:48,0,"Poor quality, broke after a few uses.",101
 R6792460,2023-08-10 06:21:44,5,Absolutely love it! Exceeded my expectations.,750
@@ -50,3 +50,103 @@ R3991661,2023-06-13 07:41:09,5,"Function flawless, perfect product",725
 R1336148,2023-03-24 16:32:00,2,Utterly discontented,140
 R8993597,2023-10-21 17:08:31,2,Cannot endorse this product,659
 R5075433,2023-12-28 06:32:10,3,"Adequate, yet superior alternatives are available",844
+R5075434,2023-03-07 07:19:03,5,Highly recommended. Review 1.,338
+R5075435,2023-03-10 14:05:21,5,Could be better. Review 2.,467
+R5075436,2023-03-12 04:18:06,5,Would buy again. Review 3.,956
+R5075437,2023-03-16 06:49:38,1,Average quality. Review 4.,249
+R5075438,2023-03-17 00:55:28,5,Great product. Review 5.,479
+R5075439,2023-03-18 02:03:38,5,Would buy again. Review 6.,53
+R5075440,2023-03-20 05:00:35,3,Could be better. Review 7.,436
+R5075441,2023-04-03 03:31:28,5,Beyond expectations. Review 8.,108
+R5075442,2023-04-04 08:37:07,0,Would buy again. Review 9.,57
+R5075443,2023-04-11 00:52:41,4,Highly recommended. Review 10.,860
+R5075444,2023-04-13 13:55:25,2,Average quality. Review 11.,249
+R5075445,2023-04-23 13:10:17,0,Average quality. Review 12.,832
+R5075446,2023-04-25 01:38:31,5,Beyond expectations. Review 13.,298
+R5075447,2023-04-26 16:02:47,5,Could be better. Review 14.,508
+R5075448,2023-05-01 23:58:54,1,Not durable. Review 15.,531
+R5075449,2023-05-02 15:31:50,2,Could be better. Review 16.,627
+R5075450,2023-05-05 09:15:07,1,Average quality. Review 17.,363
+R5075451,2023-05-10 09:23:34,0,Not durable. Review 18.,995
+R5075452,2023-05-16 01:02:07,3,Not durable. Review 19.,723
+R5075453,2023-05-18 02:20:08,0,Excellent value. Review 20.,364
+R5075454,2023-06-02 02:04:26,2,Great product. Review 21.,941
+R5075455,2023-06-03 14:30:01,4,Would buy again. Review 22.,739
+R5075456,2023-06-10 12:12:29,3,Not durable. Review 23.,531
+R5075457,2023-06-14 03:24:16,5,Not durable. Review 24.,729
+R5075458,2023-06-18 04:19:52,3,Average quality. Review 25.,498
+R5075459,2023-06-22 18:37:23,4,Highly recommended. Review 26.,976
+R5075460,2023-07-07 08:50:32,4,Average quality. Review 27.,770
+R5075461,2023-07-08 03:38:24,2,Excellent value. Review 28.,837
+R5075462,2023-07-12 08:35:44,4,Highly recommended. Review 29.,518
+R5075463,2023-07-14 22:57:44,5,Not durable. Review 30.,104
+R5075464,2023-07-22 21:42:29,0,Great product. Review 31.,483
+R5075465,2023-07-23 17:36:20,3,Not durable. Review 32.,191
+R5075466,2023-07-23 19:51:26,2,Disappointed. Review 33.,83
+R5075467,2023-07-24 11:30:45,5,Disappointed. Review 34.,315
+R5075468,2023-07-27 21:17:57,4,Could be better. Review 35.,835
+R5075469,2023-08-06 19:31:50,3,Excellent value. Review 36.,802
+R5075470,2023-08-09 01:30:11,0,Could be better. Review 37.,972
+R5075471,2023-08-10 10:00:25,0,Would buy again. Review 38.,322
+R5075472,2023-08-11 01:07:45,5,Average quality. Review 39.,308
+R5075473,2023-08-11 14:02:15,3,Excellent value. Review 40.,175
+R5075474,2023-08-11 21:36:30,2,Could be better. Review 41.,519
+R5075475,2023-08-13 20:21:03,1,Not what I expected. Review 42.,189
+R5075476,2023-08-21 00:37:13,1,Would buy again. Review 43.,834
+R5075477,2023-08-21 09:27:59,5,Beyond expectations. Review 44.,156
+R5075478,2023-08-23 05:49:56,3,Could be better. Review 45.,982
+R5075479,2023-08-23 16:25:16,3,Beyond expectations. Review 46.,313
+R5075480,2023-08-24 08:08:19,5,Average quality. Review 47.,660
+R5075481,2023-08-24 17:10:41,1,Great product. Review 48.,483
+R5075482,2023-08-27 10:14:27,4,Could be better. Review 49.,223
+R5075483,2023-08-31 15:59:59,0,Would buy again. Review 50.,929
+R5075484,2023-09-06 09:16:26,4,Could be better. Review 51.,784
+R5075485,2023-09-07 09:59:57,5,Disappointed. Review 52.,114
+R5075486,2023-09-20 03:53:38,5,Average quality. Review 53.,554
+R5075487,2023-09-26 16:48:10,0,Beyond expectations. Review 54.,669
+R5075488,2023-09-29 10:04:22,5,Average quality. Review 55.,367
+R5075489,2023-10-02 07:15:35,4,Highly recommended. Review 56.,408
+R5075490,2023-10-05 12:03:10,0,Highly recommended. Review 57.,494
+R5075491,2023-10-14 06:38:51,3,Excellent value. Review 58.,548
+R5075492,2023-10-14 10:51:44,0,Beyond expectations. Review 59.,829
+R5075493,2023-10-20 13:37:53,5,Highly recommended. Review 60.,827
+R5075494,2023-10-24 16:12:16,1,Would buy again. Review 61.,971
+R5075495,2023-10-25 11:53:42,0,Disappointed. Review 62.,41
+R5075496,2023-11-01 16:25:43,4,Beyond expectations. Review 63.,854
+R5075497,2023-11-02 08:19:54,1,Could be better. Review 64.,401
+R5075498,2023-11-02 17:11:51,3,Could be better. Review 65.,774
+R5075499,2023-11-05 16:46:48,1,Not what I expected. Review 66.,866
+R5075500,2023-11-15 12:41:42,0,Disappointed. Review 67.,658
+R5075501,2023-11-16 09:05:11,4,Highly recommended. Review 68.,908
+R5075502,2023-11-24 00:20:13,1,Great product. Review 69.,762
+R5075503,2023-12-01 18:39:58,5,Could be better. Review 70.,116
+R5075504,2023-12-01 20:12:13,5,Could be better. Review 71.,644
+R5075505,2023-12-07 15:27:30,5,Great product. Review 72.,626
+R5075506,2023-12-12 02:34:40,0,Great product. Review 73.,682
+R5075507,2023-12-22 02:38:46,2,Not what I expected. Review 74.,599
+R5075508,2023-12-22 10:10:39,5,Excellent value. Review 75.,45
+R5075509,2023-12-23 16:38:49,5,Not what I expected. Review 76.,850
+R5075510,2023-12-24 14:26:16,1,Not what I expected. Review 77.,967
+R5075511,2024-01-01 09:51:23,0,Not what I expected. Review 78.,188
+R5075512,2024-01-02 07:32:34,3,Beyond expectations. Review 79.,77
+R5075513,2024-01-02 22:33:50,1,Not durable. Review 80.,735
+R5075514,2024-01-05 10:28:50,5,Would buy again. Review 81.,12
+R5075515,2024-01-06 10:54:17,5,Not durable. Review 82.,105
+R5075516,2024-01-11 05:08:42,3,Average quality. Review 83.,149
+R5075517,2024-01-16 17:55:18,2,Disappointed. Review 84.,26
+R5075518,2024-01-17 06:02:37,3,Highly recommended. Review 85.,601
+R5075519,2024-01-20 04:39:55,0,Highly recommended. Review 86.,860
+R5075520,2024-01-26 08:07:22,2,Disappointed. Review 87.,728
+R5075521,2024-01-27 11:11:50,3,Not durable. Review 88.,417
+R5075522,2024-01-28 18:37:52,5,Excellent value. Review 89.,207
+R5075523,2024-02-07 00:48:03,2,Disappointed. Review 90.,943
+R5075524,2024-02-08 23:33:12,5,Excellent value. Review 91.,935
+R5075525,2024-02-13 08:33:08,2,Not durable. Review 92.,87
+R5075526,2024-02-16 07:09:14,3,Not durable. Review 93.,616
+R5075527,2024-02-17 13:47:08,1,Could be better. Review 94.,640
+R5075528,2024-02-17 15:58:58,4,Excellent value. Review 95.,105
+R5075529,2024-02-21 19:54:21,2,Not durable. Review 96.,551
+R5075530,2024-02-22 08:41:10,1,Beyond expectations. Review 97.,601
+R5075531,2024-02-26 23:29:29,0,Not durable. Review 98.,774
+R5075532,2024-02-28 19:25:58,3,Would buy again. Review 99.,734
+R5075533,2024-03-08 12:17:37,1,Highly recommended. Review 100.,800

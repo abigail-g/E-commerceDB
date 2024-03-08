@@ -1,0 +1,152 @@
+Updated_Products (1)
+Product_ID,Product_Name,Product_Price,Product_Availability
+P0000001,iPhone 15 Pro Max,685.31,Out of Stock
+P0000002,iPhone 15,979.63,In Stock
+P0000003,iPhone 15 Pro,448.44,In Stock
+P0000004,Samsung Galaxy S22,964.56,Backorder
+P0000005,Samsung Galaxy S21,893.79,In Stock
+P0000006,Lenovo IdeaPad Flex 5,1751.83,Out of Stock
+P0000007,Huawei MateBook X Pro,1835.54,Out of Stock
+P0000008,Dell XPS 15,1134.58,Backorder
+P0000009,Microsoft Surface Laptop 4,1178.94,Backorder
+P0000010,MacBook Pro M2,962.38,Out of Stock
+P0000011,AirPods Pro 2,158.78,In Stock
+P0000012,AirPods (3rd generation),231.47,Backorder
+P0000013,Jabra Elite 85t,202.43,In Stock
+P0000014,Sony WF-1000XM4,154.64,Out of Stock
+P0000015,Bose QuietComfort Earbuds,176.15,In Stock
+P0000016,Samsung QN90A Neo QLED,2545.94,Out of Stock
+P0000017,LG C1 OLED,2086.81,Backorder
+P0000018,Sony A90J OLED,180.1,In Stock
+P0000019,TCL 6-Series R635,2828.12,In Stock
+P0000020,Hisense U8G,2296.7,Backorder
+P0000021,Xiaomi Mi 11 Ultra,2886.17,In Stock
+P0000022,OnePlus 9 Pro,2351.19,Out of Stock
+P0000023,Google Pixel 6 Pro,475.26,In Stock
+P0000024,Asus ROG Phone 5,2878.13,Out of Stock
+P0000025,Motorola Edge Plus,1145.23,Out of Stock
+P0000026,Acer Swift 3,1358.92,Backorder
+P0000027,Asus ZenBook 13,2333.29,Backorder
+P0000028,HP Envy x360,1217.56,Backorder
+P0000029,Razer Blade 14,582.22,Out of Stock
+P0000030,Alienware m15 R6,106.9,In Stock
+P0000031,Beats Fit Pro,2011.32,Backorder
+P0000032,Sennheiser CX True Wireless,2915.41,Backorder
+P0000033,Anker Soundcore Liberty Air 2 Pro,534.8,Backorder
+P0000034,Samsung Galaxy Buds 2,601.14,Backorder
+P0000035,OnePlus Buds Pro,2876.1,In Stock
+P0000036,Vizio P-Series Quantum X P85QX-J01,1823.5,Backorder
+P0000037,Hisense 65U8G,1756.63,Backorder
+P0000038,Philips 55OLED806,1361.05,Out of Stock
+P0000039,LG G1 OLED,2282.51,Out of Stock
+P0000040,Sony X95J,186.39,Out of Stock
+P0000041,Nokia XR20,1373.2,Out of Stock
+P0000042,Realme GT,2174.66,In Stock
+P0000043,Oppo Find X3 Pro,2391.29,Out of Stock
+P0000044,Vivo X60 Pro+,1509.02,Out of Stock
+P0000045,ZTE Axon 30 Ultra,1682.3,Backorder
+P0000046,MacBook Air M2,1804.6,Backorder
+P0000047,Lenovo Legion 5 Pro,1691.88,Out of Stock
+P0000048,HP Pavilion Aero 13,428.3,Out of Stock
+P0000049,Asus VivoBook Pro 14,2065.4,Out of Stock
+P0000050,MSI GE76 Raider,833.15,In Stock
+P0000051,Philips 55OLED806 Model 1,870.02,Out of Stock
+P0000052,Asus VivoBook Pro 14 Model 2,430.67,Backorder
+P0000053,Oppo Find X3 Pro Model 3,501.95,Backorder
+P0000054,Jabra Elite 85t Model 4,333.36,Backorder
+P0000055,Dell XPS 15 Model 5,448.01,In Stock
+P0000056,Vizio P-Series Quantum X P85QX-J01 Model 6,151.03,In Stock
+P0000057,Realme GT Model 7,382.82,Backorder
+P0000058,Asus ROG Phone 5 Model 8,152.28,In Stock
+P0000059,MSI GE76 Raider Model 9,923.32,In Stock
+P0000060,MacBook Air M2 Model 10,127.75,Out of Stock
+P0000061,Motorola Edge Plus Model 11,469.33,In Stock
+P0000062,Sony A90J OLED Model 12,942.69,In Stock
+P0000063,Samsung Galaxy Buds 2 Model 13,251.29,Backorder
+P0000064,Nokia XR20 Model 14,672.61,In Stock
+P0000065,OnePlus 9 Pro Model 15,239.97,Out of Stock
+P0000066,Dell XPS 15 Model 16,333.32,Out of Stock
+P0000067,Asus ZenBook 13 Model 17,843.04,In Stock
+P0000068,Google Pixel 6 Pro Model 18,447.25,Out of Stock
+P0000069,Sony WF-1000XM4 Model 19,826.29,Out of Stock
+P0000070,Motorola Edge Plus Model 20,178.55,Out of Stock
+P0000071,Acer Swift 3 Model 21,715.97,In Stock
+P0000072,Samsung QN90A Neo QLED Model 22,411.53,Backorder
+P0000073,Dell XPS 15 Model 23,904.21,In Stock
+P0000074,Lenovo IdeaPad Flex 5 Model 24,637.16,Backorder
+P0000075,Acer Swift 3 Model 25,428.24,In Stock
+P0000076,Lenovo IdeaPad Flex 5 Model 26,974.46,In Stock
+P0000077,Huawei MateBook X Pro Model 27,555.51,Out of Stock
+P0000078,Dell XPS 15 Model 28,682.35,Backorder
+P0000079,MSI GE76 Raider Model 29,243.75,Out of Stock
+P0000080,Bose QuietComfort Earbuds Model 30,116.85,Out of Stock
+P0000081,TCL 6-Series R635 Model 31,127.72,Out of Stock
+P0000082,Dell XPS 15 Model 32,186.26,Out of Stock
+P0000083,Dell XPS 15 Model 33,345.16,Out of Stock
+P0000084,LG G1 OLED Model 34,425.27,Out of Stock
+P0000085,Samsung QN90A Neo QLED Model 35,506.37,In Stock
+P0000086,Samsung Galaxy Buds 2 Model 36,116.82,Backorder
+P0000087,Hisense U8G Model 37,223.67,Out of Stock
+P0000088,Huawei MateBook X Pro Model 38,580.96,Backorder
+P0000089,Asus ZenBook 13 Model 39,692.82,Backorder
+P0000090,Google Pixel 6 Pro Model 40,200.34,Out of Stock
+P0000091,HP Pavilion Aero 13 Model 41,457.24,Backorder
+P0000092,AirPods Pro 2 Model 42,849.15,In Stock
+P0000093,Hisense 65U8G Model 43,157.55,Backorder
+P0000094,Vivo X60 Pro+ Model 44,603.76,Backorder
+P0000095,HP Pavilion Aero 13 Model 45,290.32,In Stock
+P0000096,Asus ZenBook 13 Model 46,208.34,Backorder
+P0000097,iPhone 15 Pro Model 47,632.7,In Stock
+P0000098,iPhone 15 Pro Model 48,271.0,Backorder
+P0000099,AirPods (3rd generation) Model 49,512.41,Backorder
+P0000100,Huawei MateBook X Pro Model 50,488.15,In Stock
+P0000101,HP Envy x360 Model 51,601.66,Backorder
+P0000102,Xiaomi Mi 11 Ultra Model 52,543.67,Out of Stock
+P0000103,iPhone 15 Model 53,449.12,Out of Stock
+P0000104,MacBook Air M2 Model 54,661.07,Out of Stock
+P0000105,Samsung Galaxy Buds 2 Model 55,424.35,Out of Stock
+P0000106,Sony X95J Model 56,322.1,Out of Stock
+P0000107,LG G1 OLED Model 57,232.19,In Stock
+P0000108,Google Pixel 6 Pro Model 58,692.32,Out of Stock
+P0000109,Sennheiser CX True Wireless Model 59,502.9,In Stock
+P0000110,Sennheiser CX True Wireless Model 60,552.83,Out of Stock
+P0000111,Oppo Find X3 Pro Model 61,454.16,Out of Stock
+P0000112,Hisense U8G Model 62,746.75,Out of Stock
+P0000113,Beats Fit Pro Model 63,473.06,In Stock
+P0000114,Asus VivoBook Pro 14 Model 64,339.77,Backorder
+P0000115,Sony WF-1000XM4 Model 65,138.08,In Stock
+P0000116,AirPods Pro 2 Model 66,428.53,Backorder
+P0000117,Realme GT Model 67,148.56,Out of Stock
+P0000118,MacBook Air M2 Model 68,577.06,Out of Stock
+P0000119,Hisense U8G Model 69,402.49,Backorder
+P0000120,Sony X95J Model 70,719.43,Backorder
+P0000121,Samsung QN90A Neo QLED Model 71,895.48,Backorder
+P0000122,Lenovo IdeaPad Flex 5 Model 72,160.29,In Stock
+P0000123,Vizio P-Series Quantum X P85QX-J01 Model 73,350.74,Out of Stock
+P0000124,MacBook Pro M2 Model 74,2003.05,In Stock
+P0000125,Motorola Edge Plus Model 75,354.59,In Stock
+P0000126,iPhone 15 Model 76,794.32,Backorder
+P0000127,Lenovo Legion 5 Pro Model 77,864.83,Out of Stock
+P0000128,Philips 55OLED806 Model 78,890.42,In Stock
+P0000129,Razer Blade 14 Model 79,722.08,Backorder
+P0000130,HP Envy x360 Model 80,692.22,Out of Stock
+P0000131,LG C1 OLED Model 81,1110.93,In Stock
+P0000132,Google Pixel 6 Pro Model 82,851.28,In Stock
+P0000133,Xiaomi Mi 11 Ultra Model 83,209.05,In Stock
+P0000134,Dell XPS 15 Model 84,748.61,Backorder
+P0000135,iPhone 15 Model 85,904.63,In Stock
+P0000136,HP Envy x360 Model 86,691.65,Backorder
+P0000137,Realme GT Model 87,929.08,In Stock
+P0000138,iPhone 15 Pro Max Model 88,389.88,In Stock
+P0000139,Samsung Galaxy Buds 2 Model 89,109.72,Out of Stock
+P0000140,ZTE Axon 30 Ultra Model 90,478.99,Backorder
+P0000141,Asus ZenBook 13 Model 91,445.99,In Stock
+P0000142,Asus ROG Phone 5 Model 92,262.16,In Stock
+P0000143,Motorola Edge Plus Model 93,768.12,Out of Stock
+P0000144,Sony A90J OLED Model 94,1105.12,Out of Stock
+P0000145,Hisense 65U8G Model 95,307.84,Out of Stock
+P0000146,Razer Blade 14 Model 96,493.58,Backorder
+P0000147,ZTE Axon 30 Ultra Model 97,895.72,In Stock
+P0000148,Asus ROG Phone 5 Model 98,981.14,In Stock
+P0000149,Motorola Edge Plus Model 99,178.37,Backorder
+P0000150,MacBook Pro M2 Model 100,169.77,Backorder

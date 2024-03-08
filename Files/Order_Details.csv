@@ -1,4 +1,4 @@
-Order_Details_Distinct_Addresses
+Updated_Order_Details
 Order_ID,Order_Date,Shipping_Building_Number,Shipping_Building_Name,Shipping_Street_Name,Shipping_Zip_Code,Order_Status,Payment_Type,Payment_Status,Billing_Building_Number,Billing_Building_Name,Billing_Street_Name,Billing_Zip_Code
 O5512791,2024-01-30 12:21:28,14,Westminster Lodge,Garden Path,IV2 3HQ,Processing,Credit Card,Paid,14,Westminster Lodge,Garden Path,IV2 3HQ
 O0433844,2023-07-10 17:25:51,38,Kensington Manor,Cherry Drive,M1 2JN,Delivered,Cash on Delivery,Paid,38,Kensington Manor,Cherry Drive,M1 2JN
@@ -50,3 +50,103 @@ O0515455,2023-05-30 19:54:24,27,Clifton,Clifton Side,EX4 3SB,Delivered,Bank Tran
 O9395106,2023-07-31 11:42:00,92,Hilbert Court,The Avenue,FY8 1LE,Shipped,Bank Transfer,Paid,92,Hilbert Court,The Avenue,FY8 1LE
 O6020366,2023-04-22 22:59:16,69,Gilbert Court,Amber Road,EH2 3ES,Shipped,Credit Card,Paid,78,Manchester Pic,Castle Park,NE1 4AD
 O5667044,2023-08-02 22:41:48,46,Cambridge Square,Orchard Lane,LA1 4XQ,Cancelled,Credit Card,Paid,46,Cambridge Square,Orchard Lane,LA1 4XQ
+O5667045,2024-03-06 09:22:37,76,Oxford Residences,Cherry Drive,IV2 3HQ,Shipped,PayPal,Paid,76,Oxford Residences,Cherry Drive,IV2 3HQ
+O5667046,2023-10-10 13:23:03,53,Greenwich Villa,Garden Path,IV2 3HQ,Shipped,Credit Card,Paid,53,Greenwich Villa,Garden Path,IV2 3HQ
+O5667047,2023-08-01 00:59:37,100,Greenwich Villa,Garden Path,AB10 1ZP,Processing,PayPal,Paid,100,Greenwich Villa,Garden Path,AB10 1ZP
+O5667048,2023-06-16 08:41:04,30,Westminster Lodge,Cherry Drive,BS1 5TT,Delivered,Credit Card,Pending,30,Westminster Lodge,Cherry Drive,BS1 5TT
+O5667049,2023-07-29 02:47:43,99,Greenwich Villa,Park Row,M1 2JN,Shipped,Credit Card,Paid,99,Greenwich Villa,Park Row,M1 2JN
+O5667050,2023-12-21 10:47:22,35,Oxford Residences,River Road,BS1 5TT,Processing,Credit Card,Pending,35,Oxford Residences,River Road,BS1 5TT
+O5667051,2023-12-09 16:17:44,10,Westminster Lodge,River Road,AB10 1ZP,Cancelled,PayPal,Pending,10,Westminster Lodge,River Road,AB10 1ZP
+O5667052,2024-02-07 10:14:08,44,Liverpool Suites,Cherry Drive,G1 2FF,Shipped,Cash on Delivery,Pending,44,Liverpool Suites,Cherry Drive,G1 2FF
+O5667053,2023-07-20 12:58:29,78,Liverpool Suites,River Road,IV2 3HQ,Delivered,PayPal,Pending,78,Liverpool Suites,River Road,IV2 3HQ
+O5667054,2023-09-10 15:06:15,14,Oxford Residences,Elm Street,BS1 5TT,Shipped,Cash on Delivery,Pending,14,Oxford Residences,Elm Street,BS1 5TT
+O5667055,2023-05-11 16:12:25,29,Oxford Residences,Cherry Drive,IV2 3HQ,Delivered,Cash on Delivery,Pending,29,Oxford Residences,Cherry Drive,IV2 3HQ
+O5667056,2023-08-31 12:09:59,94,Kensington Manor,River Road,G1 2FF,Cancelled,Credit Card,Pending,94,Kensington Manor,River Road,G1 2FF
+O5667057,2023-11-11 06:16:02,79,Liverpool Suites,Cherry Drive,BS1 5TT,Processing,Credit Card,Paid,79,Liverpool Suites,Cherry Drive,BS1 5TT
+O5667058,2023-09-13 03:45:23,88,Liverpool Suites,River Road,M1 2JN,Shipped,Credit Card,Pending,88,Liverpool Suites,River Road,M1 2JN
+O5667059,2024-02-22 05:31:21,3,Kensington Manor,Park Row,M1 2JN,Shipped,Credit Card,Pending,3,Kensington Manor,Park Row,M1 2JN
+O5667060,2023-08-05 11:28:37,75,Westminster Lodge,Garden Path,IV2 3HQ,Delivered,Cash on Delivery,Pending,75,Westminster Lodge,Garden Path,IV2 3HQ
+O5667061,2024-01-24 22:06:35,41,Liverpool Suites,River Road,G1 2FF,Processing,Cash on Delivery,Paid,41,Liverpool Suites,River Road,G1 2FF
+O5667062,2023-10-06 19:31:29,44,Oxford Residences,Elm Street,AB10 1ZP,Delivered,Cash on Delivery,Paid,44,Oxford Residences,Elm Street,AB10 1ZP
+O5667063,2023-08-04 20:43:10,41,Westminster Lodge,River Road,AB10 1ZP,Processing,Cash on Delivery,Pending,41,Westminster Lodge,River Road,AB10 1ZP
+O5667064,2023-07-19 08:00:44,21,Kensington Manor,Park Row,IV2 3HQ,Shipped,Credit Card,Paid,21,Kensington Manor,Park Row,IV2 3HQ
+O5667065,2023-05-18 11:29:46,27,Liverpool Suites,Elm Street,AB10 1ZP,Shipped,PayPal,Paid,27,Liverpool Suites,Elm Street,AB10 1ZP
+O5667066,2024-02-03 01:52:15,72,Greenwich Villa,Park Row,M1 2JN,Delivered,Credit Card,Paid,72,Greenwich Villa,Park Row,M1 2JN
+O5667067,2023-10-03 21:25:00,76,Westminster Lodge,Park Row,G1 2FF,Cancelled,PayPal,Pending,76,Westminster Lodge,Park Row,G1 2FF
+O5667068,2024-01-12 06:55:45,67,Liverpool Suites,Elm Street,BS1 5TT,Delivered,Cash on Delivery,Pending,67,Liverpool Suites,Elm Street,BS1 5TT
+O5667069,2023-04-03 05:59:54,44,Kensington Manor,Garden Path,AB10 1ZP,Cancelled,Cash on Delivery,Paid,44,Kensington Manor,Garden Path,AB10 1ZP
+O5667070,2023-08-27 14:40:01,11,Liverpool Suites,Elm Street,G1 2FF,Processing,PayPal,Pending,11,Liverpool Suites,Elm Street,G1 2FF
+O5667071,2023-07-24 00:36:30,97,Westminster Lodge,Garden Path,M1 2JN,Delivered,Credit Card,Pending,97,Westminster Lodge,Garden Path,M1 2JN
+O5667072,2023-11-21 06:06:35,95,Oxford Residences,Park Row,IV2 3HQ,Cancelled,PayPal,Pending,95,Oxford Residences,Park Row,IV2 3HQ
+O5667073,2023-06-23 05:50:19,80,Westminster Lodge,Cherry Drive,G1 2FF,Cancelled,Credit Card,Paid,80,Westminster Lodge,Cherry Drive,G1 2FF
+O5667074,2023-03-27 08:45:30,18,Oxford Residences,River Road,IV2 3HQ,Delivered,PayPal,Paid,18,Oxford Residences,River Road,IV2 3HQ
+O5667075,2024-02-06 13:13:54,55,Oxford Residences,Park Row,G1 2FF,Delivered,PayPal,Pending,55,Oxford Residences,Park Row,G1 2FF
+O5667076,2023-10-15 14:02:42,93,Oxford Residences,Elm Street,AB10 1ZP,Cancelled,Cash on Delivery,Pending,93,Oxford Residences,Elm Street,AB10 1ZP
+O5667077,2023-12-01 04:10:30,42,Oxford Residences,Garden Path,IV2 3HQ,Processing,Credit Card,Paid,42,Oxford Residences,Garden Path,IV2 3HQ
+O5667078,2024-02-11 02:39:53,38,Liverpool Suites,Garden Path,AB10 1ZP,Processing,PayPal,Paid,38,Liverpool Suites,Garden Path,AB10 1ZP
+O5667079,2023-08-27 08:27:57,93,Westminster Lodge,River Road,IV2 3HQ,Delivered,Cash on Delivery,Paid,93,Westminster Lodge,River Road,IV2 3HQ
+O5667080,2023-03-24 01:04:50,13,Oxford Residences,Park Row,IV2 3HQ,Processing,PayPal,Paid,13,Oxford Residences,Park Row,IV2 3HQ
+O5667081,2023-06-30 12:59:07,52,Kensington Manor,Cherry Drive,BS1 5TT,Processing,Credit Card,Pending,52,Kensington Manor,Cherry Drive,BS1 5TT
+O5667082,2023-10-23 11:41:42,56,Westminster Lodge,Garden Path,AB10 1ZP,Delivered,Cash on Delivery,Pending,56,Westminster Lodge,Garden Path,AB10 1ZP
+O5667083,2024-01-28 17:05:48,71,Westminster Lodge,Park Row,M1 2JN,Delivered,Credit Card,Pending,71,Westminster Lodge,Park Row,M1 2JN
+O5667084,2024-03-01 20:47:16,47,Kensington Manor,Garden Path,BS1 5TT,Delivered,PayPal,Pending,47,Kensington Manor,Garden Path,BS1 5TT
+O5667085,2023-03-28 18:40:22,57,Kensington Manor,Cherry Drive,G1 2FF,Processing,PayPal,Paid,57,Kensington Manor,Cherry Drive,G1 2FF
+O5667086,2024-01-12 18:42:14,90,Greenwich Villa,River Road,G1 2FF,Processing,Cash on Delivery,Pending,90,Greenwich Villa,River Road,G1 2FF
+O5667087,2023-04-26 23:37:26,42,Kensington Manor,River Road,IV2 3HQ,Processing,PayPal,Paid,42,Kensington Manor,River Road,IV2 3HQ
+O5667088,2023-12-18 00:35:59,75,Greenwich Villa,Garden Path,BS1 5TT,Shipped,PayPal,Paid,75,Greenwich Villa,Garden Path,BS1 5TT
+O5667089,2024-01-27 09:49:39,98,Kensington Manor,Cherry Drive,IV2 3HQ,Cancelled,Credit Card,Pending,98,Kensington Manor,Cherry Drive,IV2 3HQ
+O5667090,2023-09-02 09:32:29,100,Kensington Manor,Cherry Drive,M1 2JN,Delivered,Cash on Delivery,Paid,100,Kensington Manor,Cherry Drive,M1 2JN
+O5667091,2023-05-25 22:29:42,52,Liverpool Suites,Park Row,M1 2JN,Cancelled,Cash on Delivery,Paid,52,Liverpool Suites,Park Row,M1 2JN
+O5667092,2023-11-05 12:35:01,49,Kensington Manor,Elm Street,M1 2JN,Shipped,Cash on Delivery,Pending,49,Kensington Manor,Elm Street,M1 2JN
+O5667093,2024-01-14 00:24:40,41,Westminster Lodge,Elm Street,BS1 5TT,Delivered,PayPal,Pending,41,Westminster Lodge,Elm Street,BS1 5TT
+O5667094,2023-07-11 03:55:14,78,Oxford Residences,Park Row,AB10 1ZP,Cancelled,Credit Card,Pending,78,Oxford Residences,Park Row,AB10 1ZP
+O5667095,2023-06-19 02:29:10,11,Westminster Lodge,Cherry Drive,IV2 3HQ,Delivered,Credit Card,Paid,11,Westminster Lodge,Cherry Drive,IV2 3HQ
+O5667096,2024-02-21 09:48:59,9,Oxford Residences,Cherry Drive,AB10 1ZP,Processing,PayPal,Paid,9,Oxford Residences,Cherry Drive,AB10 1ZP
+O5667097,2023-09-16 13:27:20,22,Greenwich Villa,Park Row,M1 2JN,Shipped,PayPal,Pending,22,Greenwich Villa,Park Row,M1 2JN
+O5667098,2023-07-07 10:31:16,96,Oxford Residences,River Road,BS1 5TT,Cancelled,Cash on Delivery,Paid,96,Oxford Residences,River Road,BS1 5TT
+O5667099,2024-02-28 05:14:37,55,Liverpool Suites,Park Row,M1 2JN,Processing,Credit Card,Pending,55,Liverpool Suites,Park Row,M1 2JN
+O5667100,2023-09-23 19:13:10,75,Kensington Manor,Elm Street,M1 2JN,Delivered,Cash on Delivery,Pending,75,Kensington Manor,Elm Street,M1 2JN
+O5667101,2023-11-25 14:34:35,98,Oxford Residences,Garden Path,M1 2JN,Processing,Cash on Delivery,Paid,98,Oxford Residences,Garden Path,M1 2JN
+O5667102,2023-12-14 21:59:07,77,Oxford Residences,River Road,IV2 3HQ,Processing,Credit Card,Paid,77,Oxford Residences,River Road,IV2 3HQ
+O5667103,2023-11-13 23:58:09,71,Greenwich Villa,River Road,G1 2FF,Shipped,PayPal,Pending,71,Greenwich Villa,River Road,G1 2FF
+O5667104,2023-04-17 14:37:25,87,Oxford Residences,Garden Path,IV2 3HQ,Processing,PayPal,Paid,87,Oxford Residences,Garden Path,IV2 3HQ
+O5667105,2023-08-17 14:25:20,72,Liverpool Suites,Elm Street,BS1 5TT,Delivered,Cash on Delivery,Pending,72,Liverpool Suites,Elm Street,BS1 5TT
+O5667106,2024-01-24 02:35:58,6,Westminster Lodge,Elm Street,IV2 3HQ,Processing,PayPal,Pending,6,Westminster Lodge,Elm Street,IV2 3HQ
+O5667107,2024-02-14 22:43:37,60,Oxford Residences,Elm Street,M1 2JN,Delivered,Credit Card,Pending,60,Oxford Residences,Elm Street,M1 2JN
+O5667108,2024-01-07 12:09:44,31,Greenwich Villa,River Road,BS1 5TT,Processing,PayPal,Pending,31,Greenwich Villa,River Road,BS1 5TT
+O5667109,2023-06-20 22:16:57,13,Westminster Lodge,River Road,M1 2JN,Cancelled,Credit Card,Pending,13,Westminster Lodge,River Road,M1 2JN
+O5667110,2024-02-01 22:50:08,76,Greenwich Villa,Elm Street,AB10 1ZP,Processing,Cash on Delivery,Pending,76,Greenwich Villa,Elm Street,AB10 1ZP
+O5667111,2023-09-19 00:54:55,36,Greenwich Villa,River Road,IV2 3HQ,Cancelled,Credit Card,Paid,36,Greenwich Villa,River Road,IV2 3HQ
+O5667112,2023-05-04 18:17:36,93,Liverpool Suites,Elm Street,IV2 3HQ,Delivered,PayPal,Paid,93,Liverpool Suites,Elm Street,IV2 3HQ
+O5667113,2023-08-22 19:31:16,60,Greenwich Villa,Elm Street,BS1 5TT,Processing,Cash on Delivery,Paid,60,Greenwich Villa,Elm Street,BS1 5TT
+O5667114,2023-11-16 16:01:27,18,Oxford Residences,Park Row,IV2 3HQ,Cancelled,PayPal,Pending,18,Oxford Residences,Park Row,IV2 3HQ
+O5667115,2023-03-31 19:46:57,5,Westminster Lodge,Park Row,M1 2JN,Cancelled,PayPal,Paid,5,Westminster Lodge,Park Row,M1 2JN
+O5667116,2023-03-15 12:58:51,64,Kensington Manor,Garden Path,BS1 5TT,Processing,PayPal,Paid,64,Kensington Manor,Garden Path,BS1 5TT
+O5667117,2023-06-19 22:36:04,68,Kensington Manor,Cherry Drive,G1 2FF,Processing,Credit Card,Paid,68,Kensington Manor,Cherry Drive,G1 2FF
+O5667118,2023-10-20 09:23:33,2,Greenwich Villa,Park Row,G1 2FF,Cancelled,Credit Card,Pending,2,Greenwich Villa,Park Row,G1 2FF
+O5667119,2023-09-21 00:43:34,93,Kensington Manor,Garden Path,IV2 3HQ,Shipped,PayPal,Pending,93,Kensington Manor,Garden Path,IV2 3HQ
+O5667120,2023-03-24 19:27:46,96,Liverpool Suites,Park Row,G1 2FF,Shipped,Credit Card,Pending,96,Liverpool Suites,Park Row,G1 2FF
+O5667121,2023-12-09 14:57:48,30,Kensington Manor,Park Row,IV2 3HQ,Processing,PayPal,Pending,30,Kensington Manor,Park Row,IV2 3HQ
+O5667122,2023-04-12 01:57:19,24,Oxford Residences,Garden Path,AB10 1ZP,Delivered,Credit Card,Paid,24,Oxford Residences,Garden Path,AB10 1ZP
+O5667123,2023-03-18 20:59:09,69,Oxford Residences,River Road,M1 2JN,Cancelled,Credit Card,Pending,69,Oxford Residences,River Road,M1 2JN
+O5667124,2023-10-03 01:44:42,95,Oxford Residences,Park Row,IV2 3HQ,Shipped,Cash on Delivery,Paid,95,Oxford Residences,Park Row,IV2 3HQ
+O5667125,2024-02-03 22:36:24,17,Kensington Manor,Elm Street,AB10 1ZP,Cancelled,Credit Card,Paid,17,Kensington Manor,Elm Street,AB10 1ZP
+O5667126,2023-08-07 20:06:23,81,Westminster Lodge,Park Row,IV2 3HQ,Delivered,Credit Card,Paid,81,Westminster Lodge,Park Row,IV2 3HQ
+O5667127,2024-03-02 04:10:21,20,Oxford Residences,Park Row,IV2 3HQ,Cancelled,PayPal,Paid,20,Oxford Residences,Park Row,IV2 3HQ
+O5667128,2023-03-27 16:07:52,100,Westminster Lodge,River Road,BS1 5TT,Processing,Cash on Delivery,Pending,100,Westminster Lodge,River Road,BS1 5TT
+O5667129,2023-10-27 23:56:34,89,Westminster Lodge,Cherry Drive,IV2 3HQ,Delivered,PayPal,Pending,89,Westminster Lodge,Cherry Drive,IV2 3HQ
+O5667130,2024-02-08 05:17:59,79,Greenwich Villa,Park Row,BS1 5TT,Processing,Cash on Delivery,Pending,79,Greenwich Villa,Park Row,BS1 5TT
+O5667131,2024-02-07 04:35:56,13,Oxford Residences,Park Row,G1 2FF,Processing,Credit Card,Pending,13,Oxford Residences,Park Row,G1 2FF
+O5667132,2023-06-19 02:59:51,85,Oxford Residences,Park Row,AB10 1ZP,Delivered,Cash on Delivery,Pending,85,Oxford Residences,Park Row,AB10 1ZP
+O5667133,2023-10-18 02:18:41,55,Greenwich Villa,River Road,G1 2FF,Delivered,Credit Card,Paid,55,Greenwich Villa,River Road,G1 2FF
+O5667134,2023-05-10 08:53:48,65,Kensington Manor,Elm Street,M1 2JN,Processing,PayPal,Pending,65,Kensington Manor,Elm Street,M1 2JN
+O5667135,2023-07-22 17:13:47,55,Kensington Manor,Cherry Drive,G1 2FF,Cancelled,Credit Card,Pending,55,Kensington Manor,Cherry Drive,G1 2FF
+O5667136,2023-10-31 10:20:38,45,Westminster Lodge,River Road,IV2 3HQ,Cancelled,Credit Card,Paid,45,Westminster Lodge,River Road,IV2 3HQ
+O5667137,2024-02-12 13:25:04,81,Westminster Lodge,Elm Street,M1 2JN,Delivered,PayPal,Paid,81,Westminster Lodge,Elm Street,M1 2JN
+O5667138,2023-08-20 14:21:11,10,Liverpool Suites,Park Row,G1 2FF,Processing,PayPal,Pending,10,Liverpool Suites,Park Row,G1 2FF
+O5667139,2023-12-23 02:40:38,26,Greenwich Villa,Park Row,G1 2FF,Cancelled,Credit Card,Pending,26,Greenwich Villa,Park Row,G1 2FF
+O5667140,2023-10-22 06:31:51,33,Liverpool Suites,Elm Street,IV2 3HQ,Cancelled,Credit Card,Paid,33,Liverpool Suites,Elm Street,IV2 3HQ
+O5667141,2023-10-01 07:37:49,82,Kensington Manor,Cherry Drive,M1 2JN,Cancelled,Cash on Delivery,Pending,82,Kensington Manor,Cherry Drive,M1 2JN
+O5667142,2023-12-03 20:03:15,86,Westminster Lodge,Elm Street,IV2 3HQ,Cancelled,Credit Card,Paid,86,Westminster Lodge,Elm Street,IV2 3HQ
+O5667143,2023-12-01 05:07:58,13,Oxford Residences,Cherry Drive,G1 2FF,Delivered,PayPal,Paid,13,Oxford Residences,Cherry Drive,G1 2FF
+O5667144,2023-07-05 17:55:53,91,Oxford Residences,Elm Street,BS1 5TT,Delivered,PayPal,Pending,91,Oxford Residences,Elm Street,BS1 5TT
