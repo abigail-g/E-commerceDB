@@ -29,6 +29,7 @@ con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
  # dbExecute(con, sql_file)
 
 # for (sql_command in sql_file) {  dbExecute(con, sql_command)}
+
 Customers <- read_csv("Files/Customers.csv")
 View(Customers)
 
