@@ -1,152 +1,151 @@
-Updated_Products (1)
 Product_ID,Product_Name,Product_Price,Product_Availability
-P0000001,iPhone 15 Pro Max,685.31,Out of Stock
-P0000002,iPhone 15,979.63,In Stock
-P0000003,iPhone 15 Pro,448.44,In Stock
-P0000004,Samsung Galaxy S22,964.56,Backorder
-P0000005,Samsung Galaxy S21,893.79,In Stock
-P0000006,Lenovo IdeaPad Flex 5,1751.83,Out of Stock
-P0000007,Huawei MateBook X Pro,1835.54,Out of Stock
-P0000008,Dell XPS 15,1134.58,Backorder
-P0000009,Microsoft Surface Laptop 4,1178.94,Backorder
-P0000010,MacBook Pro M2,962.38,Out of Stock
-P0000011,AirPods Pro 2,158.78,In Stock
-P0000012,AirPods (3rd generation),231.47,Backorder
-P0000013,Jabra Elite 85t,202.43,In Stock
-P0000014,Sony WF-1000XM4,154.64,Out of Stock
-P0000015,Bose QuietComfort Earbuds,176.15,In Stock
-P0000016,Samsung QN90A Neo QLED,2545.94,Out of Stock
-P0000017,LG C1 OLED,2086.81,Backorder
-P0000018,Sony A90J OLED,180.1,In Stock
-P0000019,TCL 6-Series R635,2828.12,In Stock
-P0000020,Hisense U8G,2296.7,Backorder
-P0000021,Xiaomi Mi 11 Ultra,2886.17,In Stock
-P0000022,OnePlus 9 Pro,2351.19,Out of Stock
-P0000023,Google Pixel 6 Pro,475.26,In Stock
-P0000024,Asus ROG Phone 5,2878.13,Out of Stock
-P0000025,Motorola Edge Plus,1145.23,Out of Stock
-P0000026,Acer Swift 3,1358.92,Backorder
-P0000027,Asus ZenBook 13,2333.29,Backorder
-P0000028,HP Envy x360,1217.56,Backorder
-P0000029,Razer Blade 14,582.22,Out of Stock
-P0000030,Alienware m15 R6,106.9,In Stock
-P0000031,Beats Fit Pro,2011.32,Backorder
-P0000032,Sennheiser CX True Wireless,2915.41,Backorder
-P0000033,Anker Soundcore Liberty Air 2 Pro,534.8,Backorder
-P0000034,Samsung Galaxy Buds 2,601.14,Backorder
-P0000035,OnePlus Buds Pro,2876.1,In Stock
-P0000036,Vizio P-Series Quantum X P85QX-J01,1823.5,Backorder
-P0000037,Hisense 65U8G,1756.63,Backorder
-P0000038,Philips 55OLED806,1361.05,Out of Stock
-P0000039,LG G1 OLED,2282.51,Out of Stock
-P0000040,Sony X95J,186.39,Out of Stock
-P0000041,Nokia XR20,1373.2,Out of Stock
-P0000042,Realme GT,2174.66,In Stock
-P0000043,Oppo Find X3 Pro,2391.29,Out of Stock
-P0000044,Vivo X60 Pro+,1509.02,Out of Stock
-P0000045,ZTE Axon 30 Ultra,1682.3,Backorder
-P0000046,MacBook Air M2,1804.6,Backorder
-P0000047,Lenovo Legion 5 Pro,1691.88,Out of Stock
-P0000048,HP Pavilion Aero 13,428.3,Out of Stock
-P0000049,Asus VivoBook Pro 14,2065.4,Out of Stock
-P0000050,MSI GE76 Raider,833.15,In Stock
-P0000051,Philips 55OLED806 Model 1,870.02,Out of Stock
-P0000052,Asus VivoBook Pro 14 Model 2,430.67,Backorder
-P0000053,Oppo Find X3 Pro Model 3,501.95,Backorder
-P0000054,Jabra Elite 85t Model 4,333.36,Backorder
-P0000055,Dell XPS 15 Model 5,448.01,In Stock
-P0000056,Vizio P-Series Quantum X P85QX-J01 Model 6,151.03,In Stock
-P0000057,Realme GT Model 7,382.82,Backorder
-P0000058,Asus ROG Phone 5 Model 8,152.28,In Stock
-P0000059,MSI GE76 Raider Model 9,923.32,In Stock
-P0000060,MacBook Air M2 Model 10,127.75,Out of Stock
-P0000061,Motorola Edge Plus Model 11,469.33,In Stock
-P0000062,Sony A90J OLED Model 12,942.69,In Stock
-P0000063,Samsung Galaxy Buds 2 Model 13,251.29,Backorder
-P0000064,Nokia XR20 Model 14,672.61,In Stock
-P0000065,OnePlus 9 Pro Model 15,239.97,Out of Stock
-P0000066,Dell XPS 15 Model 16,333.32,Out of Stock
-P0000067,Asus ZenBook 13 Model 17,843.04,In Stock
-P0000068,Google Pixel 6 Pro Model 18,447.25,Out of Stock
-P0000069,Sony WF-1000XM4 Model 19,826.29,Out of Stock
-P0000070,Motorola Edge Plus Model 20,178.55,Out of Stock
-P0000071,Acer Swift 3 Model 21,715.97,In Stock
-P0000072,Samsung QN90A Neo QLED Model 22,411.53,Backorder
-P0000073,Dell XPS 15 Model 23,904.21,In Stock
-P0000074,Lenovo IdeaPad Flex 5 Model 24,637.16,Backorder
-P0000075,Acer Swift 3 Model 25,428.24,In Stock
-P0000076,Lenovo IdeaPad Flex 5 Model 26,974.46,In Stock
-P0000077,Huawei MateBook X Pro Model 27,555.51,Out of Stock
-P0000078,Dell XPS 15 Model 28,682.35,Backorder
-P0000079,MSI GE76 Raider Model 29,243.75,Out of Stock
-P0000080,Bose QuietComfort Earbuds Model 30,116.85,Out of Stock
-P0000081,TCL 6-Series R635 Model 31,127.72,Out of Stock
-P0000082,Dell XPS 15 Model 32,186.26,Out of Stock
-P0000083,Dell XPS 15 Model 33,345.16,Out of Stock
-P0000084,LG G1 OLED Model 34,425.27,Out of Stock
-P0000085,Samsung QN90A Neo QLED Model 35,506.37,In Stock
-P0000086,Samsung Galaxy Buds 2 Model 36,116.82,Backorder
-P0000087,Hisense U8G Model 37,223.67,Out of Stock
-P0000088,Huawei MateBook X Pro Model 38,580.96,Backorder
-P0000089,Asus ZenBook 13 Model 39,692.82,Backorder
-P0000090,Google Pixel 6 Pro Model 40,200.34,Out of Stock
-P0000091,HP Pavilion Aero 13 Model 41,457.24,Backorder
-P0000092,AirPods Pro 2 Model 42,849.15,In Stock
-P0000093,Hisense 65U8G Model 43,157.55,Backorder
-P0000094,Vivo X60 Pro+ Model 44,603.76,Backorder
-P0000095,HP Pavilion Aero 13 Model 45,290.32,In Stock
-P0000096,Asus ZenBook 13 Model 46,208.34,Backorder
-P0000097,iPhone 15 Pro Model 47,632.7,In Stock
-P0000098,iPhone 15 Pro Model 48,271.0,Backorder
-P0000099,AirPods (3rd generation) Model 49,512.41,Backorder
-P0000100,Huawei MateBook X Pro Model 50,488.15,In Stock
-P0000101,HP Envy x360 Model 51,601.66,Backorder
-P0000102,Xiaomi Mi 11 Ultra Model 52,543.67,Out of Stock
-P0000103,iPhone 15 Model 53,449.12,Out of Stock
-P0000104,MacBook Air M2 Model 54,661.07,Out of Stock
-P0000105,Samsung Galaxy Buds 2 Model 55,424.35,Out of Stock
-P0000106,Sony X95J Model 56,322.1,Out of Stock
-P0000107,LG G1 OLED Model 57,232.19,In Stock
-P0000108,Google Pixel 6 Pro Model 58,692.32,Out of Stock
-P0000109,Sennheiser CX True Wireless Model 59,502.9,In Stock
-P0000110,Sennheiser CX True Wireless Model 60,552.83,Out of Stock
-P0000111,Oppo Find X3 Pro Model 61,454.16,Out of Stock
-P0000112,Hisense U8G Model 62,746.75,Out of Stock
-P0000113,Beats Fit Pro Model 63,473.06,In Stock
-P0000114,Asus VivoBook Pro 14 Model 64,339.77,Backorder
-P0000115,Sony WF-1000XM4 Model 65,138.08,In Stock
-P0000116,AirPods Pro 2 Model 66,428.53,Backorder
-P0000117,Realme GT Model 67,148.56,Out of Stock
-P0000118,MacBook Air M2 Model 68,577.06,Out of Stock
-P0000119,Hisense U8G Model 69,402.49,Backorder
-P0000120,Sony X95J Model 70,719.43,Backorder
-P0000121,Samsung QN90A Neo QLED Model 71,895.48,Backorder
-P0000122,Lenovo IdeaPad Flex 5 Model 72,160.29,In Stock
-P0000123,Vizio P-Series Quantum X P85QX-J01 Model 73,350.74,Out of Stock
-P0000124,MacBook Pro M2 Model 74,2003.05,In Stock
-P0000125,Motorola Edge Plus Model 75,354.59,In Stock
-P0000126,iPhone 15 Model 76,794.32,Backorder
-P0000127,Lenovo Legion 5 Pro Model 77,864.83,Out of Stock
-P0000128,Philips 55OLED806 Model 78,890.42,In Stock
-P0000129,Razer Blade 14 Model 79,722.08,Backorder
-P0000130,HP Envy x360 Model 80,692.22,Out of Stock
-P0000131,LG C1 OLED Model 81,1110.93,In Stock
-P0000132,Google Pixel 6 Pro Model 82,851.28,In Stock
-P0000133,Xiaomi Mi 11 Ultra Model 83,209.05,In Stock
-P0000134,Dell XPS 15 Model 84,748.61,Backorder
-P0000135,iPhone 15 Model 85,904.63,In Stock
-P0000136,HP Envy x360 Model 86,691.65,Backorder
-P0000137,Realme GT Model 87,929.08,In Stock
-P0000138,iPhone 15 Pro Max Model 88,389.88,In Stock
-P0000139,Samsung Galaxy Buds 2 Model 89,109.72,Out of Stock
-P0000140,ZTE Axon 30 Ultra Model 90,478.99,Backorder
-P0000141,Asus ZenBook 13 Model 91,445.99,In Stock
-P0000142,Asus ROG Phone 5 Model 92,262.16,In Stock
-P0000143,Motorola Edge Plus Model 93,768.12,Out of Stock
-P0000144,Sony A90J OLED Model 94,1105.12,Out of Stock
-P0000145,Hisense 65U8G Model 95,307.84,Out of Stock
-P0000146,Razer Blade 14 Model 96,493.58,Backorder
-P0000147,ZTE Axon 30 Ultra Model 97,895.72,In Stock
-P0000148,Asus ROG Phone 5 Model 98,981.14,In Stock
-P0000149,Motorola Edge Plus Model 99,178.37,Backorder
-P0000150,MacBook Pro M2 Model 100,169.77,Backorder
+P1982673,TCL TV Model 5,544.61,In Stock
+P0394115,Sony PS5 Model 100,1830.17,Limited Availability
+P4637031,Apple iPhone Model 49,1421.52,Out of Stock
+P4419351,GoPro Action Model 93,507.49,Limited Availability
+P1961681,Apple Watch Model 135,1184.14,Limited Availability
+P5738081,Dyson Vacuum Model 54,1963.84,Limited Availability
+P4148322,JBL Wireless Earbuds Model 74,1398.98,In Stock
+P8549287,August Smart Lock Model 117,70.64,In Stock
+P9727972,Philips TV Model 10,1807.14,Out of Stock
+P4052555,Logitech Keyboard Model 144,1539.78,Out of Stock
+P3387222,Bose Headphones Model 80,71.43,In Stock
+P4081539,Apple MacBook Model 24,1239.98,In Stock
+P9046217,HP Laptop Model 20,1986.19,In Stock
+P5362182,Xiaomi Mi Model 47,799.39,In Stock
+P3273279,Meta Quest Model 110,1290.53,Limited Availability
+P4332767,Valve Steam Deck Model 98,1759.73,Out of Stock
+P4181343,Fitbit Tracker Model 132,1478.96,Out of Stock
+P1458493,Philips TV Model 12,562.38,In Stock
+P7796039,Sonos Speaker Model 69,1322.81,Out of Stock
+P6530444,Apple iPhone Model 51,63.14,Limited Availability
+P2845140,Samsung TV Model 18,975.19,In Stock
+P0012756,Bose Headphones Model 79,102.57,Limited Availability
+P8611806,Canon Mirrorless Model 96,479.72,In Stock
+P3783009,Microsoft Surface Model 28,284.57,Out of Stock
+P1887178,Audio-Technica Turntable Model 71,1953.41,Limited Availability
+P8040981,Asus Notebook Model 31,1673.32,In Stock
+P6013896,Amazon Echo Model 122,1758.6,Limited Availability
+P3983257,LG TV Model 8,1428.13,Out of Stock
+P1357263,Nikon DSLR Model 82,196.34,Out of Stock
+P0092543,Samsung Galaxy Model 41,1831.13,Limited Availability
+P2285371,Dell Monitor Model 148,1757.07,Limited Availability
+P3553157,Razer Mouse Model 145,1314.46,Out of Stock
+P8442175,Sony Soundbar Model 78,1405.87,In Stock
+P6592561,Samsung Gear Model 129,1577.72,In Stock
+P1280210,Canon Mirrorless Model 95,1005.51,Out of Stock
+P5399781,Audio-Technica Turntable Model 72,283.5,Out of Stock
+P8209473,August Smart Lock Model 115,1365.63,Limited Availability
+P6181767,Lenovo Tablet Model 34,1031.54,In Stock
+P6518932,Huawei P Series Model 39,285.72,Out of Stock
+P2059076,Samsung TV Model 16,1079.81,Limited Availability
+P3651492,Sony PS5 Model 101,1154.7,Out of Stock
+P0257085,Nikon DSLR Model 83,109.81,In Stock
+P7596348,Bose Headphones Model 81,576.6,Limited Availability
+P7611579,HP Laptop Model 19,1899.92,Out of Stock
+P6004457,Asus Notebook Model 32,1340.98,Out of Stock
+P9516360,August Smart Lock Model 116,1355.04,Out of Stock
+P1919938,TCL TV Model 4,1191.81,Limited Availability
+P4630266,Panasonic TV Model 2,1183.86,Out of Stock
+P5879925,GoPro Action Model 92,653.39,Out of Stock
+P8478278,Panasonic Camcorder Model 87,56.89,Limited Availability
+P8040046,Panasonic Camcorder Model 86,1518.36,Limited Availability
+P3521709,Samsung Galaxy Model 42,1427.48,Out of Stock
+P4044033,GoPro Action Model 91,107.83,Limited Availability
+P7185440,Whirlpool Refrigerator Model 65,1305.33,In Stock
+P7549127,Nikon DSLR Model 84,839.26,In Stock
+P0897537,LG Washing Machine Model 57,423.38,In Stock
+P9545869,Audio-Technica Turntable Model 70,331.31,Out of Stock
+P9834983,Bosch Dishwasher Model 61,1663.07,Out of Stock
+P0211326,Panasonic Camcorder Model 85,1185.95,In Stock
+P6940008,Valve Steam Deck Model 99,685.31,In Stock
+P6697541,Bosch Dishwasher Model 62,399.96,In Stock
+P6493412,LG TV Model 9,1729.64,In Stock
+P8178993,Asus Notebook Model 33,1484.42,In Stock
+P1169294,Microsoft Xbox Model 103,1979.79,Limited Availability
+P6193823,Canon Mirrorless Model 94,472.62,Limited Availability
+P9090408,Sony Compact Model 89,655.7,Limited Availability
+P3409806,Microsoft Xbox Model 105,1972.88,Out of Stock
+P7250710,Sony Soundbar Model 76,248.38,Out of Stock
+P7359515,Sony Compact Model 90,954.04,Out of Stock
+P1857653,Apple MacBook Model 22,1885.11,Limited Availability
+P7375025,Xiaomi Mi Model 48,1734.25,Limited Availability
+P4046497,Huawei P Series Model 37,183.28,Out of Stock
+P6482653,OnePlus Nord Model 44,1012.44,In Stock
+P8141840,Nintendo Switch Model 106,1162.68,Out of Stock
+P2181811,Sony TV Model 13,418.22,Limited Availability
+P7838307,Meta Quest Model 111,1425.09,In Stock
+P5398570,Microsoft Surface Model 30,1269.48,Limited Availability
+P5002872,Google Nest Thermostat Model 124,190.52,Limited Availability
+P7695839,Huawei P Series Model 38,1408.84,Out of Stock
+P6164980,OnePlus Nord Model 45,1758.3,Out of Stock
+P7854704,Ring Smart Camera Model 119,1548.82,In Stock
+P1198047,Dell Monitor Model 149,653.11,In Stock
+P2720179,Sony Compact Model 88,102.34,Limited Availability
+P9058390,Samsung Gear Model 128,1307.01,In Stock
+P1805308,Samsung Microwave Model 59,398.34,Limited Availability
+P3393554,Whirlpool Refrigerator Model 64,393.01,Limited Availability
+P0038292,Apple MacBook Model 23,1464.99,In Stock
+P2907860,OnePlus Nord Model 43,899.93,Out of Stock
+P0963967,Xiaomi Mi Model 46,1290.73,Limited Availability
+P8699814,Apple iPhone Model 50,1679.01,In Stock
+P8864249,Nintendo Switch Model 108,644.73,Limited Availability
+P6026468,Dell Monitor Model 150,1963.12,Out of Stock
+P0205217,Huawei Band Model 136,794.98,In Stock
+P8615915,Lenovo Smart Glasses Model 140,693.63,In Stock
+P3394528,Whirlpool Refrigerator Model 66,1489.97,Limited Availability
+P8704549,Fitbit Tracker Model 131,1304.45,Limited Availability
+P7689291,Lenovo Smart Glasses Model 139,1243.47,In Stock
+P0903032,Sony TV Model 14,326.83,Limited Availability
+P2449655,Sonos Speaker Model 67,1033.73,Limited Availability
+P1009625,Lenovo Tablet Model 36,1810.63,Out of Stock
+P9177660,TCL TV Model 6,1033.26,In Stock
+P1225063,Lenovo Smart Glasses Model 141,1230.71,Limited Availability
+P9698431,Dyson Vacuum Model 52,1531.56,Out of Stock
+P6685333,Sony PS5 Model 102,1681.84,Out of Stock
+P4212805,Sony Soundbar Model 77,521.34,In Stock
+P2836448,Sony TV Model 15,670.3,Limited Availability
+P3659266,Dell Laptop Model 25,1221.6,In Stock
+P5126967,Microsoft Xbox Model 104,1849.35,In Stock
+P0516035,Samsung Microwave Model 58,1664.29,In Stock
+P0979031,Philips Hue Light Model 114,178.44,Limited Availability
+P0282048,Huawei Band Model 137,963.72,In Stock
+P5258555,Logitech Keyboard Model 142,516.44,Limited Availability
+P1566145,Dell Laptop Model 26,993.71,Limited Availability
+P2020599,Philips TV Model 11,1391.68,Limited Availability
+P8038804,Apple Watch Model 134,619.29,Limited Availability
+P1292121,Panasonic TV Model 3,955.56,Limited Availability
+P2394943,Dell Laptop Model 27,92.53,In Stock
+P7038427,Ring Smart Camera Model 120,1086.43,Out of Stock
+P5018542,Valve Steam Deck Model 97,1691.15,Limited Availability
+P4301449,JBL Wireless Earbuds Model 73,1612.7,In Stock
+P1660139,LG TV Model 7,446.73,In Stock
+P3862283,Fitbit Tracker Model 130,890.93,Out of Stock
+P2998571,JBL Wireless Earbuds Model 75,1332.85,In Stock
+P0863746,Philips Hue Light Model 112,236.8,Out of Stock
+P7255721,Samsung Galaxy Model 40,1386.68,Out of Stock
+P4966819,Dyson Vacuum Model 53,1435.85,Out of Stock
+P0750045,Samsung Gear Model 127,1448.05,Out of Stock
+P2981669,Samsung TV Model 17,1741.99,In Stock
+P3368944,Meta Quest Model 109,494.91,In Stock
+P3138076,Nintendo Switch Model 107,1650.6,Out of Stock
+P1891514,LG Washing Machine Model 56,535.21,Limited Availability
+P0755219,Huawei Band Model 138,1173.03,Limited Availability
+P7482074,Samsung Microwave Model 60,241.54,Limited Availability
+P3818127,Amazon Echo Model 123,1478.97,Limited Availability
+P0867780,Panasonic TV Model 1,939.7,In Stock
+P8688998,Logitech Keyboard Model 143,299.27,Limited Availability
+P9740261,Google Nest Thermostat Model 126,1484.56,In Stock
+P5084276,Apple Watch Model 133,1813.57,Limited Availability
+P6305393,LG Washing Machine Model 55,1415.55,Limited Availability
+P0623797,Philips Hue Light Model 113,1107.82,Out of Stock
+P8734050,Razer Mouse Model 146,899.53,Out of Stock
+P1624222,Ring Smart Camera Model 118,633.48,In Stock
+P7298304,HP Laptop Model 21,1586.66,Limited Availability
+P2368271,Lenovo Tablet Model 35,1416.76,In Stock
+P2586143,Razer Mouse Model 147,1239.02,Limited Availability
+P2102296,Microsoft Surface Model 29,1413.76,In Stock
+P8720483,Bosch Dishwasher Model 63,418.06,Limited Availability
+P5050519,Amazon Echo Model 121,1544.99,Out of Stock
+P3394494,Google Nest Thermostat Model 125,704.64,Out of Stock
+P3176637,Sonos Speaker Model 68,758.96,In Stock
