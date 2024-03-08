@@ -109,17 +109,17 @@ Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
 # This is for suppliers_id 
 
 # Create a function to find matching supplier ID or assign randomly if no match is found
-assign_supplier_id <- function(Product_Name, Suppliers){
-  for (i in 1:nrow(Suppliers)) {
-    if (str_detect(Product_Name, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
-      return(suppliers$supplier_ID[i])
-    }
-  }
-  # If no match found, assign a random supplier ID
-  random_supplier_id <- sample(suppliers$supplier_ID, 1)
-  return(random_supplier_id)
-
-  Products$Supplier_ID <- sapply(Products$Product_Name, assign_supplier_id)
+# assign_supplier_id <- function(Product_Name, Suppliers){
+#   for (i in 1:nrow(Suppliers)) {
+#     if (str_detect(Product_Name, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
+#       return(suppliers$supplier_ID[i])
+#     }
+#   }
+#   # If no match found, assign a random supplier ID
+#   random_supplier_id <- sample(suppliers$supplier_ID, 1)
+#   return(random_supplier_id)
+# 
+#   Products$Supplier_ID <- sapply(Products$Product_Name, assign_supplier_id)
 
 ```
 
