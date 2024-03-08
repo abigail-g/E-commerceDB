@@ -105,6 +105,8 @@ Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
 
 ```{r}
 # This is to add suppliers_id in Products
+set.seed(123)
+
 Products <- Products %>%
   mutate(Supplier_ID = NA)
 
@@ -137,11 +139,12 @@ Products$Discount_Code[codes_to_assign] <- random_discounts
 
 ```{r}
 # Product_ID column for reviews table 
-
+set.seed(123)
 Reviews <- Reviews %>% 
   mutate(Product_ID = sample(Products$Product_ID, nrow(Reviews), replace = TRUE))
 
 # Adding Cust_ID column for Order_details table. 
+set.seed(123)
 Order_details <- Order_details %>%
   mutate(Cust_ID = sample(Customers$Cust_ID, nrow(Order_details), replace = TRUE))
 ```
