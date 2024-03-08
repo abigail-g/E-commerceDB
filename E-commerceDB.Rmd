@@ -36,7 +36,10 @@ Reviews <- read_csv("Files/Reviews.csv",
 ```
 
 ```{r}
+# To create empty column 
 
+
+# To paste the foreign key into 
 
 
 ```
