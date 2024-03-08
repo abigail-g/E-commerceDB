@@ -107,6 +107,7 @@ Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
 # This is to add suppliers_id in Products
 Products <- Products %>%
   mutate(Supplier_ID = NA)
+
 # Create a function to find matching supplier ID or assign randomly if no match is found
 assign_supplier_id <- function(Product_Name, Suppliers) {
   for (i in 1:nrow(Suppliers)) {
