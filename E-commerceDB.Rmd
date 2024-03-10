@@ -42,10 +42,10 @@ for (sql_command in sql_file) {
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 Customers <- read_csv("Files/Customers.csv")
-View(Customers)
+
 
 Products <- read_csv("Files/Products.csv")
-View(Products)
+
 
 Order_details <- read_csv("Files/Order_Details.csv",
     skip = 1)
@@ -54,16 +54,16 @@ Reviews <- read_csv("Files/Reviews.csv",
     skip = 1)
 
 Suppliers <- read_csv("Files/Suppliers.csv")
-View(Suppliers)
+
 
 Product_Discounts <- read_csv("Files/Product_Discounts.csv")
-View(Product_Discounts)
+
 
 Product_Category <- read_csv("Files/Product_Category.csv")
-View(Product_Category)
+
 
 Order_Items <- read_csv("Files/Order_Items.csv")
-View(Order_Items)
+
 ```
 
 ```{r}
@@ -188,11 +188,21 @@ The E-R diagram above simulates a real-world e-commerce data ecosystem, capturin
 
 ### 1.1.2. Entities and Attributes
 
-This section describes and illustrates the entities and their respective attributes of the ER diagram above. \#### 1.1.2.1. Customer Users who previously have at least once purchased products and placed an order. \#### 1.1.2.2. Supplier Vendors who provide products. Represent the source of the product items.
+This section describes and illustrates the entities and their respective attributes of the ER diagram above.
 
-#### 1.1.2.3. Product
+-   1.1.2.1. Customer shows us the users who previously have at least once purchased products and placed an order.
 
-Indicates all products in the stock and available for sale.
+-   1.1.2.2. Supplier Vendors who provide products. Represent the source of the product items. 
+
+-   1.1.2.3 Product Information about the model and price of the products as well as the availability of it. 
+
+-   1.1.2.4 Order_details Contain information of orders including billing and shipping address, order and payment status, as well as order date and payment type. 
+
+-   1.1.2.5 Product_Category Category of products offered by the e-commerce website. 
+
+-   1.1.2.6 Product_Discounts Discount code that could be applied and the amount of discount it offers as well as the status of the discount. 
+
+-   1.1.2.7 Reviews contain information of the reviews including text and rating on product and the likes of the top reviews as well as the time stamp of when the review was made. 
 
 # Design Considerations
 
