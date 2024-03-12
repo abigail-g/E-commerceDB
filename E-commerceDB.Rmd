@@ -35,11 +35,11 @@ for (sql_command in sql_file) {
    }
   }
 
+
 ```
 
 
 ```{r}
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 Customers <- read_csv("Files/Customers.csv")
 
