@@ -206,23 +206,17 @@ Order_Item <- Order_Item %>%
 # Assign first 150 unique Order_IDs to the first 150 rows
 Order_Item$Order_ID[1:150] <- sample(Order_details$Order_ID, size = 150, replace = FALSE)
 
-# For the remaining 50 rows, randomly assign Product_IDs (allowing repeats)
-Order_Item$Order_ID[151:200] <- sample(Order_details$Order_ID, size = 50, replace = TRUE)
-
-# Initialize Order_ID in Order_Item as NA
-Order_Item$Order_ID <- NA
-
-# Function to assign unique Order_IDs avoiding duplicates for each Product_ID
+# Function to assign unique Order_IDs avoiding duplicates for each Product_ID, it intended to assign unique order id to each row in order_item in a way that avoids assigning the same Order_ID to the same Product_ID more than once
 assign_unique_order_ids_full_range <- function(order_item, order_details) {
   # Get all unique Order_IDs from Order_Details
-  all_order_ids <- unique(order_details$Order_ID)
+  all_order_ids <- unique(Order_details$Order_ID)
   
   # Iterate over each row in order_item
-  for (i in 151:nrow(order_item)) { # Assuming the first 150 are pre-assigned
-    product_id <- order_item$Product_ID[i]
+  for (i in 151:nrow(Order_Item)) { # The first 150 are pre-assigned
+    product_id <- Order_Item$Product_ID[i]
     
     # Find Order_IDs used by the same Product_ID
-    used_order_ids <- order_item$Order_ID[order_item$Product_ID == product_id]
+    used_order_ids <- Order_Item$Order_ID[Order_Item$Product_ID == product_id]
     
     # Available Order_IDs are those not yet used by this Product_ID
     available_order_ids <- setdiff(all_order_ids, used_order_ids)
@@ -232,10 +226,10 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
     }
     
     # Randomly select an available Order_ID for the Product_ID
-    order_item$Order_ID[i] <- sample(available_order_ids, 1)
+    Order_Item$Order_ID[i] <- sample(available_order_ids, 1)
   }
   
-  return(order_item)
+  return(Order_Item)
 }
 
 # To apply this function:
