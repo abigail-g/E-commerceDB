@@ -33,7 +33,8 @@ for (sql_command in sql_file) {
     dbExecute(con, sql_command)
     print("-------------DONE---------")
    }
-  }
+}
+
 
 ```
 
