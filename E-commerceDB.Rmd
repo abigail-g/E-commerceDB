@@ -178,17 +178,18 @@ Product_Discounts <- Product_Discounts %>%
 # Randomly assign a product ID, and order id (Order ID can repeat for at least 30 rows)
 set.seed(123)
 Order_Item <- Order_Item %>% 
-  mutate(Product_ID = sample(Products$Product_ID, nrow(Order_Item), replace = TRUE))
+  mutate(Product_ID = NA)
 
-# Use 70% of unique Order_IDs
-subset_product_ids <- sample(unique(Products$Product_ID), size = floor(0.7 * length(unique(Products$Product_ID))))
+# Assign first 150 unique Product_IDs to the first 150 rows
+Order_Item$Product_ID[1:150] <- sample(Products$Product_ID, size = 150, replace = FALSE)
 
-# Sample from this subset with replacement to fill Order_Item$Order_ID, so there will be some repetitive.
-Order_Item$Product_ID <- sample(subset_product_ids, nrow(Order_Item), replace = TRUE)
+# For the remaining 50 rows, randomly assign Product_IDs (allowing repeats)
+Order_Item$Product_ID[151:200] <- sample(Products$Product_ID, size = 50, replace = TRUE)
 
 # Joining Order_Item with Products to get the Price for each Product_ID
 Order_Item <- merge(Order_Item, Products[, c("Product_ID", "Product_Price")], by = "Product_ID", all.x = TRUE)
 
+Order_Item <- Order_Item %>% rename(Quantity = Order_Item)
 # Calculating Sum_Price as Price * Quantity
 Order_Item <- Order_Item %>%
   mutate(Sum_Price = Product_Price * Quantity)
@@ -198,21 +199,33 @@ Order_Item$Product_Price <- NULL
 ```
 
 ```{r}
+set.seed(123)
 Order_Item <- Order_Item %>%
-  mutate(Product_ID = sample(subset_product_ids, nrow(Order_Item), replace = TRUE))
+  mutate(Order_ID = NA)
 
-# Prepare a subset of Order_IDs to use
-subset_order_ids <- sample(unique(Order_details$Order_ID), size = floor(0.7 * length(unique(Order_details$Order_ID))))
+# Assign first 150 unique Order_IDs to the first 150 rows
+Order_Item$Order_ID[1:150] <- sample(Order_details$Order_ID, size = 150, replace = FALSE)
+
+# For the remaining 50 rows, randomly assign Product_IDs (allowing repeats)
+Order_Item$Order_ID[151:200] <- sample(Order_details$Order_ID, size = 50, replace = TRUE)
 
 # Initialize Order_ID in Order_Item as NA
 Order_Item$Order_ID <- NA
 
 # Function to assign unique Order_IDs avoiding duplicates for each Product_ID
-assign_unique_order_ids <- function(order_item, subset_order_ids) {
-  for (i in 1:nrow(order_item)) {
+assign_unique_order_ids_full_range <- function(order_item, order_details) {
+  # Get all unique Order_IDs from Order_Details
+  all_order_ids <- unique(order_details$Order_ID)
+  
+  # Iterate over each row in order_item
+  for (i in 151:nrow(order_item)) { # Assuming the first 150 are pre-assigned
     product_id <- order_item$Product_ID[i]
-    # Available Order_IDs not yet used with this Product_ID
-    available_order_ids <- setdiff(subset_order_ids, order_item$Order_ID[order_item$Product_ID == product_id])
+    
+    # Find Order_IDs used by the same Product_ID
+    used_order_ids <- order_item$Order_ID[order_item$Product_ID == product_id]
+    
+    # Available Order_IDs are those not yet used by this Product_ID
+    available_order_ids <- setdiff(all_order_ids, used_order_ids)
     
     if (length(available_order_ids) == 0) {
       stop("Ran out of unique Order_IDs to assign for Product_ID: ", product_id)
@@ -222,11 +235,11 @@ assign_unique_order_ids <- function(order_item, subset_order_ids) {
     order_item$Order_ID[i] <- sample(available_order_ids, 1)
   }
   
-  order_item
+  return(order_item)
 }
 
-# Apply the function to assign Order_IDs ensuring no Product_ID has duplicate Order_ID
-Order_Item <- assign_unique_order_ids(Order_Item, subset_order_ids)
+# To apply this function:
+Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
 
 ```
 # Part 1: Database Design and Implementation
