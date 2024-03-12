@@ -24,7 +24,7 @@ jobs:
     - name: Install packages
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        Rscript -e 'install.packages(c("ggplot2", "dplyr"), repos="https://cran.rstudio.com")'
+        Rscript -e 'install.packages(c("ggplot2", lib="/opt/R/4.3.2/lib/R/library", "dplyr"), repos="https://cran.rstudio.com")'
           
     - name: Execute Rmd file and generate PDF
       run: |
