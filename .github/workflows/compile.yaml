@@ -20,10 +20,6 @@ jobs:
         key: ${{ runner.os }}-R-${{ hashFiles('**/DESCRIPTION') }}
         restore-keys: |
           ${{ runner.os }}-R-
-          
-    - name: Install R packages
-      run: |
-        Rscript -e 'install.packages(c("ggplot2"), repos="https://cran.rstudio.com")'
         
     - name: Execute Rmd file and generate PDF
       run: |
