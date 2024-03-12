@@ -13,15 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Add files
-      run: git add .
-      
-    - name: Commit changes
-      run: |
-        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-        git config --global user.name "${{ github.actor }}"
-        git commit -m "${{ github.event.head_commit.message }}"
-      
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
