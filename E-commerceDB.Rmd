@@ -12,7 +12,7 @@ editor_options:
 # Load necessary libraries
 
 ```{r}
-
+library(DBI)
 library(knitr)
 library(kableExtra)
 library(RSQLite)
@@ -34,18 +34,22 @@ for (sql_command in sql_file) {
     dbExecute(con, sql_command)
     print("-------------DONE---------")
    }
-  }
+}
+
 
 
 ```
 
 
 ```{r}
+<<<<<<< HEAD
 
 
 ```
 =======
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+=======
+>>>>>>> 36eef8688a3764f49966d4c0ddb939bbd4070f55
 
 Customers <- read_csv("Files/Customers.csv")
 
@@ -68,7 +72,8 @@ Product_Discounts <- read_csv("Files/Product_Discounts.csv")
 Product_Category <- read_csv("Files/Product_Category.csv")
 
 
-Order_Items <- read_csv("Files/Order_Items.csv")
+Order_Item <- read_csv("Files/Order_Item.csv", 
+    skip = 1)
 
 ```
 
@@ -148,7 +153,9 @@ Products$Discount_Code[codes_to_assign] <- random_discounts
 set.seed(123)
 Reviews <- Reviews %>% 
   mutate(Product_ID = sample(Products$Product_ID, nrow(Reviews), replace = TRUE))
+```
 
+```{r}
 # Adding Cust_ID column for Order_details table. 
 set.seed(123)
 Order_details <- Order_details %>%
@@ -176,7 +183,72 @@ Product_Discounts <- Product_Discounts %>%
   left_join(discounted_cat, by = "Discount_Code")
 ```
 
+<<<<<<< HEAD
 >>>>>>> fefe05e713bcfd56b2ea8f240dff87db2e7d66e9
+=======
+```{r}
+# Order_Items, product_ID
+# Randomly assign a product ID, and order id (Order ID can repeat for at least 30 rows)
+set.seed(123)
+Order_Item <- Order_Item %>% 
+  mutate(Product_ID = NA)
+
+# Assign first 150 unique Product_IDs to the first 150 rows
+Order_Item$Product_ID[1:150] <- sample(Products$Product_ID, size = 150, replace = FALSE)
+
+# For the remaining 50 rows, randomly assign Product_IDs (allowing repeats)
+Order_Item$Product_ID[151:200] <- sample(Products$Product_ID, size = 50, replace = TRUE)
+
+# Joining Order_Item with Products to get the Price for each Product_ID
+Order_Item <- merge(Order_Item, Products[, c("Product_ID", "Product_Price")], by = "Product_ID", all.x = TRUE)
+
+Order_Item <- Order_Item %>% rename(Quantity = Order_Item)
+# Calculating Sum_Price as Price * Quantity
+Order_Item <- Order_Item %>%
+  mutate(Sum_Price = Product_Price * Quantity)
+
+# Remove the Product_Price column 
+Order_Item$Product_Price <- NULL
+```
+
+```{r}
+set.seed(123)
+Order_Item <- Order_Item %>%
+  mutate(Order_ID = NA)
+
+# Assign first 150 unique Order_IDs to the first 150 rows
+Order_Item$Order_ID[1:150] <- sample(Order_details$Order_ID, size = 150, replace = FALSE)
+
+# Function to assign unique Order_IDs avoiding duplicates for each Product_ID, it intended to assign unique order id to each row in order_item in a way that avoids assigning the same Order_ID to the same Product_ID more than once
+assign_unique_order_ids_full_range <- function(order_item, order_details) {
+  # Get all unique Order_IDs from Order_Details
+  all_order_ids <- unique(Order_details$Order_ID)
+  
+  # Iterate over each row in order_item
+  for (i in 151:nrow(Order_Item)) { # The first 150 are pre-assigned
+    product_id <- Order_Item$Product_ID[i]
+    
+    # Find Order_IDs used by the same Product_ID
+    used_order_ids <- Order_Item$Order_ID[Order_Item$Product_ID == product_id]
+    
+    # Available Order_IDs are those not yet used by this Product_ID
+    available_order_ids <- setdiff(all_order_ids, used_order_ids)
+    
+    if (length(available_order_ids) == 0) {
+      stop("Ran out of unique Order_IDs to assign for Product_ID: ", product_id)
+    }
+    
+    # Randomly select an available Order_ID for the Product_ID
+    Order_Item$Order_ID[i] <- sample(available_order_ids, 1)
+  }
+  
+  return(Order_Item)
+}
+
+# To apply this function:
+Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
+```
+>>>>>>> 36eef8688a3764f49966d4c0ddb939bbd4070f55
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
@@ -246,3 +318,64 @@ Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_St
 <!-- Many to Many relation Table of Supplier and Product SupplierProduct ($\underline{Supplier_id,Product_id}$) -->
 
 <!-- Many to Many relation Table of Order_details and Product ProductOrder_details ($\underline{Order_id, Product_id}$) -->
+
+
+```{r}
+# We need to rename and delete columns like building number, as it does not match or does not exist in the database 
+# Suppliers amendment 
+Suppliers$Supplier_Building_Number <- NULL
+Suppliers <- Suppliers %>% rename(Supplier_Zip = Supplier_Zip_Code)
+
+# Customers amendment 
+Customers <- Customers %>% rename(Cust_Zip = Cust_Zip_Code)
+Customers <- Customers %>% rename(Cust_Country_Code = Phone_Country_Code)
+Customers <- Customers %>% 
+  mutate(Cust_Name = paste(Cust_First_Name,Cust_Last_Name))
+Customers <- Customers %>% select(-Cust_First_Name, -Cust_Last_Name)
+
+# Order_details 
+# Don't have these in the database 
+Order_details$Billing_Building_Number <- NULL
+Order_details$Shipping_Building_Number <- NULL
+
+# table_exists <- dbExistsTable(con, "Reviews")
+# 
+# if (table_exists) {
+#   # If the table exists and want to append the data 
+#   dbWriteTable(conn = con, name = "Reviews", value = Reviews, append = TRUE, row.names = FALSE)
+# } else {
+#   # If table doesnt exist or if want to overwrite the existing table 
+#   dbWriteTable(conn = con, name = "Reviews", value = Reviews, overwrite = TRUE, row.names = FALSE)
+# }
+
+#This is one of the ways of doing it , havent do order_details pending for changes from abigail. 
+RSQLite::dbWriteTable(con, "Category", Product_Category, overwrite=TRUE)
+RSQLite::dbWriteTable(con, "Suppliers", Suppliers, overwrite=TRUE)
+RSQLite::dbWriteTable(con, "Discounts", Product_Discounts, overwrite=TRUE)
+RSQLite::dbWriteTable(con, "Products", Products, overwrite=TRUE)
+RSQLite::dbWriteTable(con, "Customers", Customers, overwrite=TRUE)
+RSQLite::dbWriteTable(con, "Reviews", Reviews, overwrite=TRUE) 
+RSQLite::dbWriteTable(con, "Order_Items", Order_Item, overwrite=TRUE)
+#RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
+```
+
+```{sql connection=con}
+
+SELECT *
+FROM Reviews
+
+```
+
+```{sql connection=con}
+SELECT *
+FROM Products 
+WHERE Supplier_ID = "S001"
+```
+
+
+
+
+```{r}
+
+# I want to create a for loop so we can do it one shot. Still trying to think through it. 
+```
