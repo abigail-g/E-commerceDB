@@ -29,13 +29,12 @@ con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 sql_file <- readLines("dbScript.sql")
 
 for (sql_command in sql_file) {
-   if (sql_command!=""){
+  if (sql_command!=""){
     print(sql_command)
-    dbExecute(con, sql_command)
+    dbExecute(con,sql_command)
     print("-------------DONE---------")
-   }
+  }
 }
-
 
 
 ```
