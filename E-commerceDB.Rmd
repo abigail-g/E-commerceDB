@@ -35,8 +35,6 @@ for (sql_command in sql_file) {
     print("-------------DONE---------")
   }
 }
-
-
 ```
 
 
@@ -177,9 +175,6 @@ Product_Discounts <- Product_Discounts %>%
   left_join(discounted_cat, by = "Discount_Code")
 ```
 
-<<<<<<< HEAD
->>>>>>> fefe05e713bcfd56b2ea8f240dff87db2e7d66e9
-=======
 ```{r}
 # Order_Items, product_ID
 # Randomly assign a product ID, and order id (Order ID can repeat for at least 30 rows)
@@ -242,7 +237,6 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
 # To apply this function:
 Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
 ```
->>>>>>> 36eef8688a3764f49966d4c0ddb939bbd4070f55
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
