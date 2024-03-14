@@ -2,10 +2,10 @@
 title: "E-commerceDB"
 author: "Group-8"
 date: "2024-02-27"
-output: 
-  pdf_document:
-  extra_dependencies: ["bbm", "threeparttable"]
-editor_options: 
+output:
+  html_document:
+    df_print: paged
+editor_options:
   chunk_output_type: inline
 ---
 
