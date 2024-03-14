@@ -6,7 +6,7 @@ on:
   push:
     branches: [ main ]
 jobs:
-  build:
+  render_document:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,9 +27,13 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           Rscript -e 'install.packages(c("ggplot2","dplyr", "readr", "RSQLite", "rmarkdown", "DBI", "stringr"))'
+      - name: Render document
+        uses: lc5415/rmarkdown-action@v1
+        with:
+          input_file: E-commerceDB.Rmd
+	        output_format: pdf_document
       - name: Execute R script
         run: |
-          Rscript -e 'rmarkdown::render("E-commerceDB.rmd")' 
           Rscript data_analysis.R
       - name: Add files
         run: |
