@@ -37,7 +37,7 @@ jobs:
         run: |
           git config --global user.email "abigailagracias@gmail.com"
           git config --global user.name "abigail-g"
-          git add --all figures/
+          git add --all
       - name: Commit files
         run: |
           git commit -m "Add_test"
