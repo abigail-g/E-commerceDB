@@ -1,7 +1,9 @@
 #the distribution of counts by order date
 library(ggplot2)
 
-#Order_details <- read_csv("Files/Order_Details.csv",skip = 1)
+#rmarkdown::render('E-commerceDB.Rmd')
+
+Order_details <- read_csv("Files/Order_Details.csv",skip = 1)
 
 # Create a histogram of Order Dates
 plot1 <- ggplot(Order_details, aes(x = Order_Date)) +
