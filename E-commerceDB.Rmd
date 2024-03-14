@@ -13,9 +13,6 @@ editor_options:
 
 ```{r}
 library(DBI)
-library(knitr)
-library(kableExtra)
-library(RSQLite)
 library(readr)
 library(RSQLite)
 library(dplyr)

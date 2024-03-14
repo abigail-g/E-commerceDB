@@ -26,9 +26,10 @@ jobs:
       - name: Install packages
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          Rscript -e 'install.packages(c("ggplot2","dplyr", "readr", "RSQLite"))'
+          Rscript -e 'install.packages(c("ggplot2","dplyr", "readr", "RSQLite", "rmarkdown", "DBI", "stringr"))'
       - name: Execute R script
         run: |
+          Rscript -e 'rmarkdown::render("E-commerceDB.rmd")' 
           Rscript data_analysis.R
       - name: Add files
         run: |
