@@ -1,5 +1,6 @@
 #the distribution of counts by order date
 library(ggplot2)
+library(readr)
 
 #rmarkdown::render('E-commerceDB.Rmd')
 
