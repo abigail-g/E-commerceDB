@@ -21,6 +21,7 @@ library(stringr)
 ```{r}
 
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+# on.exit(dbDisconnect(con), add = TRUE)
 
 sql_file <- readLines("dbScript.sql")
 
@@ -31,6 +32,9 @@ for (sql_command in sql_file) {
     print("-------------DONE---------")
   }
 }
+
+# Disconnect
+dbDisconnect(con)
 ```
 
 ```{r}
@@ -231,17 +235,18 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
   return(Order_Item)
 }
 
-<!-- # To apply this function: -->
+# To apply this function: 
 Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
+
+# Disconnect
+# dbDisconnect(con)
 ```
-
-
-
+---
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
 
-![ERD](ERD.svg "Entity Relationship Diagram")
+<!-- ![ERD](ERD.jpg "Entity Relationship Diagram") -->
 
 The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
 
@@ -292,7 +297,7 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 ##   Absence of an Order Entity:
 
--   The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.
+- The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.
 
 -   Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval.
 
@@ -313,46 +318,49 @@ Associative attributes: (Quantity: The number of units of the product ordered in
 This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfilment process.
 
 3. Product Belongs to Category
+
 Each Product is classified under a specific Category where products can belong to multiple categories e.g., a product that fits into both "Electronics" and "Gadgets". This enabling customer to browse products by categories, and helping retailers to manage product listings more efficiently.
 
 4. Category Self-Reference Relation 
+
 A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, the "Phones" category might have "Apple” and "Samsung" as subcategories, which in turn could have their own subcategories of different phone models.
 
 5. Product Supplied_By Supplier
+
 The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
 6. Product Qualifies_For Discount
+
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
 
 7. Customer Writes a Review
+
 A customer generates or provides reviews that reflect the action of providing feedback or evaluation for a product or service to improve product offerings and customer service. One customer can write or submit multiple reviews for different products or services over time. However, each review is uniquely associated with one customer.
 
 
-## Logical Schema
+<!-- ## Logical Schema -->
 
-Customers ($\underline{Customer_id}$, Customer_Email, Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+<!-- Customers ($\underline{Customer}$_id, Customer_Email, Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code) -->
 
-Products ($\underline{Product_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
+<!-- Products ($\underline{Product_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability) -->
 
-Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_Zip_Code)
+<!-- Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_Zip_Code) -->
 
-Order_Details ($\underline{Order_id}$, *Customer_id*, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status)
+<!-- Order_Details ($\underline{Order_id}$, *Customer_id*, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status) -->
 
-Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount)
+<!-- Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount) -->
 
-Reviews ($\underline{Review_id}$, *Product_id*, Review_Rating, Review_Timestamp, Review_Text, Review_Likes)
+<!-- Reviews ($\underline{Review_id}$, *Product_id*, Review_Rating, Review_Timestamp, Review_Text, Review_Likes) -->
 
-Categories ($\underline{Category_id}$, Category_Name)
+<!-- Categories ($\underline{Category_id}$, Category_Name) -->
 
-Order_Items (${\textit{Order_id}}$, *Customer_id*, *Product_id*, Quantity, Unit_Price)
+<!-- SupplierProduct ($\underline{Supplier_id, Product_id}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements) -->
 
-SupplierProduct ($\underline{Supplier_id, Product_id}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements)
+<!-- Many to Many relation of Supplier and Product  -->
+<!-- SupplierProduct ($\underline{Supplier_id,Product_id}$) -->
 
-Many to Many relation of Supplier and Product 
-SupplierProduct ($\underline{Supplier_id,Product_id}$)
-
-Many to Many relation of Order_details and Product 
-ProductOrder_details ($\underline{Order_id, Product_id}$, Quantity, Unit_Price)
+<!-- Many to Many relation of Order_details and Product  -->
+<!-- ProductOrder_details ($\underline{Order_id, Product_id}$, Quantity, Unit_Price) -->
 
 
 # Part 2: Data Generation and Management
