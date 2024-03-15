@@ -241,6 +241,8 @@ Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
 
 ## 1.1 Entity Relationship Diagram
 
+![ERD](ERD.svg "Entity Relationship Diagram")
+
 The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
 
 ### 1.1.1.Assumptions
@@ -253,15 +255,23 @@ The E-R diagram above simulates a real-world e-commerce data ecosystem, capturin
 
 ### 1.1.2. Entities and Attributes
 
-This section describes and illustrates the entities and their respective attributes of the ER diagram above.
+This section describes and illustrates the entities in the above ERD and their respective attributes.
 
--   1.1.2.1. Customer shows us the users who previously have at least once purchased products and placed an order.
+#### 1.1.2.1. Customer 
 
--   1.1.2.2. Supplier Vendors who provide products. Represent the source of the product items.
+Shows us the users who previously have at least once purchased products and placed an order including information about their names , emails, and addresses.
 
--   1.1.2.3 Product Information about the model and price of the products as well as the availability of it.
+#### 1.1.2.2. Supplier 
 
--   1.1.2.4 Order_details Contain information of orders including billing and shipping address, order and payment status, as well as order date and payment type.
+Vendors who provide products. Represent the source of the product items.
+
+#### 1.1.2.3 Product 
+
+Describes all products in the stock and available for sale. Provides information about the model, price, and availability of the products.
+
+####   1.1.2.4 Order_details
+
+Emphasises all details related to placed orders including billing, shipping address, order, payment status, order date, and payment type.
 
 -   1.1.2.5 Product_Category Category of products offered by the e-commerce website.
 
