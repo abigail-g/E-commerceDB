@@ -14,6 +14,10 @@ Order_details <- read_csv("Files/Order_Details.csv",
                           skip = 1)
 Order_Item <- read_csv("Files/Order_Item.csv", 
                        skip = 1)
+# Clean the data so it can match the database
+Suppliers$Supplier_Building_Number <- NULL
+Order_details$Billing_Building_Number <- NULL
+Order_details$Shipping_Building_Number <- NULL
 
 #Category
 csv_count_category <- nrow(Product_Category)
@@ -188,3 +192,4 @@ Order_Item$Product_Price <- NULL
 
 # Close the database connection
 dbDisconnect(con)
+
