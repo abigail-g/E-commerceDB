@@ -41,11 +41,6 @@ for (sql_command in sql_file) {
 ```
 
 
-```{r}
-<<<<<<< HEAD
-
-
-```
 =======
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 =======
@@ -183,9 +178,6 @@ Product_Discounts <- Product_Discounts %>%
   left_join(discounted_cat, by = "Discount_Code")
 ```
 
-<<<<<<< HEAD
->>>>>>> fefe05e713bcfd56b2ea8f240dff87db2e7d66e9
-=======
 ```{r}
 # Order_Items, product_ID
 # Randomly assign a product ID, and order id (Order ID can repeat for at least 30 rows)
@@ -248,7 +240,9 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
 # To apply this function:
 Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
 ```
->>>>>>> 36eef8688a3764f49966d4c0ddb939bbd4070f55
+
+
+---
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
@@ -303,21 +297,21 @@ Products ($\underline{Product_id}$, *Discount_Code*, *Category_id*, Product_Name
 
 Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_Zip_Code)
 
-<!-- Order_Details ($\underline{Order_id}$, ${\textit{Customer_id}}$, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status) -->
+Order_Details ($\underline{Order_id}$, ${\textit{Customer_id}}$, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status) 
 
-<!-- Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount) -->
+Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount) 
 
-<!-- Reviews ($\underline{Review_id}$, ${\textit{Product_id}}$, Review_Rating, Review_Timestamp, Review_Text, Review_Likes) -->
+Reviews ($\underline{Review_id}$, ${\textit{Product_id}}$, Review_Rating, Review_Timestamp, Review_Text, Review_Likes) 
 
-<!-- Categories ($\underline{Category_id}$, Category_Name) -->
+Categories ($\underline{Category_id}$, Category_Name) 
 
-<!-- Order_Items (${\textit{Order_id}}$, ${\textit{Customer_id}}$, ${\textit{Product_id}}$, Quantity, Unit_Price) -->
+Order_Items (${\textit{Order_id}}$, ${\textit{Customer_id}}$, ${\textit{Product_id}}$, Quantity, Unit_Price) 
 
-<!-- Supplied_Items ($\textit{Supplier_id}$, ${\textit{Product_id}}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements) -->
+Supplied_Items ($\textit{Supplier_id}$, ${\textit{Product_id}}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements) 
 
-<!-- Many to Many relation Table of Supplier and Product SupplierProduct ($\underline{Supplier_id,Product_id}$) -->
+Many to Many relation Table of Supplier and Product SupplierProduct ($\underline{Supplier_id,Product_id}$) 
 
-<!-- Many to Many relation Table of Order_details and Product ProductOrder_details ($\underline{Order_id, Product_id}$) -->
+Many to Many relation Table of Order_details and Product ProductOrder_details ($\underline{Order_id, Product_id}$) 
 
 
 ```{r}
