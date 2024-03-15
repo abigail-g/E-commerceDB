@@ -332,19 +332,41 @@ RSQLite::dbWriteTable(con, "Order_Items", Order_Item, overwrite=TRUE)
 RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
 ```
 
+### Count the number of reviews for each rating level
 ```{sql connection=con}
 
-SELECT *
+SELECT Product_Rating, COUNT(Product_Rating) AS Product_Rating_Count
 FROM Reviews
+GROUP BY Product_Rating;
 
 ```
 
+### Display all products supplied by S001 (i.e. Apple) in descending price
 ```{sql connection=con}
+
 SELECT *
 FROM Products 
 WHERE Supplier_ID = "S001"
+ORDER BY Product_Price DESC;
+
 ```
 
+<<<<<<< HEAD
+=======
+### Top 5 Orders with the highest total value after discount
+```{sql connection=con}
+
+SELECT a.Order_ID, a.Quantity, a.Sum_Price, b.Discount_Amount, ROUND(a.Quantity * a.Sum_Price - b.Discount_Amount) AS Total_Value
+FROM Order_Items a, Discounts b
+WHERE a.Product_ID = b.Product_ID
+ORDER BY Total_Value DESC
+LIMIT 5;
+
+```
+
+
+
+>>>>>>> 96fcad5708fdb65f1064084b247f679829ce7186
 ```{r}
 
 # I want to create a for loop so we can do it one shot. Still trying to think through it. 
