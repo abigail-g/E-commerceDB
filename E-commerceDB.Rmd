@@ -2,10 +2,9 @@
 title: "E-commerceDB"
 author: "Group-8"
 date: "2024-02-27"
-output: 
-  pdf_document:
-  extra_dependencies: ["bbm", "threeparttable"]
-editor_options: 
+output:
+  pdf_document: default
+editor_options:
   chunk_output_type: inline
 ---
 
@@ -13,9 +12,6 @@ editor_options:
 
 ```{r}
 library(DBI)
-library(knitr)
-library(kableExtra)
-library(RSQLite)
 library(readr)
 library(RSQLite)
 library(dplyr)
@@ -29,20 +25,20 @@ con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 sql_file <- readLines("dbScript.sql")
 
 for (sql_command in sql_file) {
-   if (sql_command!=""){
+  if (sql_command!=""){
     print(sql_command)
-    dbExecute(con, sql_command)
+    dbExecute(con,sql_command)
     print("-------------DONE---------")
-   }
+  }
 }
-
-
-
 ```
 
 ```{r}
 
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
+# con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
 
 Customers <- read_csv("Files/Customers.csv")
 
@@ -239,11 +235,11 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
 Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
 ```
 
+
+
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
-
--   Here Insert ERD \*
 
 The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
 
@@ -318,24 +314,12 @@ Suppliers <- Suppliers %>% rename(Supplier_Zip = Supplier_Zip_Code)
 # Customers amendment 
 Customers <- Customers %>% rename(Cust_Zip = Cust_Zip_Code)
 Customers <- Customers %>% rename(Cust_Country_Code = Phone_Country_Code)
-Customers <- Customers %>% 
-  mutate(Cust_Name = paste(Cust_First_Name,Cust_Last_Name))
-Customers <- Customers %>% select(-Cust_First_Name, -Cust_Last_Name)
+
 
 # Order_details 
 # Don't have these in the database 
 Order_details$Billing_Building_Number <- NULL
 Order_details$Shipping_Building_Number <- NULL
-
-# table_exists <- dbExistsTable(con, "Reviews")
-# 
-# if (table_exists) {
-#   # If the table exists and want to append the data 
-#   dbWriteTable(conn = con, name = "Reviews", value = Reviews, append = TRUE, row.names = FALSE)
-# } else {
-#   # If table doesnt exist or if want to overwrite the existing table 
-#   dbWriteTable(conn = con, name = "Reviews", value = Reviews, overwrite = TRUE, row.names = FALSE)
-# }
 
 #This is one of the ways of doing it , havent do order_details pending for changes from abigail. 
 RSQLite::dbWriteTable(con, "Category", Product_Category, overwrite=TRUE)
@@ -345,7 +329,7 @@ RSQLite::dbWriteTable(con, "Products", Products, overwrite=TRUE)
 RSQLite::dbWriteTable(con, "Customers", Customers, overwrite=TRUE)
 RSQLite::dbWriteTable(con, "Reviews", Reviews, overwrite=TRUE) 
 RSQLite::dbWriteTable(con, "Order_Items", Order_Item, overwrite=TRUE)
-#RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
+RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
 ```
 
 ```{sql connection=con}
