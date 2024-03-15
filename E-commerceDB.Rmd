@@ -40,11 +40,9 @@ for (sql_command in sql_file) {
 
 ```
 
+```{r}
 
-=======
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-=======
->>>>>>> 36eef8688a3764f49966d4c0ddb939bbd4070f55
 
 Customers <- read_csv("Files/Customers.csv")
 
@@ -237,12 +235,10 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
   return(Order_Item)
 }
 
-# To apply this function:
+<!-- # To apply this function: -->
 Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
 ```
 
-
----
 # Part 1: Database Design and Implementation
 
 ## 1.1 Entity Relationship Diagram
@@ -265,17 +261,17 @@ This section describes and illustrates the entities and their respective attribu
 
 -   1.1.2.1. Customer shows us the users who previously have at least once purchased products and placed an order.
 
--   1.1.2.2. Supplier Vendors who provide products. Represent the source of the product items. 
+-   1.1.2.2. Supplier Vendors who provide products. Represent the source of the product items.
 
--   1.1.2.3 Product Information about the model and price of the products as well as the availability of it. 
+-   1.1.2.3 Product Information about the model and price of the products as well as the availability of it.
 
--   1.1.2.4 Order_details Contain information of orders including billing and shipping address, order and payment status, as well as order date and payment type. 
+-   1.1.2.4 Order_details Contain information of orders including billing and shipping address, order and payment status, as well as order date and payment type.
 
--   1.1.2.5 Product_Category Category of products offered by the e-commerce website. 
+-   1.1.2.5 Product_Category Category of products offered by the e-commerce website.
 
--   1.1.2.6 Product_Discounts Discount code that could be applied and the amount of discount it offers as well as the status of the discount. 
+-   1.1.2.6 Product_Discounts Discount code that could be applied and the amount of discount it offers as well as the status of the discount.
 
--   1.1.2.7 Reviews contain information of the reviews including text and rating on product and the likes of the top reviews as well as the time stamp of when the review was made. 
+-   1.1.2.7 Reviews contain information of the reviews including text and rating on product and the likes of the top reviews as well as the time stamp of when the review was made.
 
 # Design Considerations
 
@@ -297,22 +293,21 @@ Products ($\underline{Product_id}$, *Discount_Code*, *Category_id*, Product_Name
 
 Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_Zip_Code)
 
-Order_Details ($\underline{Order_id}$, ${\textit{Customer_id}}$, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status) 
+Order_Details ($\underline{Order_id}$, ${\textit{Customer_id}}$, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status)
 
-Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount) 
+Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount)
 
-Reviews ($\underline{Review_id}$, ${\textit{Product_id}}$, Review_Rating, Review_Timestamp, Review_Text, Review_Likes) 
+Reviews ($\underline{Review_id}$, ${\textit{Product_id}}$, Review_Rating, Review_Timestamp, Review_Text, Review_Likes)
 
-Categories ($\underline{Category_id}$, Category_Name) 
+Categories ($\underline{Category_id}$, Category_Name)
 
-Order_Items (${\textit{Order_id}}$, ${\textit{Customer_id}}$, ${\textit{Product_id}}$, Quantity, Unit_Price) 
+Order_Items (${\textit{Order_id}}$, ${\textit{Customer_id}}$, ${\textit{Product_id}}$, Quantity, Unit_Price)
 
-Supplied_Items ($\textit{Supplier_id}$, ${\textit{Product_id}}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements) 
+Supplied_Items ($\textit{Supplier_id}$, ${\textit{Product_id}}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements)
 
-Many to Many relation Table of Supplier and Product SupplierProduct ($\underline{Supplier_id,Product_id}$) 
+Many to Many relation Table of Supplier and Product SupplierProduct ($\underline{Supplier_id,Product_id}$)
 
-Many to Many relation Table of Order_details and Product ProductOrder_details ($\underline{Order_id, Product_id}$) 
-
+Many to Many relation Table of Order_details and Product ProductOrder_details ($\underline{Order_id, Product_id}$)
 
 ```{r}
 # We need to rename and delete columns like building number, as it does not match or does not exist in the database 
@@ -365,9 +360,6 @@ SELECT *
 FROM Products 
 WHERE Supplier_ID = "S001"
 ```
-
-
-
 
 ```{r}
 
