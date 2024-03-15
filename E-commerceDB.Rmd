@@ -269,19 +269,28 @@ Vendors who provide products. Represent the source of the product items.
 
 Describes all products in the stock and available for sale. Provides information about the model, price, and availability of the products.
 
-####   1.1.2.4 Order_details
+####   1.1.2.4 Order_Details
 
 Emphasises all details related to placed orders including billing, shipping address, order, payment status, order date, and payment type.
 
--   1.1.2.5 Product_Category Category of products offered by the e-commerce website.
+####   1.1.2.5  Category and Sub-Category
 
--   1.1.2.6 Product_Discounts Discount code that could be applied and the amount of discount it offers as well as the status of the discount.
+Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. 
 
--   1.1.2.7 Reviews contain information of the reviews including text and rating on product and the likes of the top reviews as well as the time stamp of when the review was made.
+Sub-categories fall under a primary category and help to further organize products into narrower groups, making the product search process even more straightforward for customers.
+
+
+####   1.1.2.6 Product_Discounts 
+
+The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.
+
+####   1.1.2.7 Reviews 
+
+Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
 
 # Design Considerations
 
--   Absence of an Order Entity:
+##   Absence of an Order Entity:
 
 -   The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.
 
@@ -290,6 +299,34 @@ Emphasises all details related to placed orders including billing, shipping addr
 -   Customer Engagement: By including Reviews, the model emphasizes customer engagement and feedback without directly managing transactions.
 
 -   Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.
+
+# 1.1.3. Relationship and Cardinalities 
+
+1. Customer Orders Products
+
+A Customer initiates an Order when they purchase products or services. It is considered for customer management, processing transactions, and tracking order history. One customer can place multiple orders over time, each uniquely associated with one customer.
+
+Associative attributes: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
+
+2. Customer Has Order Status
+
+This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfilment process.
+
+3. Product Belongs to Category
+Each Product is classified under a specific Category where products can belong to multiple categories e.g., a product that fits into both "Electronics" and "Gadgets". This enabling customer to browse products by categories, and helping retailers to manage product listings more efficiently.
+
+4. Category Self-Reference Relation 
+A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, the "Phones" category might have "Apple” and "Samsung" as subcategories, which in turn could have their own subcategories of different phone models.
+
+5. Product Supplied_By Supplier
+The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
+
+6. Product Qualifies_For Discount
+The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
+
+7. Customer Writes a Review
+A customer generates or provides reviews that reflect the action of providing feedback or evaluation for a product or service to improve product offerings and customer service. One customer can write or submit multiple reviews for different products or services over time. However, each review is uniquely associated with one customer.
+
 
 ## Logical Schema
 
@@ -314,6 +351,22 @@ Supplied_Items ($\textit{Supplier_id}$, ${\textit{Product_id}}$, Supply_Contract
 Many to Many relation Table of Supplier and Product SupplierProduct ($\underline{Supplier_id,Product_id}$)
 
 Many to Many relation Table of Order_details and Product ProductOrder_details ($\underline{Order_id, Product_id}$)
+
+# Part 2: Data Generation and Management
+
+## Synthetic Data Generation 
+
+After the agreement on the schema mentioned in the previous section, the team started to generate synthetic data that to some extent, imitated realistic e-commerce as much as possible.
+
+ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. 
+
+## Data Import and Quality Assurance
+
+The process was done manually to the very few cells that still don’t make any sense related to e commerce, or it was left blank and AI tools missed to produce. 
+
+
+# Part 3: Data Pipeline Generation
+
 
 ```{r}
 # We need to rename and delete columns like building number, as it does not match or does not exist in the database 
