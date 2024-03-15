@@ -417,8 +417,7 @@ ORDER BY Product_Price DESC;
 
 ```
 
-<<<<<<< HEAD
-=======
+
 ### Top 5 Orders with the highest total value after discount
 ```{sql connection=con}
 
@@ -428,12 +427,4 @@ WHERE a.Product_ID = b.Product_ID
 ORDER BY Total_Value DESC
 LIMIT 5;
 
-```
-
-
-
->>>>>>> 96fcad5708fdb65f1064084b247f679829ce7186
-```{r}
-
-# I want to create a for loop so we can do it one shot. Still trying to think through it. 
 ```
