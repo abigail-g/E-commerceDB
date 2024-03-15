@@ -554,6 +554,12 @@ Implementation}\label{part-1-database-design-and-implementation}}
 \subsection{1.1 Entity Relationship
 Diagram}\label{entity-relationship-diagram}}
 
+\begin{figure}
+\centering
+\includegraphics{ERD.jpg}
+\caption{ERD}
+\end{figure}
+
 The E-R diagram above simulates a real-world e-commerce data ecosystem,
 capturing the detailed relationships between entities and attributes
 essential for facilitating online transactions. In addition, it provides
@@ -768,6 +774,44 @@ providing feedback or evaluation for a product or service to improve
 product offerings and customer service. One customer can write or submit
 multiple reviews for different products or services over time. However,
 each review is uniquely associated with one customer.
+
+\hypertarget{logical-schema}{%
+\subsection{Logical Schema}\label{logical-schema}}
+
+Customers (\(\underline{Customer_id}\), Customer\_Email, Cust\_F\_Name,
+Cust\_L\_Name, Phone\_Country\_Code, Phone\_Num, Cust\_Street\_Name,
+Cust\_Building\_Name, Cust\_Zip\_Code)
+
+Products (\(\underline{Product_id}\), \emph{Discount\_Code},
+\emph{Category\_id}, Product\_Name, Product\_Price,
+Product\_Availability)
+
+Suppliers (\(\underline{Supplier_id}\), Supplier\_Email, Supplier\_Name,
+Supplier\_Status, Sup\_Building\_Name, Sup\_Street\_Name,
+Sup\_Zip\_Code)
+
+Order\_Details (\(\underline{Order_id}\), \emph{Customer\_id},
+Order\_Date, Order\_Total, Order\_Status, S\_Building\_Name,
+S\_Street\_Name, S\_Zip\_Code, Street\_Name, B\_Building\_Name,
+B\_Street\_Name, B\_Zip\_Code, Payment\_Type, Payment\_Status)
+
+Discounts (\(\underline{Discount_Code}\), Discount\_Status,
+Discount\_Amount)
+
+Reviews (\(\underline{Review_id}\), \emph{Product\_id}, Review\_Rating,
+Review\_Timestamp, Review\_Text, Review\_Likes)
+
+Categories (\(\underline{Category_id}\), Category\_Name)
+
+SupplierProduct (\(\underline{Supplier_id, Product_id}\),
+Supply\_Contracts, Delivery\_Terms, Pricing\_Agreements)
+
+Many to Many relation of Supplier and Product SupplierProduct
+(\(\underline{Supplier_id,Product_id}\))
+
+Many to Many relation of Order\_details and Product
+ProductOrder\_details (\(\underline{Order_id, Product_id}\), Quantity,
+Unit\_Price)
 
 \hypertarget{part-2-data-generation-and-management}{%
 \section{Part 2: Data Generation and

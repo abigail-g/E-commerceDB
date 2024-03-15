@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.15)  15 MAR 2024 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.15)  15 MAR 2024 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -616,81 +616,99 @@ Underfull \vbox (badness 10000) detected at line 434
 Underfull \vbox (badness 10000) detected at line 502
  []
 
-[5] [6]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 569.
+[5]
+<ERD.jpg, id=35, 2173.11874pt x 2292.565pt>
+File: ERD.jpg Graphic file (type jpg)
+<use ERD.jpg>
+Package pdftex.def Info: ERD.jpg  used on input line 559.
+(pdftex.def)             Requested size: 469.73152pt x 495.55048pt.
+[6]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 575.
 (/cloud/home/r2278481/.TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [7] [8] [9]
-Overfull \hbox (12.22752pt too wide) in paragraph at lines 887--888
+) [7] [8 <./ERD.jpg>]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 781.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 781.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 781.
+[9]
+Underfull \hbox (badness 5832) in paragraph at lines 789--792
+[]\T1/lmr/m/n/10 (+20) Suppliers ($[]$, Sup-plier_Email, Sup-plier_Name, Sup-plier_Status, Sup_Building_Name,
+ []
+
+[10{/cloud/home/r2278481/.TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}]
+Overfull \hbox (12.22752pt too wide) in paragraph at lines 931--932
 []\T1/lmr/m/n/10 (-20) Product_ID  
  []
 
 
-Overfull \hbox (12.00659pt too wide) in paragraph at lines 891--892
+Overfull \hbox (12.00659pt too wide) in paragraph at lines 935--936
  []\T1/lmr/m/n/10 (-20) Product_Price
  []
 
 
-Overfull \hbox (12.05708pt too wide) in paragraph at lines 893--894
+Overfull \hbox (12.05708pt too wide) in paragraph at lines 937--938
 []\T1/lmr/m/n/10 (-20) Product_Availability  
  []
 
 
-Overfull \hbox (12.7393pt too wide) in paragraph at lines 895--896
+Overfull \hbox (12.7393pt too wide) in paragraph at lines 939--940
 []\T1/lmr/m/n/10 (-20) Category_ID  
  []
 
 
-Overfull \hbox (9.20003pt too wide) in paragraph at lines 897--898
+Overfull \hbox (9.20003pt too wide) in paragraph at lines 941--942
 []\T1/lmr/m/n/10 (-20) Supplier_ID  
  []
 
 
-Overfull \hbox (15.1315pt too wide) in paragraph at lines 899--900
+Overfull \hbox (15.1315pt too wide) in paragraph at lines 943--944
 []\T1/lmr/m/n/10 (-20) Discount_Code  
  []
 
 
-Overfull \hbox (12.22752pt too wide) in paragraph at lines 905--906
+Overfull \hbox (12.22752pt too wide) in paragraph at lines 949--950
 []\T1/lmr/m/n/10 (-20) Product_ID  
  []
 
 
-Overfull \hbox (12.00659pt too wide) in paragraph at lines 909--910
+Overfull \hbox (12.00659pt too wide) in paragraph at lines 953--954
  []\T1/lmr/m/n/10 (-20) Product_Price
  []
 
 
-Overfull \hbox (12.05708pt too wide) in paragraph at lines 911--912
+Overfull \hbox (12.05708pt too wide) in paragraph at lines 955--956
 []\T1/lmr/m/n/10 (-20) Product_Availability  
  []
 
 
-Overfull \hbox (12.7393pt too wide) in paragraph at lines 913--914
+Overfull \hbox (12.7393pt too wide) in paragraph at lines 957--958
 []\T1/lmr/m/n/10 (-20) Category_ID  
  []
 
 
-Overfull \hbox (9.20003pt too wide) in paragraph at lines 915--916
+Overfull \hbox (9.20003pt too wide) in paragraph at lines 959--960
 []\T1/lmr/m/n/10 (-20) Supplier_ID  
  []
 
 
-Overfull \hbox (15.1315pt too wide) in paragraph at lines 917--918
+Overfull \hbox (15.1315pt too wide) in paragraph at lines 961--962
 []\T1/lmr/m/n/10 (-20) Discount_Code  
  []
 
 
-Overfull \hbox (10.72122pt too wide) in paragraph at lines 926--927
+Overfull \hbox (10.72122pt too wide) in paragraph at lines 970--971
 []|\T1/lmr/m/n/10 (-20) DISCOUNT11|  
  []
 
 
-Overfull \hbox (10.72122pt too wide) in paragraph at lines 928--929
+Overfull \hbox (10.72122pt too wide) in paragraph at lines 972--973
 []|\T1/lmr/m/n/10 (-20) DISCOUNT16|  
  []
 
-[10]
+[11]
 
 ! LaTeX Error: Too deeply nested.
 
@@ -698,14 +716,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.987 \begin{quote}
-                    
+l.1031 \begin{quote}
+                     
 Here is how much of TeX's memory you used:
- 13962 strings out of 476044
- 220757 string characters out of 5791026
- 1951493 words of memory out of 5000000
- 35726 multiletter control sequences out of 15000+600000
- 597723 words of font info for 109 fonts, out of 8000000 for 9000
+ 14042 strings out of 476044
+ 221816 string characters out of 5791026
+ 1950493 words of memory out of 5000000
+ 35775 multiletter control sequences out of 15000+600000
+ 614940 words of font info for 135 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,7n,93p,1009b,651s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
