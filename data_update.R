@@ -1,7 +1,12 @@
 #Functions to be performed:
 
 # 1. this script will read the csv data 
+library(DBI)
 library(readr)
+library(RSQLite)
+library(dplyr)
+library(stringr)
+
 # Run all the csv first 
 Product_Category <- read_csv("Files/Product_Category.csv")
 Suppliers <- read_csv("Files/Suppliers.csv")
