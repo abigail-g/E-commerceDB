@@ -178,7 +178,6 @@ Product_Discounts <- Product_Discounts %>%
 
 ```{r}
 # Order_Items, product_ID
-# Randomly assign a product ID, and order id (Order ID can repeat for at least 30 rows)
 set.seed(123)
 Order_Item <- Order_Item %>% 
   mutate(Product_ID = NA)
@@ -399,8 +398,8 @@ Order_details$Shipping_Building_Number <- NULL
 RSQLite::dbWriteTable(con, "Category", Product_Category, overwrite=TRUE)
 RSQLite::dbWriteTable(con, "Suppliers", Suppliers, overwrite=TRUE)
 RSQLite::dbWriteTable(con, "Discounts", Product_Discounts, overwrite=TRUE)
-RSQLite::dbWriteTable(con, "Products", Products, overwrite=TRUE)
-RSQLite::dbWriteTable(con, "Customers", Customers, overwrite=TRUE)
+
+
 RSQLite::dbWriteTable(con, "Reviews", Reviews, overwrite=TRUE) 
 RSQLite::dbWriteTable(con, "Order_Items", Order_Item, overwrite=TRUE)
 RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
@@ -425,8 +424,11 @@ ORDER BY Product_Price DESC;
 
 ```
 
-<<<<<<< HEAD
+
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 ### Top 5 Orders with the highest total value after discount
 ```{sql connection=con}
 
@@ -437,11 +439,9 @@ ORDER BY Total_Value DESC
 LIMIT 5;
 
 ```
+<<<<<<< Updated upstream
+=======
 
 
 
->>>>>>> 96fcad5708fdb65f1064084b247f679829ce7186
-```{r}
-
-# I want to create a for loop so we can do it one shot. Still trying to think through it. 
-```
+>>>>>>> Stashed changes
