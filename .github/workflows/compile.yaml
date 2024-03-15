@@ -28,9 +28,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           Rscript -e 'install.packages(c("ggplot2","dplyr", "readr", "RSQLite", "rmarkdown", "DBI", "stringr"))'
-#      - name: Render document to pdf
-#        run: Rscript -e 'rmarkdown::render("E-commerceDB.Rmd", output_format = "pdf_document")'
-      - name: Execute R script
+      - name: Execute data_update R script
+        run: |
+          Rscript data_update.R
+      - name: Execute data_analysis R script
         run: |
           Rscript data_analysis.R
       - name: Add files
