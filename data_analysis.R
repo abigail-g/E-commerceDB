@@ -31,7 +31,7 @@ plot1 <- ggplot(product_rating_count, aes(x = Product_Rating, y = Product_Rating
         axis.text.x = element_text(angle = 45, hjust = 1)) # Improve the axis label display
 
 # Save the chart with a modified background color
-ggsave(plot = plot1, filename = "product_rating_by_category.jpeg", width = 10, height = 8, dpi = 300)
+ggsave(plot = plot1, filename = "Images/product_rating_by_category.jpeg", width = 10, height = 8, dpi = 300)
 
 
 
@@ -77,7 +77,7 @@ plot2 <- ggplot(top_5_products_revenue, aes(x = Product_Name, y = Total_Revenue,
         axis.line = element_line(colour = "black"))  # Add axis lines for definition
 
 # Save the plot to a file with high resolution
-ggsave("top_5_products_revenue.png", plot = plot2, width = 8, height = 6, dpi = 300)
+ggsave("Images/top_5_products_revenue.png", plot = plot2, width = 8, height = 6, dpi = 300)
 
 
 
@@ -99,15 +99,15 @@ plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count, fil
   theme(axis.text.x = element_text(angle = 65, hjust = 1))
 
 
-ggsave(filename = "Cust_Country_Code_Distribution.png", plot = plot3, width = 10, height = 6, dpi = 300)
+ggsave(filename = "Images/Cust_Country_Code_Distribution.png", plot = plot3, width = 10, height = 6, dpi = 300)
 
 
 
 
 
-SELECT strftime('%Y-%m', Order_Date) AS Order_Month, Order_Status, COUNT(*) AS Count
-FROM Order_Details
-GROUP BY Order_Month, Order_Status;
+# SELECT strftime('%Y-%m', Order_Date) AS Order_Month, Order_Status, COUNT(*) AS Count
+# FROM Order_Details
+# GROUP BY Order_Month, Order_Status;
 
 
 order_status<- dbGetQuery(con, 'SELECT Order_Status, COUNT(*) AS Count
@@ -125,7 +125,7 @@ plot4 <- ggplot(order_status, aes(x = Order_Status, y = Count)) +
   coord_flip() # 
 
 
-ggsave("order_status_distribution.png", plot = plot4, width = 10, height = 6, dpi = 300)
+ggsave("Images/order_status_distribution.png", plot = plot4, width = 10, height = 6, dpi = 300)
 
 
 
