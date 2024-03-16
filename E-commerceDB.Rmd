@@ -406,14 +406,6 @@ The process was done manually to the very few cells that still don’t make any 
 # RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
 ```
 
-### Count the number of reviews for each rating level
-```{sql connection=con}
-
-SELECT Product_Rating, COUNT(Product_Rating) AS Product_Rating_Count
-FROM Reviews
-GROUP BY Product_Rating;
-
-```
 
 ### Display all products supplied by S001 (i.e. Apple) in descending price
 ```{sql connection=con}
