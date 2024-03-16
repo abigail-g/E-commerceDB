@@ -90,6 +90,9 @@ GROUP BY Cust_Country_Code
 ORDER BY Count DESC;
 ')
 
+Order_Details$Order_Date <- as.Date(Order_Details$Order_Date)
+
+
 plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count, fill = Cust_Country_Code)) +
   geom_col(show.legend = FALSE) + 
   theme_minimal() + 

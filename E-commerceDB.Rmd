@@ -460,16 +460,21 @@ The process was done manually to the very few cells that still don’t make any 
 
 ![](product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
 
-The graph above shows the distribution of product ratings from 0 to 5 coloured by category name. The number of reviews for each category is quite balanced, with rating level of 5 having the most reviews. 
+The graph above shows the distribution of product ratings from 0 to 5 coloured by category name.
 
 
 ![](top_5_products_revenue.png "Top 5 Products by Revenue")
 
+The graph above shows the top 5 products in terms of revenue.
+
+
 ![](Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")
 
+The graph above shows the distribution of customers by country code.
 
 ![](order_status_distribution.png "Order Status Count")
 
+The graph above shows the order status count of shipped, processing, delivered and cancelled products. 
 
 # Conclusion
 
