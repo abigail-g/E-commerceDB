@@ -295,7 +295,7 @@ Shows us the users who previously have at least once purchased products and plac
 
 #### Supplier 
 
-Vendors who provide products. Represent the source of the product items.
+Vendors who provide products. Represent the source of the product items.The entity store information about their names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).
 
 #### Product 
 
@@ -324,13 +324,13 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 ### Absence of an Order Entity
 
-- The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.
+<p> The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.</P>
 
--   Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval.
+<p> Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval.</p>
 
--   Customer Engagement: By including Reviews, the model emphasizes customer engagement and feedback without directly managing transactions.
+<p> Customer Engagement: By including Reviews, the model emphasizes customer engagement and feedback without directly managing transactions.</p>
 
--   Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.
+<p> Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.</p>
 
 ## Relationships and Cardinalities 
 
@@ -342,25 +342,40 @@ A Customer initiates an Order when they purchase products or services. It is con
 
 **Associative Attributes**: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
 
-### Customer Has Order Status
+### Customer Has Order Details
 
 This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
+
+
+![RMS](Cust_Orders_OrderDetails.png "Relationship Set")
 
 ### Product Belongs to Category
 
 Each Product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
+
+![RMS](Product_BelongTo_Cat.png "Relationship Set")
+
 ### Category Self-Reference Relation 
 
 A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, the "Phones" category might have "Apple” and "Samsung" as subcategories, which in turn could have their own subcategories of different phone models.
+
+
+![RMS](Cat_Has_SubCat.png "Relationship Set")
 
 ### Product Supplied_By Supplier
 
 The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
+
+![RMS](Product_SuppliedBy_Supplier.png "Relationship Set")
+
 ### Product Qualifies_For Discount
 
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
+
+
+![RMS](Product_Qualify_Discount.png "Relationship Set")
 
 ### Product Has Reviews
 
@@ -377,7 +392,7 @@ Customers ($\underline{\text{Cust\_ID}}$, Cust_Email, Cust_First_Name, Cust_Last
 
 ### Products 
 
-Products ($\underline{\text{Product\_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
+Products ($\underline{\text{Product\_id}}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
 
 ### Suppliers
 
@@ -418,11 +433,11 @@ ProductOrder_details ($\underline{Order_id, Product_id}$, Quantity, Unit_Price)
 
 After the agreement on the schema mentioned in the previous section, the team started to generate synthetic data that to some extent, imitated realistic e-commerce as much as possible.
 
-ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. 
+ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. **[Appendix 1,2]**
 
 ## Data Import and Quality Assurance
 
-The process was done manually to the very few cells that still don’t make any sense related to e commerce, or it was left blank and AI tools missed to produce. 
+The process was done manually to the very few cells that still don’t make any sense related to e-commerce context or were left blank and AI tools missed to produce. 
 
 
 # Part 3: Data Pipeline Generation
@@ -481,3 +496,12 @@ The graph above shows the order status count of shipped, processing, delivered a
 
 Upon completion of this project, valuable insights are gained regarding the challenges and methodologies associated with an e-commerce context, including the design of databases, analysis of data, and presentation of findings in a clear and impactful manner. Ultimately, this project serves as a reference for future e-commerce projects in particular and data-driven projects in general, providing valuable insight into the modern data management landscape.
 
+# Appendices 
+
+## Appendix 1
+
+
+![ChatGPT](ChatGPT-GenerateDataPrompt1.png "ChatGPT")
+## Appendix 2
+
+![ChatGPT](ChatGPT-GenerateDataPrompt2.png "ChatGPT")
