@@ -338,6 +338,8 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 A Customer initiates an Order when they purchase products or services. It is considered for customer management, processing transactions, and tracking order history. One customer can place multiple orders over time, each uniquely associated with one customer.
 
+![RMS](Cust_Order_Products.png "Relationship Set")
+
 **Associative Attributes**: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
 
 ### Customer Has Order Status
@@ -360,9 +362,11 @@ The relationship creates a link between the products and their suppliers. Thereb
 
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
 
-### Customer Writes a Review
+### Product Has Reviews
 
-A customer generates or provides reviews that reflect the action of providing feedback or evaluation for a product or service to improve product offerings and customer service. One customer can write or submit multiple reviews for different products or services over time. However, each review is uniquely associated with one customer.
+A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time.
+
+![RMS](Product_Has_Reviews.png "Relationship Set")
 
 
 ## Logical Schema
