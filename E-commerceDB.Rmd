@@ -433,11 +433,11 @@ ProductOrder_details ($\underline{Order_id, Product_id}$, Quantity, Unit_Price)
 
 After the agreement on the schema mentioned in the previous section, the team started to generate synthetic data that to some extent, imitated realistic e-commerce as much as possible.
 
-ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. 
+ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. **[Appendix 1,2]**
 
 ## Data Import and Quality Assurance
 
-The process was done manually to the very few cells that still don’t make any sense related to e commerce, or it was left blank and AI tools missed to produce. 
+The process was done manually to the very few cells that still don’t make any sense related to e-commerce context or were left blank and AI tools missed to produce. 
 
 
 # Part 3: Data Pipeline Generation
@@ -490,3 +490,12 @@ The graph above shows the distribution of product ratings from 0 to 5 coloured b
 
 Upon completion of this project, valuable insights are gained regarding the challenges and methodologies associated with an e-commerce context, including the design of databases, analysis of data, and presentation of findings in a clear and impactful manner. Ultimately, this project serves as a reference for future e-commerce projects in particular and data-driven projects in general, providing valuable insight into the modern data management landscape.
 
+# Appendices 
+
+## Appendix 1
+
+
+![ChatGPT](ChatGPT-GenerateDataPrompt1.png "ChatGPT")
+## Appendix 2
+
+![ChatGPT](ChatGPT-GenerateDataPrompt2.png "ChatGPT")
