@@ -34,14 +34,26 @@ for (tableName in tables) {
         message(paste("No invalid emails exist in", col, "of table", tableName))
       }
     }
-  } 
+  }
+  
+  # Check for phone number column and validate
+  phoneNumCol <- grep("Cust_Phone_Number", names(tableData), value = TRUE)
+  
+  if (length(phoneNumCol) > 0) # Proceed only if there is a value 
+    { 
+    for (Numcol in phoneNumCol) {
+      # Check for invalid numbers
+      invalidPhoneNums <- !grepl("^\\+?1?[-.\\s]?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$", tableData[[col]])
+      
+      if (any(invalidPhoneNums)) {
+        warning(paste("Invalid phone numbers found in", Numcol, "of table", tableName))
+      } 
+      else {
+        message(paste("No invalid numbers found in", Numcol, tableName))
+      }
+    }
 }
-
-
-
-
-
-
+}
 # Close Connection
 dbDisconnect(con)
 
