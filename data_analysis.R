@@ -101,6 +101,24 @@ ggsave(filename = "Cust_Country_Code_Distribution.png", plot = plot3, width = 10
 
 
 
+order_status<- dbGetQuery(con, 'SELECT Order_Status, COUNT(*) AS Count
+FROM Order_Details
+GROUP BY Order_Status
+ORDER BY Count DESC;
+')
+
+
+
+plot4 <- ggplot(order_status, aes(x = Order_Status, y = Count)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  theme_minimal() +
+  labs(title = "Order Status Count", x = "Order Status", y = "Count") +
+  coord_flip() # 
+
+
+ggsave("order_status_distribution.png", plot = plot4, width = 10, height = 6, dpi = 300)
+
+
 
 
 

@@ -470,39 +470,21 @@ The process was done manually to the very few cells that still don’t make any 
 # RSQLite::dbWriteTable(con, "Order_Details", Order_details, overwrite=TRUE)
 ```
 
-### Count the number of reviews for each rating level
-```{sql connection=con}
 
-SELECT Product_Rating, COUNT(Product_Rating) AS Product_Rating_Count
-FROM Reviews
-GROUP BY Product_Rating;
+# Part 4: Data Analysis and Reporting with Quarto in R
 
-```
+![](product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
 
-**Display all products supplied by S001 (i.e. Apple) in descending price**
-
-```{sql connection=con}
-
-SELECT *
-FROM Products 
-WHERE Supplier_ID = "S001"
-ORDER BY Product_Price DESC;
-
-```
-
-**Top 5 Orders with the highest total value after discount**
+The graph above shows the distribution of product ratings from 0 to 5 coloured by category name. The number of reviews for each category is quite balanced, with rating level of 5 having the most reviews. 
 
 
-```{sql connection=con}
+![](top_5_products_revenue.png "Top 5 Products by Revenue")
 
-SELECT a.Order_ID, a.Quantity, a.Sum_Price, b.Discount_Amount, ROUND(a.Quantity * a.Sum_Price - b.Discount_Amount) AS Total_Value
-FROM Order_Items a, Discounts b
-WHERE a.Product_ID = b.Product_ID
-ORDER BY Total_Value DESC
-LIMIT 5;
+![](Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")
 
 
-```
+![](order_status_distribution.png "Order Status Count")
+
 
 # Conclusion
 
