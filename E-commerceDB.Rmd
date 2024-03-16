@@ -474,7 +474,8 @@ The graph above shows the distribution of customers by country code.
 
 ![](order_status_distribution.png "Order Status Count")
 
-The graph above shows the order status count of shipped, processing, delivered and cancelled products. 
+The graph above shows the order status count of shipped, processing, delivered and cancelled orders. 
+
 
 # Conclusion
 
