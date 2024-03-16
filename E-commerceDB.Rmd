@@ -392,7 +392,7 @@ Customers ($\underline{\text{Cust\_ID}}$, Cust_Email, Cust_First_Name, Cust_Last
 
 ### Products 
 
-Products ($\underline{\text{Product\_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
+Products ($\underline{\text{Product\_id}}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
 
 ### Suppliers
 
