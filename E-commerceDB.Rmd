@@ -1,14 +1,21 @@
 ---
-title: "E-commerceDB"
-author: "Group-8"
-date: "2024-02-27"
+title: "Data Managment E-commerce Data Base Project"
+author: "Group 8"
 output:
-  pdf_document: default
-editor_options:
-  chunk_output_type: inline
+  pdf_document: 
+   toc: yes
+   number_sections: yes
+  editor_options:
+    chunk_output_type: inline
 ---
+\newpage
 
-# Load necessary libraries
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment = NA)
+library(readr)
+```
+
+**Load necessary libraries**
 
 ```{r}
 library(DBI)
@@ -17,6 +24,14 @@ library(RSQLite)
 library(dplyr)
 library(stringr)
 ```
+
+# Introduction 
+
+This project simulates a real-world e-commerce data environment, including all stages of data management, from database configuration to data analysis and reporting. As the database is created and managed with SQLite, GitHub Actions are used to automate processes enhancing workflow efficiency. In addition, Quarto is used in conjunction with R to conduct comprehensive data analysis and generate reports. Through this approach, technical skills and competencies necessary for effective data management are examined in-depth, mirroring the complexities and dynamics encountered in e-commerce.  
+
+# SQL Script
+
+## Importing Generated Data
 
 ```{r}
 
@@ -69,6 +84,8 @@ for (sql_command in sql_file) {
 
 ```
 
+## Category
+
 ```{r}
 # To create empty column for the Products table 
 # Products <- Products %>%
@@ -106,6 +123,8 @@ for (sql_command in sql_file) {
 # Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
 ```
 
+## Supplier
+
 ```{r}
 # # This is to add suppliers_id in Products
 # set.seed(123)
@@ -140,6 +159,8 @@ for (sql_command in sql_file) {
 # Products$Discount_Code[codes_to_assign] <- random_discounts
 ```
 
+## Review 
+
 ```{r}
 # # Product_ID column for reviews table 
 # set.seed(123)
@@ -147,12 +168,16 @@ for (sql_command in sql_file) {
 #   mutate(Product_ID = sample(Products$Product_ID, nrow(Reviews), replace = TRUE))
 ```
 
+## Order Details
+
 ```{r}
 # # Adding Cust_ID column for Order_details table. 
 # set.seed(123)
 # Order_details <- Order_details %>%
 #   mutate(Cust_ID = sample(Customers$Cust_ID, nrow(Order_details), replace = TRUE))
 ```
+
+## Discount 
 
 ```{r}
 # # Filter out the rows from Products that have a Disocunt_Code assigned 
@@ -174,6 +199,8 @@ for (sql_command in sql_file) {
 # Product_Discounts <- Product_Discounts %>%
 #   left_join(discounted_cat, by = "Discount_Code")
 ```
+
+## Order Item
 
 ```{r}
 # # Order_Items, product_ID
@@ -241,16 +268,16 @@ for (sql_command in sql_file) {
 # Disconnect
 # dbDisconnect(con)
 ```
----
-# Part 1: Database Design and Implementation
 
-## 1.1 Entity Relationship Diagram
+# Database Design and Implementation
+
+## Entity Relationship Diagram
 
 ![ERD](ERD.jpg "Entity Relationship Diagram")
 
 The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
 
-### 1.1.1.Assumptions
+### Assumptions
 
 -   The company only distributes products within the United Kingdom (UK).
 
@@ -258,44 +285,44 @@ The E-R diagram above simulates a real-world e-commerce data ecosystem, capturin
 
 -   Attributes formats will be aligned with UK standard formats such as date , addresses , names ...etc
 
-### 1.1.2. Entities and Attributes
+### Entities and Attributes
 
 This section describes and illustrates the entities in the above ERD and their respective attributes.
 
-#### 1.1.2.1. Customer 
+#### Customer 
 
 Shows us the users who previously have at least once purchased products and placed an order including information about their names , emails, and addresses.
 
-#### 1.1.2.2. Supplier 
+#### Supplier 
 
 Vendors who provide products. Represent the source of the product items.
 
-#### 1.1.2.3 Product 
+#### Product 
 
 Describes all products in the stock and available for sale. Provides information about the model, price, and availability of the products.
 
-####   1.1.2.4 Order_Details
+#### Order_Details
 
 Emphasises all details related to placed orders including billing, shipping address, order, payment status, order date, and payment type.
 
-####   1.1.2.5  Category and Sub-Category
+#### Category and Sub-Category
 
 Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. 
 
 Sub-categories fall under a primary category and help to further organize products into narrower groups, making the product search process even more straightforward for customers.
 
 
-####   1.1.2.6 Product_Discounts 
+#### Product_Discounts 
 
 The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.
 
-####   1.1.2.7 Reviews 
+#### Reviews 
 
 Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
 
-# Design Considerations
+## Design Considerations
 
-##   Absence of an Order Entity:
+### Absence of an Order Entity
 
 - The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.
 
@@ -305,61 +332,83 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 -   Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.
 
-# 1.1.3. Relationship and Cardinalities 
+## Relationships and Cardinalities 
 
-1. Customer Orders Products
+### Customer Orders Products
 
 A Customer initiates an Order when they purchase products or services. It is considered for customer management, processing transactions, and tracking order history. One customer can place multiple orders over time, each uniquely associated with one customer.
 
-Associative attributes: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
+![RMS](Cust_Order_Products.png "Relationship Set")
 
-2. Customer Has Order Status
+**Associative Attributes**: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
 
-This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfilment process.
+### Customer Has Order Status
 
-3. Product Belongs to Category
+This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 
-Each Product is classified under a specific Category where products can belong to multiple categories e.g., a product that fits into both "Electronics" and "Gadgets". This enabling customer to browse products by categories, and helping retailers to manage product listings more efficiently.
+### Product Belongs to Category
 
-4. Category Self-Reference Relation 
+Each Product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
+
+### Category Self-Reference Relation 
 
 A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, the "Phones" category might have "Apple” and "Samsung" as subcategories, which in turn could have their own subcategories of different phone models.
 
-5. Product Supplied_By Supplier
+### Product Supplied_By Supplier
 
 The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
-6. Product Qualifies_For Discount
+### Product Qualifies_For Discount
 
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
 
-7. Customer Writes a Review
+### Product Has Reviews
 
-A customer generates or provides reviews that reflect the action of providing feedback or evaluation for a product or service to improve product offerings and customer service. One customer can write or submit multiple reviews for different products or services over time. However, each review is uniquely associated with one customer.
+A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time.
+
+![RMS](Product_Has_Reviews.png "Relationship Set")
 
 
 ## Logical Schema
 
-Customers ($\underline{Customer_id}$, Customer_Email, Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+### Customers 
 
-Products ($\underline{Product_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
+Customers ($\underline{\text{Cust\_ID}}$, Cust_Email, Cust_First_Name, Cust_Last_Name, Cust_Country_Code, Cust_Phone_Number, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+
+### Products 
+
+Products ($\underline{\text{Product\_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
+
+### Suppliers
 
 Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_Zip_Code)
 
+### Order_Details
+
 Order_Details ($\underline{Order_id}$, *Customer_id*, Order_Date, Order_Total, Order_Status, S_Building_Name, S_Street_Name, S_Zip_Code, Street_Name, B_Building_Name, B_Street_Name, B_Zip_Code, Payment_Type, Payment_Status)
+
+### Discounts
 
 Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount)
 
+### Reviews
+
 Reviews ($\underline{Review_id}$, *Product_id*, Review_Rating, Review_Timestamp, Review_Text, Review_Likes)
+
+### Categories
 
 Categories ($\underline{Category_id}$, Category_Name)
 
+### SupplierProduct
+
 SupplierProduct ($\underline{Supplier_id, Product_id}$, Supply_Contracts, Delivery_Terms, Pricing_Agreements)
 
-Many to Many relation of Supplier and Product
+### Many To Many : Supplier - Product
+
 SupplierProduct ($\underline{Supplier_id,Product_id}$)
 
-Many to Many relation of Order_details and Product
+### Many to Many : Order_details - Product
+
 ProductOrder_details ($\underline{Order_id, Product_id}$, Quantity, Unit_Price)
 
 
@@ -407,7 +456,8 @@ The process was done manually to the very few cells that still don’t make any 
 ```
 
 
-### Display all products supplied by S001 (i.e. Apple) in descending price
+**Display all products supplied by S001 (i.e. Apple) in descending price**
+
 ```{sql connection=con}
 
 SELECT *
@@ -417,9 +467,9 @@ ORDER BY Product_Price DESC;
 
 ```
 
+**Top 5 Orders with the highest total value after discount**
 
 
-### Top 5 Orders with the highest total value after discount
 ```{sql connection=con}
 
 SELECT a.Order_ID, a.Quantity, a.Sum_Price, b.Discount_Amount, ROUND(a.Quantity * a.Sum_Price - b.Discount_Amount) AS Total_Value
@@ -428,8 +478,10 @@ WHERE a.Product_ID = b.Product_ID
 ORDER BY Total_Value DESC
 LIMIT 5;
 
-# Disconnect
-dbDisconnect(con)
 
 ```
+
+# Conclusion
+
+Upon completion of this project, valuable insights are gained regarding the challenges and methodologies associated with an e-commerce context, including the design of databases, analysis of data, and presentation of findings in a clear and impactful manner. Ultimately, this project serves as a reference for future e-commerce projects in particular and data-driven projects in general, providing valuable insight into the modern data management landscape.
 
