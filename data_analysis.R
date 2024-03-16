@@ -90,15 +90,24 @@ GROUP BY Cust_Country_Code
 ORDER BY Count DESC;
 ')
 
+
+
 plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count, fill = Cust_Country_Code)) +
-  geom_col(show.legend = FALSE) + 
+  geom_col() + 
   theme_minimal() + 
-  labs(title = "Distribution of Customers by Country Code", x = "Country Code", y = "Number of Customers") +
-  theme(axis.text.x = element_text(angle = 65, hjust = 1)) 
+  labs(title = "Customers Distribution by Country Code", x = "Country Code", y = "Number of Customers") +
+  theme(axis.text.x = element_text(angle = 65, hjust = 1))
+
 
 ggsave(filename = "Cust_Country_Code_Distribution.png", plot = plot3, width = 10, height = 6, dpi = 300)
 
 
+
+
+
+SELECT strftime('%Y-%m', Order_Date) AS Order_Month, Order_Status, COUNT(*) AS Count
+FROM Order_Details
+GROUP BY Order_Month, Order_Status;
 
 
 order_status<- dbGetQuery(con, 'SELECT Order_Status, COUNT(*) AS Count
