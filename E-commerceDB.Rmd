@@ -342,11 +342,11 @@ A Customer initiates an Order when they purchase products or services. It is con
 
 ### Customer Has Order Status
 
-This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfilment process.
+This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 
 ### Product Belongs to Category
 
-Each Product is classified under a specific Category where products can belong to multiple categories e.g., a product that fits into both "Electronics" and "Gadgets". This enabling customer to browse products by categories, and helping retailers to manage product listings more efficiently.
+Each Product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
 ### Category Self-Reference Relation 
 
@@ -369,11 +369,11 @@ A customer generates or provides reviews that reflect the action of providing fe
 
 ### Customers 
 
-Customers ($\underline{Customer_id}$, Customer_Email, Cust_F_Name, Cust_L_Name, Phone_Country_Code, Phone_Num, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+Customers ($\underline{\text{Cust\_ID}}$, Cust_Email, Cust_First_Name, Cust_Last_Name, Cust_Country_Code, Cust_Phone_Number, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
 
 ### Products 
 
-Products ($\underline{Product_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
+Products ($\underline{\text{Product\_id}$, *Discount_Code*, *Category_id*, Product_Name, Product_Price, Product_Availability)
 
 ### Suppliers
 
@@ -473,11 +473,7 @@ ORDER BY Product_Price DESC;
 
 **Top 5 Orders with the highest total value after discount**
 
-<<<<<<< HEAD
-=======
 
-### Top 5 Orders with the highest total value after discount
->>>>>>> f1bbda312232a4a5ce8be5ee6fd7155f7ad48d03
 ```{sql connection=con}
 
 SELECT a.Order_ID, a.Quantity, a.Sum_Price, b.Discount_Amount, ROUND(a.Quantity * a.Sum_Price - b.Discount_Amount) AS Total_Value
@@ -486,16 +482,10 @@ WHERE a.Product_ID = b.Product_ID
 ORDER BY Total_Value DESC
 LIMIT 5;
 
-<<<<<<< HEAD
+
 ```
 
 # Conclusion
 
 Upon completion of this project, valuable insights are gained regarding the challenges and methodologies associated with an e-commerce context, including the design of databases, analysis of data, and presentation of findings in a clear and impactful manner. Ultimately, this project serves as a reference for future e-commerce projects in particular and data-driven projects in general, providing valuable insight into the modern data management landscape.
-=======
-# Disconnect
-dbDisconnect(con)
 
-```
-
->>>>>>> f1bbda312232a4a5ce8be5ee6fd7155f7ad48d03
