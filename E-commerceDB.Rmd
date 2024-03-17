@@ -486,21 +486,22 @@ Following snippet is Timestamps that showed as an evidence.
 
 # Part 4: Data Analysis and Reporting with Quarto in R
 
-![](Images/product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
+<p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
+
+![Distribution of Product Ratings by Category](Images/product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
 
 The graph above shows the distribution of product ratings from 0 to 5 coloured by category name.
 
 
-![](Images/top_5_products_revenue.png "Top 5 Products by Revenue")
+![Top 5 Products by Revenue](Images/top_5_products_revenue.png "Top 5 Products by Revenue")
 
 The graph above shows the top 5 products in terms of revenue.
 
-
-![](Images/Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")
+![Distribution of Customers by Country Code](Images/Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")
 
 The graph above shows the distribution of customers by country code.
 
-![](Images/order_status_distribution.png "Order Status Count")
+![Order Status Count](Images/order_status_distribution.png "Order Status Count")
 
 The graph above shows the order status count of shipped, processing, delivered and cancelled orders. 
 
