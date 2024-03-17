@@ -13,43 +13,28 @@ Suppliers <- read_csv("Files/Suppliers.csv")
 Customers <- read_csv("Files/Customers.csv")
 Products <- read_csv("Files/Products.csv")
 Product_Discounts <- read_csv("Files/Product_Discounts.csv")
-Reviews <- read_csv("Files/Reviews.csv",
-                    skip = 1)
-Order_details <- read_csv("Files/Order_Details.csv",
-                          skip = 1)
-Order_Item <- read_csv("Files/Order_Item.csv", 
-                       skip = 1)
+Reviews <- read_csv("Files/Reviews.csv")
+Order_details <- read_csv("Files/Order_Details.csv")
+Order_Item <- read_csv("Files/Order_Item.csv")
 # Clean the data so it can match the database
 Suppliers$Supplier_Building_Number <- NULL
 Order_details$Billing_Building_Number <- NULL
 Order_details$Shipping_Building_Number <- NULL
 
+#open connection to the DB
+con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
 # Number of rows in Category table
 csv_count_category <- nrow(Product_Category)
 
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-
 RSQLite::dbWriteTable(con, "Category", Product_Category, overwrite=TRUE)
 
-# Close Connection 
-# dbDisconnect(con)
-
-# SUPPLIERS
-# Open DB Connection
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 # Update Suppliers table
 RSQLite::dbWriteTable(con, "Suppliers", Suppliers, overwrite=TRUE)
 
-
-# Close Connection 
-# dbDisconnect(con)
-
 # Number of Customers in the csv data file 
 csv_count_customer <- count(Customers)
-
-# Open Connection
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 
 # Obtain number of customers in DB
@@ -129,13 +114,9 @@ assign_category_id <- function(Product_Name) {
 }
 
 
-# Close Connection 
-# dbDisconnect(con)
-
 # Apply the function to assign Category_ID to each product
 Products$Category_ID <- sapply(Products$Product_Name, assign_category_id)
 
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 RSQLite::dbWriteTable(con, "Products", Products, overwrite=TRUE)
 
@@ -161,11 +142,6 @@ Product_Discounts <- Product_Discounts %>%
   left_join(discounted_cat, by = "Discount_Code")
 
 
-# Close Connection 
-# dbDisconnect(con)
-
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-
 RSQLite::dbWriteTable(con, "Product_Discounts", Product_Discounts, overwrite = TRUE)
 
 # Reviews
@@ -183,11 +159,6 @@ Order_details <- Order_details %>%
 
 csv_count_order <- nrow(Order_details)
 
-
-# Close Connection 
-# dbDisconnect(con)
-
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
 sql_count_order <- dbGetQuery(con, 'SELECT count(*) FROM Order_Details')
 
