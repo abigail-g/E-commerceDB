@@ -36,7 +36,6 @@ This project simulates a real-world e-commerce data environment, including all s
 ```{r}
 
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-# on.exit(dbDisconnect(con), add = TRUE)
 
 sql_file <- readLines("dbScript.sql")
 
@@ -273,7 +272,7 @@ for (sql_command in sql_file) {
 
 ## Entity Relationship Diagram
 
-![ERD](ERD.jpg "Entity Relationship Diagram")
+![ERD](Images/ERD.jpg "Entity Relationship Diagram")
 
 The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
 
@@ -338,7 +337,7 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 A Customer initiates an Order when they purchase products or services. It is considered for customer management, processing transactions, and tracking order history. One customer can place multiple orders over time, each uniquely associated with one customer.
 
-![RMS](Cust_Order_Products.png "Relationship Set")
+![RMS](Images/Cust_Order_Products.png "Relationship Set")
 
 **Associative Attributes**: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
 
@@ -347,41 +346,41 @@ A Customer initiates an Order when they purchase products or services. It is con
 This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 
 
-![RMS](Cust_Orders_OrderDetails.png "Relationship Set")
+![RMS](Images/Cust_Orders_OrderDetails.png "Relationship Set")
 
 ### Product Belongs to Category
 
 Each Product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
 
-![RMS](Product_BelongTo_Cat.png "Relationship Set")
+![RMS](Images/Product_BelongTo_Cat.png "Relationship Set")
 
 ### Category Self-Reference Relation 
 
 A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, the "Phones" category might have "Apple” and "Samsung" as subcategories, which in turn could have their own subcategories of different phone models.
 
 
-![RMS](Cat_Has_SubCat.png "Relationship Set")
+![RMS](Images/Cat_Has_SubCat.png "Relationship Set")
 
 ### Product Supplied_By Supplier
 
 The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
 
-![RMS](Product_SuppliedBy_Supplier.png "Relationship Set")
+![RMS](Images/Product_SuppliedBy_Supplier.png "Relationship Set")
 
 ### Product Qualifies_For Discount
 
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
 
 
-![RMS](Product_Qualify_Discount.png "Relationship Set")
+![RMS](Images/Product_Qualify_Discount.png "Relationship Set")
 
 ### Product Has Reviews
 
 A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time.
 
-![RMS](Product_Has_Reviews.png "Relationship Set")
+![RMS](Images/Product_Has_Reviews.png "Relationship Set")
 
 
 ## Logical Schema
@@ -442,6 +441,12 @@ The process was done manually to the very few cells that still don’t make any 
 
 # Part 3: Data Pipeline Generation
 
+The pipeline generation process consists of two phases. In the first phase, github repository has been created$^{[1]}$ followed by integrating the posit cloud project. Additionally, all teams members have been added as collaborators. 
+ 
+Second phase was the automation process utilising workflow that trigger on specific events like push and pull requests to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in Figures.
+
+![WorkFlow](Images/Workflow1.png "The histogram of customers data for 50 records")
+
 
 ```{r}
 # We need to rename and delete columns like building number, as it does not match or does not exist in the database 
@@ -473,21 +478,21 @@ The process was done manually to the very few cells that still don’t make any 
 
 # Part 4: Data Analysis and Reporting with Quarto in R
 
-![](product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
+![](Images/product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
 
 The graph above shows the distribution of product ratings from 0 to 5 coloured by category name.
 
 
-![](top_5_products_revenue.png "Top 5 Products by Revenue")
+![](Images/top_5_products_revenue.png "Top 5 Products by Revenue")
 
 The graph above shows the top 5 products in terms of revenue.
 
 
-![](Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")
+![](Images/Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")
 
 The graph above shows the distribution of customers by country code.
 
-![](order_status_distribution.png "Order Status Count")
+![](Images/order_status_distribution.png "Order Status Count")
 
 The graph above shows the order status count of shipped, processing, delivered and cancelled orders. 
 
@@ -496,12 +501,17 @@ The graph above shows the order status count of shipped, processing, delivered a
 
 Upon completion of this project, valuable insights are gained regarding the challenges and methodologies associated with an e-commerce context, including the design of databases, analysis of data, and presentation of findings in a clear and impactful manner. Ultimately, this project serves as a reference for future e-commerce projects in particular and data-driven projects in general, providing valuable insight into the modern data management landscape.
 
+# References 
+
+[1] [Github Repo](https://github.com/abigail-g/E-commerceDB)
+
+
 # Appendices 
 
 ## Appendix 1
 
 
-![ChatGPT](ChatGPT-GenerateDataPrompt1.png "ChatGPT")
+![ChatGPT](Images/ChatGPT-GenerateDataPrompt1.png "ChatGPT")
 ## Appendix 2
 
-![ChatGPT](ChatGPT-GenerateDataPrompt2.png "ChatGPT")
+![ChatGPT](Images/ChatGPT-GenerateDataPrompt2.png "ChatGPT")
