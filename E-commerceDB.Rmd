@@ -488,12 +488,12 @@ Following snippet is Timestamps that showed as an evidence.
 
 <p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
 
-![Distribution of Product Ratings by Category](Images/product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
+![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Distribution of Product Ratings by Category")
 
 The graph above shows the distribution of product ratings from 0 to 5 coloured by category name.
 
 
-![Top 5 Products by Revenue](Images/top_5_products_revenue.png "Top 5 Products by Revenue")
+![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Top 5 Products by Revenue")
 
 The graph above shows the top 5 products in terms of revenue.
 
@@ -501,7 +501,7 @@ The graph above shows the top 5 products in terms of revenue.
 
 The graph above shows the distribution of customers by country code.
 
-![Order Status Count](Images/order_status_distribution.png "Order Status Count")
+![Order Status Count](Images/Order_Status_Distribution.png "Order Status Count")
 
 The graph above shows the order status count of shipped, processing, delivered and cancelled orders. 
 

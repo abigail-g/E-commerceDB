@@ -31,7 +31,7 @@ plot1 <- ggplot(product_rating_count, aes(x = Product_Rating, y = Product_Rating
         axis.text.x = element_text(angle = 45, hjust = 1)) # Improve the axis label display
 
 # Save Chart 1
-ggsave(plot = plot1, filename = "Images/product_rating_by_category.jpeg", width = 10, height = 8, dpi = 300)
+ggsave(plot = plot1, filename = "Images/Product_Rating_By_Category.jpeg", width = 10, height = 8, dpi = 300)
 
 
 
