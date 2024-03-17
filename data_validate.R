@@ -5,58 +5,90 @@
 #    referential integrity
 
 library(DBI)
+library(readr)
+library(dplyr)
 
 # Checks for data quality and integrity using regular expressions to validate email addresses and phone numbers.
 
-# Check quality of stored emails 
+# List all CSV files in the "data" folder
+csv_files <- list.files(path = "Files", pattern = "\\.csv$", full.names = TRUE)
 
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-
-# List all tables
-tables <- dbListTables(con)
-
-for (tableName in tables) {
-  # Fetch the table
-  query <- paste0("SELECT * FROM ", tableName)
-  tableData <- dbGetQuery(con, query)
+# Iterate through each CSV file
+for (file in csv_files) {
+  # Extract the file name without extension
+  file_name <- tools::file_path_sans_ext(basename(file))
+  
+  print(paste("CHECKING FILE :  ", file_name))
+  
+  # Read the CSV file into a data frame and assign it the same name as the CSV file
+  assign(file_name, read.csv(file))
   
   # Check for columns that are likely to contain email addresses and validate
-  emailCols <- grep("Cust_Email|Supplier_Email", names(tableData), value = TRUE)
+  emailCols <- grep("Email$", colnames(get(file_name)), value = TRUE)
   
   if (length(emailCols) > 0) { # Proceed only if there are relevant email columns
     for (col in emailCols) {
-      # Check for invalid emails
-      invalidEmails <- !grepl("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", tableData[[col]])
+      df <- get(file_name)[col]
       
-      if (any(invalidEmails)) {
-        warning(paste("Invalid emails found in", col, "of table", tableName))
+      # Check for invalid emails
+      invalidEmails <- grep("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", df[,1], value= FALSE, invert = TRUE)
+      
+      if (length(invalidEmails)>0 ){
+        cleaned_data  <- get(file_name)[-invalidEmails, ]
+        write.csv(cleaned_data, file, row.names = FALSE)
+        print("---Invalid emails found and removed")
       } else {
-        message(paste("No invalid emails exist in", col, "of table", tableName))
+        print("---No invalid emails exist")
       }
     }
   }
   
   # Check for phone number column and validate
-  phoneNumCol <- grep("Cust_Phone_Number", names(tableData), value = TRUE)
+  phoneNumCol <- grep("Phone", colnames(get(file_name)), value = TRUE)
   
-  if (length(phoneNumCol) > 0) # Proceed only if there is a value 
-    { 
+  if (length(phoneNumCol) > 0) # Proceed only if there is a value
+  {
     for (Numcol in phoneNumCol) {
+      df <- get(file_name)[Numcol]
       # Check for invalid numbers
-      invalidPhoneNums <- !grepl("^\\+?1?[-.\\s]?\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$", tableData[[col]])
+      invalidPhoneNums <- grep("[0-9]{8}", df[,1], value= FALSE, invert = TRUE)
       
-      if (any(invalidPhoneNums)) {
-        warning(paste("Invalid phone numbers found in", Numcol, "of table", tableName))
-      } 
-      else {
-        message(paste("No invalid numbers found in", Numcol, tableName))
+      if (length(invalidPhoneNums)>0 ){
+        cleaned_data  <- get(file_name)[-invalidPhoneNums, ]
+        write.csv(cleaned_data, file, row.names = FALSE)
+        print("---Invalid phone numbers found and removed")
+      } else {
+        print("---No invalid phone numbers exist")
       }
     }
+  }
+  
+  #check for duplicate entries
+  if(file_name != "Order_Item"){
+    duplicate_entries <- get(file_name)[duplicated(get(file_name)), ]
+    
+    if (count(duplicate_entries)$n > 0) {
+      cleaned_data <- distinct(get(file_name))
+      write.csv(cleaned_data, file, row.names = FALSE)
+      print("---Duplicate entries found and removed.\n")
+    } else {
+      print("---No duplicate entries found in the data")
+    }
+  }
+  
+  #ensuring primary key integrity
+  ID_columns <- grep("ID", colnames(get(file_name)), value = TRUE)
+  
+  if (length(ID_columns) > 0) {
+    for(col in ID_columns){
+      df <- get(file_name)[col]
+      duplicate_indices <- which(duplicated(df) | duplicated(df, fromLast = TRUE))
+      if (length(duplicate_indices) > 0) {
+        cleaned_data <- get(file_name)[-duplicate_indices, ]
+        write.csv(cleaned_data, file, row.names = FALSE)
+        print("---Duplicate values found in the primary key attribute and removed\n")
+      }
+    }
+  }
+  
 }
-}
-# Close Connection
-dbDisconnect(con)
-
-
-
-
