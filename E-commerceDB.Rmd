@@ -447,8 +447,14 @@ The process was done manually to the very few cells that still don’t make any 
 
 ![The histogram of customers data for 50 records](Images/Workflow1.png "The histogram of customers data for 50 records")
 ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "The histogram after workflow run and inserted additional 100 records")
+The below figure shows the record count after 1st run of workflow (49) and then after second run of workflow (150). 
+
+![Console Output](Images/Console_Workflow.png "Console Output")
 
 
+Following snippet is Timestamps that showed as an evidence.
+
+![Workflow Timestamps](Images/WorkflowTimestamps.png "Workflow Timestamps")
 
 ```{r}
 # We need to rename and delete columns like building number, as it does not match or does not exist in the database 
@@ -505,7 +511,7 @@ Upon completion of this project, valuable insights are gained regarding the chal
 
 # References 
 
-[1] [Github Repo](https://github.com/abigail-g/E-commerceDB)
+[1][Github Repo](https://github.com/abigail-g/E-commerceDB)
 
 
 # Appendices 
