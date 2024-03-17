@@ -441,11 +441,13 @@ The process was done manually to the very few cells that still don’t make any 
 
 # Part 3: Data Pipeline Generation
 
-The pipeline generation process consists of two phases. In the first phase, github repository has been created$^{[1]}$ followed by integrating the posit cloud project. Additionally, all teams members have been added as collaborators. 
+<p>The pipeline generation process consists of two phases. In the first phase, github repository has been created$^{[1]}$ followed by integrating the posit cloud project. Additionally, all teams members have been added as collaborators.</p> 
  
-Second phase was the automation process utilising workflow that trigger on specific events like push and pull requests to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in Figures.
+<p>Second phase was the automation process utilising workflow that trigger on specific events like push and pull requests to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in Figures.</p>
 
-![WorkFlow](Images/Workflow1.png "The histogram of customers data for 50 records")
+![The histogram of customers data for 50 records](Images/Workflow1.png "The histogram of customers data for 50 records")
+![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "The histogram after workflow run and inserted additional 100 records")
+
 
 
 ```{r}
