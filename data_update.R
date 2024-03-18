@@ -160,6 +160,7 @@ set.seed(123)
 Reviews <- Reviews %>% 
   mutate(Product_ID = sample(Products$Product_ID, nrow(Reviews), replace = TRUE))
 
+RSQLite::dbWriteTable(con, "Reviews", Reviews, overwrite = TRUE)
 
 # Order_details
 
@@ -236,6 +237,8 @@ assign_unique_order_ids_full_range <- function(order_item, order_details) {
 
 # To apply this function:
 Order_Item <- assign_unique_order_ids_full_range(Order_Item, Order_details)
+
+RSQLite::dbWriteTable(con, "Order_Items", Order_Item, overwrite = TRUE)
 
 # Close the database connection
 dbDisconnect(con)

@@ -39,7 +39,7 @@ ggsave(plot = plot1, filename = "Images/Product_Rating_By_Category.jpeg", width 
 top_5_products_revenue <- dbGetQuery(con, '
 SELECT b.Product_ID, 
        c.Product_Name, 
-       SUM( a.Sum_Price - b.Discount_Amount) AS Total_Revenue
+       SUM(a.Sum_Price - b.Discount_Amount) AS Total_Revenue
 FROM Order_Items a
 LEFT JOIN Discounts b ON a.Product_ID = b.Product_ID
 JOIN Products c ON a.Product_ID = c.Product_ID
