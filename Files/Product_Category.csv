@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Category_ID,Category_Name,Sub_Cat_ID
 CAT1,Televisions,CAT5
 CAT2,Computing & Tablets,
@@ -15,7 +14,3 @@ CAT12,Food Processors ,CAT4
 CAT13,Smart Tech,
 CAT14,Smart Watch,CAT13
 CAT15,Projectors,CAT5
-=======
-"Category_ID","Category_Name","Sub_Cat_ID"
-"CAT9","Wearable Technology","CAT10"
->>>>>>> 59ea8b071cb54759b5ace975b8e68c95303c3e5e
