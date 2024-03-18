@@ -192,14 +192,6 @@ Order_Item$Product_ID[1:150] <- sample(Products$Product_ID, size = 150, replace 
 # For the remaining 50 rows, randomly assign Product_IDs (allowing repeats)
 Order_Item$Product_ID[151:200] <- sample(Products$Product_ID, size = 50, replace = TRUE)
 
-# Joining Order_Item with Products to get the Price for each Product_ID
-Order_Item <- merge(Order_Item, Products[, c("Product_ID", "Product_Price")], by = "Product_ID", all.x = TRUE)
-
-Order_Item <- Order_Item %>% rename(Quantity = Order_Item)
-# Calculating Sum_Price as Price * Quantity
-Order_Item <- Order_Item %>%
-  mutate(Sum_Price = Product_Price * Quantity)
-
 # Remove the Product_Price column 
 Order_Item$Product_Price <- NULL
 
