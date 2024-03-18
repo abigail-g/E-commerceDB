@@ -17,7 +17,7 @@ library(readr)
 
 **Load necessary libraries**
 
-```{r Libraries, echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
+```{r}
 library(DBI)
 library(readr)
 library(RSQLite)
