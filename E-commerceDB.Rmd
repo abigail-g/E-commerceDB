@@ -292,7 +292,7 @@ ChatGPT has been used as the main tool for this step as an alternative to Mockar
 
 ## Data Import and Quality Assurance
 
-The process was done manually to the very few cells that still don’t make any sense related to e-commerce context or were left blank and AI tools missed to produce. 
+To enhance data quality for e-commerce analysis, a validation process was applied to CSV files, involving reading data, validating email formats and phone numbers via regular expressions, removing duplicates, and ensuring primary key integrity. This method focused on refining datasets for accurate analysis by identifying and eliminating invalid entries and duplicates, thereby maintaining the dataset's uniqueness and reliability.
 
 
 # Part 3: Data Pipeline Generation
