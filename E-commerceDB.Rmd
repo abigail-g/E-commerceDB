@@ -434,17 +434,22 @@ For a table to be in third normal form (3NF), it should not have any transitive 
 
 Looking at the table, we can identify the following dependencies:
 
-Cust_Building_Number, Cust_Building_Name, Cust_Street_Name, Cust_Zip_Code, Cust_Country_Code seem to depend on Cust_ID.
-
-Cust_First_Name, Cust_Last_Name, Cust_Email, Cust_Phone_Number also seem to depend only on Cust_ID.
-
-There doesn't appear to be any transitive dependencies based on the given attributes.
+Cust_ID	→ Cust_First_Name	
+Cust_ID	→ Cust_Last_Name	
+Cust_ID	→ Cust_Building_Number	
+Cust_ID	→ Cust_Building_Name	
+Cust_ID	→ Cust_Street_Name	
+Cust_ID	→ Cust_Country_Code	
+Cust_ID	→ Cust_Email	
+Cust_ID	→ Cust_Phone_Number	
+Cust_ID	→ Cust_Country_Code
 
 Based on this analysis, the table appears to be in 3NF. Each non-key attribute depends only on the primary key (Cust_ID), and there are no transitive dependencies.
 
 ### Order_items:
 
-Product_ID → Quantity, Sum_Price
+Product_ID → Quantity 
+Product_ID → Sum_Price
 Order_ID → Product_ID
 
 Product_ID is the primary key, and Quantity and Sum_Price are functionally dependent on Product_ID. There are no transitive dependencies here.
