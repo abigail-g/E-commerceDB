@@ -80,6 +80,22 @@ The voucher number or offer code to be applied to eligible products. The amount 
 
 Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
 
+```{r}
+#Creating the db schema in SQL
+con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
+sql_file <- readLines("dbScript.sql")
+
+for (sql_command in sql_file) {
+  if (sql_command!=""){
+    print(sql_command)
+    dbExecute(con,sql_command)
+    print("-------------DONE---------")
+  }
+}
+```
+
+
 ## Design Considerations
 
 ### Absence of an Order Entity

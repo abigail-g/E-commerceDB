@@ -1,11 +1,17 @@
-﻿Category_ID,Category_Name
-CAT1,Televisions
-CAT2,Computing & Tablets
-CAT3,Mobile Phones
-CAT4,Home Appliances
-CAT5,Audio & Sound Systems
-CAT6,Cameras & Photography
-CAT7,Gaming
-CAT8,Smart Home
-CAT9,Wearable Technology
-CAT10,Accessories & Peripherals
+﻿Category_ID,Category_Name,Sub_Cat_ID
+CAT1,Televisions,CAT5
+CAT2,Computing & Tablets,
+CAT3,Mobile Phones,
+CAT4,Home Appliances,
+CAT5,Audio & Sound Systems,
+CAT6,Cameras & Photography,
+CAT7,Gaming,
+CAT8,Smart Home,CAT13
+CAT9,Wearable Technology,CAT10
+CAT10,Accessories & Peripherals,
+CAT11,Refridgerators,CAT4
+CAT12,Food Processors ,CAT4
+CAT13,Smart Tech,
+CAT14,Smart Watch,CAT13
+CAT15,Projectors,CAT5
+,,
