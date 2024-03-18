@@ -72,7 +72,7 @@ plot2 <- ggplot(top_5_products_revenue, aes(x = Product_Name, y = Total_Revenue,
 ggsave("Images/Top_5_Products_Revenue.png", plot = plot2, width = 8, height = 6, dpi = 300)
 
 
-# Customer Country Code Count
+# Customer Phone Country Code Count
 country_code <- dbGetQuery(con, 'SELECT Cust_Country_Code, COUNT(*) AS Count
 FROM Customers
 GROUP BY Cust_Country_Code
@@ -83,11 +83,11 @@ ORDER BY Count DESC;
 plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count, fill = Cust_Country_Code)) +
   geom_col() + 
   theme_minimal() + 
-  labs(title = "Customers Distribution by Country Code", x = "Country Code", y = "Number of Customers") +
+  labs(title = "Customers Distribution by Phone Country Code", x = "Cust Phone Country Code", y = "Number of Customers") +
   theme(axis.text.x = element_text(angle = 65, hjust = 1))
 
 # Save Plot 3
-ggsave(filename = "Images/Cust_Country_Code_Distribution.png", plot = plot3, width = 10, height = 6, dpi = 300)
+ggsave(filename = "Images/Cust_Phone_Country_Code_Distribution.png", plot = plot3, width = 10, height = 6, dpi = 300)
 
 
 

@@ -346,9 +346,9 @@ The graph shows the distribution of product ratings from 0 to 5 coloured by cate
 
 The graph above shows the top 5 products in terms of revenue.
 
-<p> ![Distribution of Customers by Country Code](Images/Cust_Country_Code_Distribution.png "Distribution of Customers by Country Code")</p>
+<p> ![Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Distribution of Customers by Phone Country Code")</p>
 
-The graph above shows the distribution of customers by country code.
+The graph above shows the distribution of customers by phone country code.
 
 <p> ![Order Status Count](Images/Order_Status_Distribution.png "Order Status Count") </p>
 
