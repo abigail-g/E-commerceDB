@@ -80,7 +80,7 @@ ORDER BY Count DESC;
 ')
 
 # Create Plot 3
-plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count, fill = Cust_Country_Code)) +
+plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count)) +
   geom_col() + 
   theme_minimal() + 
   labs(title = "Customers Distribution by Phone Country Code", x = "Cust Phone Country Code", y = "Number of Customers") +
