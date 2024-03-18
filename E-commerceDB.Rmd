@@ -110,7 +110,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 ### Product Belongs to Category
 
-Each Product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
+Each product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
 
 <p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Relationship Set") </p>
@@ -271,21 +271,18 @@ In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as 
 
 After the agreement on the schema mentioned in the previous section, the team started to generate synthetic data that to some extent, imitated realistic e-commerce as much as possible.
 
-ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. **[Appendix 1,2]**. For tables consisting of foreign keys, R code has been used for assignment based of logic set by the team.
-
-*Appendix --- Take Snippt from data_update file*
+ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. **[Appendix 1,2]**. For tables consisting of foreign keys, R code has been used for assignment based of logic set by the team **[Appendix 3]**.
 
 ## Data Import and Quality Assurance
 
-To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks (Refer data_validate.R):
-•	Primary key integrity check
-•	Duplicate entry check
-•	Email id pattern check
-•	Phone number pattern check
+To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks **[Refer data_validate.R]**:
 
-Once the data has gone through all the checks, the updated csv files will be used to import into SQL. Importing the data into SQL is also done in R (Refer data_update.R)
+- Primary key integrity check
+- Duplicate entry check
+- Email id pattern check
+- Phone number pattern check
 
-This method focused on refining datasets for accurate analysis by identifying and eliminating invalid entries and duplicates, thereby maintaining the dataset's uniqueness and reliability before inserting into Data Base.
+<p> Once the data has gone through all the checks, the updated csv files will be used to import into SQL. Importing the data into SQL is also done in R **[Refer data_update.R]**. This method focused on refining datasets for accurate analysis by identifying and eliminating invalid entries and duplicates, thereby maintaining the dataset's uniqueness and reliability before inserting into Data Base.</p>
 
 
 # Part 3: Data Pipeline Generation
@@ -361,3 +358,11 @@ Upon completion of this project, valuable insights are gained regarding the chal
 ## Appendix 2
 
 <p> ![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "ChatGPT_2") </p>
+
+
+## Appendix 3
+
+<p> ![Data Update](Images/Data_Update.png "Data Update") </p>
+
+
+
