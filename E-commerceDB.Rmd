@@ -33,9 +33,9 @@ library(stringr)
 
 ## Entity Relationship Diagram
 
-![E-Commerce Entity Relationship Diagram](Images/ERD.jpg "Entity Relationship Diagram")
+![E-Commerce Entity Relationship Diagram](Images/ERD.jpg "Figure 1- Entity Relationship Diagram")
 
-<p> The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments. </p>
+<p> **Figure 1** shows the E-R diagram that simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments. </p>
 
 ### Assumptions
 
@@ -95,83 +95,90 @@ This section describes and illustrates the entities in the above ERD and their r
 
 ### Order Detail Contains Products 
 
-<p> This relation indicates that each order detail contains multiple products that have been placed by the customer. It aid to track the date , status , addresses, and payment method used in the transaction.</p>
+<p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been placed by the customer. It aid to track the date , status , addresses, and payment method used in the transaction.</p>
 
-<p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Relationship Set") </p>
+<p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Figure 2 - OrderDetails Contains Products") </p>
 
 *Associative Attribute* (Quantity: The number of units of the product ordered in this line item.)
 
 ### Customer Has Order Details
 
-<p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
+<p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time as illustrated in **Figure 3**. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
 
 
-<p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Relationship Set") </p>
+<p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details") </p>
 
 ### Product Belongs to Category
 
-Each product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
+**Figure 4** specify that each product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
 
-<p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Relationship Set") </p>
+<p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Figure 4 - Product Belong to Category") </p>
 
 ### Category Self-Reference Relation 
 
-<p> A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, "Home Appliances" is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers etc.</p>
+<p> As reflected in **Figure 5**, category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, "Home Appliances" is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers etc.</p>
 
 
-<p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Relationship Set") </p>
+<p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Figure 5 - Category Has Sub-Category") </p>
 
 ### Product Supplied By Supplier
 
-<p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
+<p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
 
+*Associative Attributes* 
 
-<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Relationship Set") </p>
+- Supply_Contracts : Legal agreements that outline the terms and conditions under which one party will provide goods or services to another.
+
+- Delivery_Terms : Agreements that specify the price, or method for determining the price, at which goods or services will be sold or provided.
+
+- Pricing_ Agreements : Conditions in a contract that define the responsibilities, costs, and risk transfer points related to the transportation of goods from the seller to the buyer.
+
+<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier") </p>
 
 ### Product Qualifies For Discount
 
-<p> The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.</p>
+<p> The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products **Figure 7**.</p>
 
 
-<p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Relationship Set") </p> 
+<p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Figure 7 - Product Qualifies For Discount") </p> 
 
 ### Product Has Reviews
 
-A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time.
+A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time as shown in **Figure 8**.
 
-<p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Relationship Set") </p> 
+<p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Figure 8 - Product Has Reviews") </p> 
 
 
 ## Logical Schema
 
 ### Customers 
 
-Customers ($\underline{\text{Cust\_ID}}$, Cust_Email, Cust_First_Name, Cust_Last_Name, Cust_Country_Code, Cust_Phone_Number, Cust_Street_Name, Cust_Building_Name, Cust_Zip_Code)
+Customers ($\underline{\text{Cust\_ID}}$, Cust_First_Name, Cust_Last_Name, Cust_Building_Name, Cust_Street_Name, Cust_Zip_Code, Cust_Email, Cust_Phone_Number, Cust_Country_Code)
 
 ### Products 
 
-Products ($\underline{\text{Product\_ID}}$, *Discount_Code*, *Category_ID*, *Supplier_ID* ,Product_Name, Product_Price, Product_Availability)
+Products ($\underline{\text{Product\_ID}}$, *Discount_Code*, *Category_ID*, *Supplier_ID* ,Product_Name, Product_Availability, Product_Price)
 
 ### Suppliers
 
-Suppliers ($\underline{\text{Supplier\_ID}}$, Supplier_Name Supplier_Email, Supplier_Status, Supplier_Building_Name, Supplier_Street_Name, Supplier_Zip_Code)
+Suppliers ($\underline{\text{Supplier\_ID}}$, Supplier_Name, Supplier_Building_Name, Supplier_Street_Name, Supplier_Zip_Code, Supplier_Email, Supplier_Status)
 
 ### Order_Details
 
-Order_Details ($\underline{\text{Order\_ID}}$, *Customer_ID*, Order_Date, Order_Total, Order_Status, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Street_Name, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code, Payment_Type, Payment_Status)
+Order_Details ($\underline{\text{Order\_ID}}$, *Customer_ID*, *Discount_Code*, Order_Date, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Order_Total, Order_Status, Payment_Type, Payment_Status, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code)
 
 ### Discounts
 
-Discounts ($\underline{\text{Discount\_Code}}$, Discount_Status, Discount_Amount)
+Discounts ($\underline{\text{Discount\_Code}}$, *Category_ID*, *Product_ID*, Discount_Amount, Discount_Status)
 
 ### Reviews
 
-Reviews ($\underline{\text{Review\_ID}}$, *Product_ID*, Product_Rating, Review_Timestamp, Review_Text, Review_Likes)
+Reviews ($\underline{\text{Review\_ID}}$, *Product_ID*, Review_Timestamp, Product_Rating, Review_Text, Review_Likes)
 
 ### Categories
 
-Categories ($\underline{\text{Category\_ID}}$, Category_Name)
+Categories ($\underline{\text{Category\_ID}}$, *Sub_Cat_ID*, Category_Name)
 
 
 ### Many to Many : Order_details - Product
