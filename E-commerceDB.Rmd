@@ -93,9 +93,11 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 ## Relationships and Cardinalities 
 
-### Order Details Contains Products 
+### Order Detail Contains Products 
 
+This relation indicates that each order detail contains multiple products that have been placed by the customer. It aid to track the date , status , addresses, and payment method used in the transaction.
 
+<p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Relationship Set") </p>
 
 **Associative Attribute**: (Quantity: The number of units of the product ordered in this line item.)
 
