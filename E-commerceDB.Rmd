@@ -51,28 +51,28 @@ This section describes and illustrates the entities in the above ERD and their r
 
 #### Customer 
 
-Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, and addresses.
+Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, phone numbers , and addresses.
 
 #### Supplier 
 
-Vendors who provide products. Represent the source of the product items.The entity store information about their names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).
+Vendors who provide products. Represent the source of the product items.The entity store contains attributes of names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).
 
 #### Product 
 
-Describes all products in the stock and available for sale. Provides information about the model, price, and availability of the products.
+Describes all products in the stock and available for sale.Its attributes are name, price, and availability of the products.
 
-#### Order_Details
+#### Order Details
 
-Emphasises all details related to placed orders including billing, shipping address, order, payment status, order date, and payment type.
+Emphasises all details related to placed orders. Some of its attributes including order total , billing and shipping addresses, type and status of payment , date and status of the order.
 
 #### Category and Sub-Category
 
-Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. 
+<p> Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. </p>
 
-Sub-categories fall under a primary category and help to further organize products into narrower groups, making the product search process even more straightforward for customers.
+<p> Sub-categories fall under a primary category and help to further organise products into narrower groups, making the product search process even more straightforward for customers. </p>
 
 
-#### Product_Discounts 
+#### Product Discounts 
 
 The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.
 
@@ -80,50 +80,31 @@ The voucher number or offer code to be applied to eligible products. The amount 
 
 Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
 
-```{r}
-#Creating the db schema in SQL
-con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-
-sql_file <- readLines("dbScript.sql")
-
-for (sql_command in sql_file) {
-  if (sql_command!=""){
-    print(sql_command)
-    dbExecute(con,sql_command)
-    print("-------------DONE---------")
-  }
-}
-```
-
 
 ## Design Considerations
 
 ### Absence of an Order Entity
 
-<p> The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.</P>
+<p> The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods. Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.</P>
 
 <p> Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval.</p>
 
-<p> Customer Engagement: By including Reviews, the model emphasizes customer engagement and feedback without directly managing transactions.</p>
-
-<p> Payment Information: Including Payment_Method without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.</p>
+<p> Including Payment methods without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.</p>
 
 ## Relationships and Cardinalities 
 
-### Customer Orders Products
+### Order Details Contains Products 
 
-A Customer initiates an Order when they purchase products or services. It is considered for customer management, processing transactions, and tracking order history. One customer can place multiple orders over time, each uniquely associated with one customer.
 
-<p> ![Customer Orders Products](Images/Cust_Order_Products.png "Relationship Set") </p>
 
-**Associative Attributes**: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
+**Associative Attribute**: (Quantity: The number of units of the product ordered in this line item.)
 
 ### Customer Has Order Details
 
 This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 
 
-<p> ![Customer Has Order Details](Images/Cust_Orders_OrderDetails.png "Relationship Set") </p>
+<p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Relationship Set") </p>
 
 ### Product Belongs to Category
 
@@ -139,14 +120,14 @@ A category can have multiple subcategories, creating a hierarchically nested str
 
 <p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Relationship Set") </p>
 
-### Product Supplied_By Supplier
+### Product Supplied By Supplier
 
 This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
 
 <p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Relationship Set") </p>
 
-### Product Qualifies_For Discount
+### Product Qualifies For Discount
 
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
 
@@ -195,6 +176,22 @@ Categories ($\underline{\text{Category\_ID}}$, Category_Name)
 
 Order_Items ($\underline{\text{Order\_ID, Product\_ID}}$, Quantity)
 
+## Physical Schema Creation 
+
+```{r}
+#Creating the db schema in SQL
+con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
+sql_file <- readLines("dbScript.sql")
+
+for (sql_command in sql_file) {
+  if (sql_command!=""){
+    print(sql_command)
+    dbExecute(con,sql_command)
+    print("-------------DONE---------")
+  }
+}
+```
 
 ## Normalisation
 
