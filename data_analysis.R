@@ -17,7 +17,7 @@ GROUP BY c.Category_Name, a.Product_Rating')
 # Convert Product_Rating to a factor for the ggplot
 product_rating_count$Product_Rating <- as.factor(product_rating_count$Product_Rating)
 
-# Recreate the chart with Category_Name as a fill for coloring the bars
+# Create Chart 1
 plot1 <- ggplot(product_rating_count, aes(x = Product_Rating, y = Product_Rating_Count, fill = Category_Name)) +
   geom_bar(stat = "identity", colour = "black") + # Adding a border
   scale_fill_brewer(palette = "Spectral", direction = -1) + # Using a colorful palette suitable for discrete values
@@ -30,14 +30,12 @@ plot1 <- ggplot(product_rating_count, aes(x = Product_Rating, y = Product_Rating
         panel.background = element_rect(fill = "white"), # Change the background color of the plot panel
         axis.text.x = element_text(angle = 45, hjust = 1)) # Improve the axis label display
 
-# Save the chart with a modified background color
-ggsave(plot = plot1, filename = "Images/product_rating_by_category.jpeg", width = 10, height = 8, dpi = 300)
+# Save Chart 1
+ggsave(plot = plot1, filename = "Images/Product_Rating_By_Category.jpeg", width = 10, height = 8, dpi = 300)
 
 
 
-
-#top 5 sales
-
+# Top 5 Product Revenue
 top_5_products_revenue <- dbGetQuery(con, '
 SELECT b.Product_ID, 
        c.Product_Name, 
@@ -50,95 +48,66 @@ ORDER BY Total_Revenue DESC
 LIMIT 5
 ')
 
-
-# Convert Product_ID to a factor for plotting
 top_5_products_revenue$Product_Name <- factor(top_5_products_revenue$Product_Name, levels = top_5_products_revenue$Product_Name)
 
-# Create a bar plot
-
-
-
-# Assuming top_5_products_revenue is already populated with the correct data
+# Create Plot 2
 plot2 <- ggplot(top_5_products_revenue, aes(x = Product_Name, y = Total_Revenue, fill = Product_Name)) +
-  geom_bar(stat = "identity", color = "black", width = 0.7) +  # Add border and adjust bar width
-  scale_fill_brewer(palette = "Blues", direction = -1) +  # Use a blue color palette from ColorBrewer
-  theme_minimal(base_size = 14) +  # Clean theme with larger base font size
+  geom_bar(stat = "identity", color = "black", width = 0.7) + 
+  scale_fill_brewer(palette = "Blues", direction = -1) +  
+  theme_minimal(base_size = 14) +  
   labs(title = "Top 5 Products by Revenue",
        x = "Product Name",
-       y = "Total Revenue (£)") +  # Assume currency is GBP
-  theme(plot.title = element_text(face = "bold", hjust = 0.5),  # Bold and center the title
+       y = "Total Revenue (£)") +  
+  theme(plot.title = element_text(face = "bold", hjust = 0.5),  
         axis.title.x = element_text(face = "bold"),
         axis.title.y = element_text(face = "bold"),
-        legend.position = "none",  # Remove the legend since colors correspond to product names
-        axis.text.x = element_text(angle = 45, hjust = 1),  # Rotate x-axis labels for readability
-        panel.grid.major = element_blank(),  # Remove major grid lines
-        panel.grid.minor = element_blank(),  # Remove minor grid lines
-        panel.background = element_blank(),  # Remove panel background
-        axis.line = element_line(colour = "black"))  # Add axis lines for definition
+        legend.position = "none",  
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        panel.grid.major = element_blank(),  
+        panel.grid.minor = element_blank(),  
+        panel.background = element_blank(),  
+        axis.line = element_line(colour = "black"))  
 
-# Save the plot to a file with high resolution
-ggsave("Images/top_5_products_revenue.png", plot = plot2, width = 8, height = 6, dpi = 300)
-
-
+# Save Plot 2
+ggsave("Images/Top_5_Products_Revenue.png", plot = plot2, width = 8, height = 6, dpi = 300)
 
 
-
-
+# Customer Country Code Count
 country_code <- dbGetQuery(con, 'SELECT Cust_Country_Code, COUNT(*) AS Count
 FROM Customers
 GROUP BY Cust_Country_Code
 ORDER BY Count DESC;
 ')
 
-
-
+# Create Plot 3
 plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count, fill = Cust_Country_Code)) +
   geom_col() + 
   theme_minimal() + 
   labs(title = "Customers Distribution by Country Code", x = "Country Code", y = "Number of Customers") +
   theme(axis.text.x = element_text(angle = 65, hjust = 1))
 
-
+# Save Plot 3
 ggsave(filename = "Images/Cust_Country_Code_Distribution.png", plot = plot3, width = 10, height = 6, dpi = 300)
 
 
 
-
-
-# SELECT strftime('%Y-%m', Order_Date) AS Order_Month, Order_Status, COUNT(*) AS Count
-# FROM Order_Details
-# GROUP BY Order_Month, Order_Status;
-
-
+# Order Status Count
 order_status<- dbGetQuery(con, 'SELECT Order_Status, COUNT(*) AS Count
 FROM Order_Details
 GROUP BY Order_Status
 ORDER BY Count DESC;
 ')
 
-
-
+# Create Plot 4
 plot4 <- ggplot(order_status, aes(x = Order_Status, y = Count)) +
-  geom_bar(stat = "identity", fill = "skyblue") +
-  theme_minimal() +
+  geom_bar(stat = "identity", fill = "#0072B2", color = "black", size = 0.5) + # Darker blue fill color
+  theme_minimal(base_size = 14) +
   labs(title = "Order Status Count", x = "Order Status", y = "Count") +
-  coord_flip() # 
+  coord_flip() +
+  theme(plot.background = element_rect(fill = "white"),
+        panel.background = element_rect(fill = "white"),
+        axis.text.y = element_text(angle = 0, hjust = 1)) +
+  scale_y_continuous(labels = scales::comma) 
 
-
-ggsave("Images/order_status_distribution.png", plot = plot4, width = 10, height = 6, dpi = 300)
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
+# Save Plot 4
+ggsave("Images/Order_Status_Distribution.png", plot = plot4, width = 10, height = 6, dpi = 300)

@@ -187,6 +187,101 @@ SupplierProduct ($\underline{Supplier_id,Product_id}$)
 ProductOrder_details ($\underline{Order_id, Product_id}$, Quantity, Unit_Price)
 
 
+## Normalisation
+
+For a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key.
+
+### Customers:
+
+Looking at the table, we can identify the following dependencies:
+
+Cust_ID	→ Cust_First_Name	
+Cust_ID	→ Cust_Last_Name	
+Cust_ID	→ Cust_Building_Number	
+Cust_ID	→ Cust_Building_Name	
+Cust_ID	→ Cust_Street_Name	
+Cust_ID	→ Cust_Country_Code	
+Cust_ID	→ Cust_Email	
+Cust_ID	→ Cust_Phone_Number	
+Cust_ID	→ Cust_Country_Code
+
+Based on this analysis, the table appears to be in 3NF. Each non-key attribute depends only on the primary key (Cust_ID), and there are no transitive dependencies.
+
+### Order_items:
+
+Product_ID → Quantity 
+Product_ID → Sum_Price
+Order_ID → Product_ID
+
+Product_ID is the primary key, and Quantity and Sum_Price are functionally dependent on Product_ID. There are no transitive dependencies here.
+
+Order_ID is functionally dependent on Product_ID, and Product_ID is the primary key, so there's no issue with functional dependencies. All non-prime attributes are fully functionally dependent on the primary key.
+
+### Order_details:
+
+Order_ID → Order_Date
+Order_ID → Order_Status
+Order_ID → Payment_Type
+Order_ID → Payment_Status
+Order_ID → Cust_ID
+Order_ID → Shipping_Building_Name
+Order_ID → Shipping_Street_Name
+Order_ID → Shipping_Zip_Code
+Order_ID → Billing_Building_Name
+Order_ID → Billing_Street_Name
+Order_ID → Billing_Zip_Code
+
+Given that Cust_ID is a foreign key in this table and that there is a separate Customers table where Cust_ID serves as the primary key, it suggests that Cust_ID is not functionally dependent on any other attribute within this table. It is merely referencing the primary key of another table.
+
+Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3NF). The table appears to be in 3NF as long as all other attributes are functionally dependent on the primary key (Order_ID) and not on any non-key attributes.
+
+### Product Category
+
+Category_ID → Category_Name
+
+Category_ID is the primary key and it uniquely identifies Category_Name.
+
+### Product Discount
+
+Discount_Code → Discount_Amount	
+Discount_Code → Discount_Status
+
+Analyzing the functional dependencies, it is found that Discount_Code is the primary key and it uniquely identifies Discount_Amount and Discount_Status. 
+
+Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status, ensuring that the table adheres to the principles of 3rd Normal Form (3NF). There are also no transitive dependencies or non-key attributes determining other attributes within the table.
+
+### Products
+
+Product_ID → Product_Name	
+Product_ID → Product_Price	
+Product_ID → Product_Availability
+
+Examining the attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
+
+### Reviews
+
+Review_ID → Review_Timestamp	
+Review_ID → Product_Rating	
+Review_ID → Review_Text	
+Review_ID → Review_Likes
+
+In the Reviews table, Review_ID acts as the primary key, ensuring uniqueness. Attributes like Review_Timestamp, Product_Rating, Review_Text and Review_Likes are dependent on Review_ID. 
+
+### Suppliers
+
+Supplier_ID → Supplier_Name	
+Supplier_ID → Supplier_Building_Name	
+Supplier_ID → Supplier_Building_Number	
+Supplier_ID → Supplier_Street_Name	
+Supplier_ID → Supplier_Zip_Code	
+Supplier_ID → Supplier_Email	
+Supplier_ID → Supplier_Status
+
+In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as Supplier_Name,	Supplier_Building_Name,	Supplier_Building_Number,	Supplier_Street_Name,	Supplier_Zip_Code,	Supplier_Email and	Supplier_Status are dependent on Supplier_ID.
+
+Given these functional dependencies where each attribute seems to be functionally dependent on the primary key, with no non-key attributes determining other, all tables appears to adhere to the principles of 3rd Normal Form (3NF). 
+
+
 # Part 2: Data Generation and Management
 
 ## Synthetic Data Generation 
@@ -249,12 +344,12 @@ Following snippet is Timestamps that showed as an evidence.
 
 <p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
 
-![Distribution of Product Ratings by Category](Images/product_rating_by_category.jpeg "Distribution of Product Ratings by Category")
+![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Distribution of Product Ratings by Category")
 
 The graph above shows the distribution of product ratings from 0 to 5 coloured by category name.
 
 
-![Top 5 Products by Revenue](Images/top_5_products_revenue.png "Top 5 Products by Revenue")
+![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Top 5 Products by Revenue")
 
 The graph above shows the top 5 products in terms of revenue.
 
@@ -262,7 +357,7 @@ The graph above shows the top 5 products in terms of revenue.
 
 The graph above shows the distribution of customers by country code.
 
-![Order Status Count](Images/order_status_distribution.png "Order Status Count")
+![Order Status Count](Images/Order_Status_Distribution.png "Order Status Count")
 
 The graph above shows the order status count of shipped, processing, delivered and cancelled orders. 
 
