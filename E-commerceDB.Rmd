@@ -51,7 +51,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 #### Customer 
 
-Shows us the users who previously have at least once purchased products and placed an order including information about their names , emails, and addresses.
+Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, and addresses.
 
 #### Supplier 
 
@@ -104,7 +104,7 @@ A Customer initiates an Order when they purchase products or services. It is con
 
 ### Customer Has Order Details
 
-This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
+This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 
 
 <p> ![Customer Has Order Details](Images/Cust_Orders_OrderDetails.png "Relationship Set") </p>
@@ -125,10 +125,10 @@ A category can have multiple subcategories, creating a hierarchically nested str
 
 ### Product Supplied_By Supplier
 
-The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
+This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
 
-<p> ![Product Supplied By Supplier](Images/Product_SuppliedBy_Supplier.png "Relationship Set") </p>
+<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Relationship Set") </p>
 
 ### Product Qualifies_For Discount
 
