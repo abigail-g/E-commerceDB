@@ -81,12 +81,14 @@ for (file in csv_files) {
   
   if (length(ID_columns) > 0) {
     for(col in ID_columns){
-      df <- get(file_name)[col]
-      duplicate_indices <- which(duplicated(df) | duplicated(df, fromLast = TRUE))
-      if (length(duplicate_indices) > 0) {
-        cleaned_data <- get(file_name)[-duplicate_indices, ]
-        write.csv(cleaned_data, file, row.names = FALSE)
-        print("---Duplicate values found in the primary key attribute and removed\n")
+      if (col != "Sub_Cat_ID"){
+        df <- get(file_name)[col]
+        duplicate_indices <- which(duplicated(df) | duplicated(df, fromLast = TRUE))
+        if (length(duplicate_indices) > 0) {
+          cleaned_data <- get(file_name)[-duplicate_indices, ]
+          write.csv(cleaned_data, file, row.names = FALSE)
+          print("---Duplicate values found in the primary key attribute and removed\n")
+        }
       }
     }
   }
