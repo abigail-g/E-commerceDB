@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE,comment = NA)
 library(readr)
 ```
 
-**Load necessary libraries**
+**Load Necessary Libraries**
 
 ```{r Libraries, echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
 library(DBI)
@@ -27,15 +27,15 @@ library(stringr)
 
 # Introduction 
 
-This project simulates a real-world e-commerce data environment, including all stages of data management, from database configuration to data analysis and reporting. As the database is created and managed with SQLite, GitHub Actions are used to automate processes enhancing workflow efficiency. In addition, Quarto is used in conjunction with R to conduct comprehensive data analysis and generate reports. Through this approach, technical skills and competencies necessary for effective data management are examined in-depth, mirroring the complexities and dynamics encountered in e-commerce.  
+<p> This project simulates a real-world e-commerce data environment, including all stages of data management, from database configuration to data analysis and reporting. As the database is created and managed with SQLite, GitHub Actions are used to automate processes enhancing workflow efficiency. In addition, Quarto is used in conjunction with R to conduct comprehensive data analysis and generate reports. Through this approach, technical skills and competencies necessary for effective data management are examined in-depth, mirroring the complexities and dynamics encountered in e-commerce.</p>
 
 # Database Design and Implementation
 
 ## Entity Relationship Diagram
 
-![ERD](Images/ERD.jpg "Entity Relationship Diagram")
+![E-Commerce Entity Relationship Diagram](Images/ERD.jpg "Entity Relationship Diagram")
 
-The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
+<p> The E-R diagram above simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments. </p>
 
 ### Assumptions
 
@@ -49,36 +49,36 @@ The E-R diagram above simulates a real-world e-commerce data ecosystem, capturin
 
 This section describes and illustrates the entities in the above ERD and their respective attributes.
 
-#### Customer 
+- Customer 
 
-Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, phone numbers , and addresses.
+&nbsp;&nbsp;&nbsp;&nbsp;Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, phone numbers , and addresses.
 
-#### Supplier 
+- Supplier 
 
-Vendors who provide products. Represent the source of the product items.The entity store contains attributes of names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).
+&nbsp;&nbsp;&nbsp;&nbsp;Vendors who provide products. Represent the source of the product items.The entity store contains attributes of names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).
 
-#### Product 
+- Product 
 
-Describes all products in the stock and available for sale.Its attributes are name, price, and availability of the products.
+&nbsp;&nbsp;&nbsp;&nbsp;Describes all products in the stock and available for sale.Its attributes are name, price, and availability of the products.
 
-#### Order Details
+- Order Details
 
-Emphasises all details related to placed orders. Some of its attributes including order total , billing and shipping addresses, type and status of payment , date and status of the order.
+&nbsp;&nbsp;&nbsp;&nbsp;Emphasises all details related to placed orders. Some of its attributes including order total , billing and shipping addresses, type and status of payment , date and status of the order. 
 
-#### Category and Sub-Category
+- Category and Sub-Category
 
-<p> Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. </p>
+&nbsp;&nbsp;&nbsp;&nbsp;Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. 
 
-<p> Sub-categories fall under a primary category and help to further organise products into narrower groups, making the product search process even more straightforward for customers. </p>
+&nbsp;&nbsp;&nbsp;&nbsp;Sub-categories fall under a primary category and help to further organise products into narrower groups, making the product search process even more straightforward for customers. 
 
 
-#### Product Discounts 
+- Product Discounts 
 
-The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.
+&nbsp;&nbsp;&nbsp;&nbsp;The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.
 
-#### Reviews 
+- Reviews 
 
-Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
+&nbsp;&nbsp;&nbsp;&nbsp;Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
 
 
 ## Design Considerations
@@ -95,15 +95,15 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 ### Order Detail Contains Products 
 
-This relation indicates that each order detail contains multiple products that have been placed by the customer. It aid to track the date , status , addresses, and payment method used in the transaction.
+<p> This relation indicates that each order detail contains multiple products that have been placed by the customer. It aid to track the date , status , addresses, and payment method used in the transaction.</p>
 
 <p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Relationship Set") </p>
 
-**Associative Attribute**: (Quantity: The number of units of the product ordered in this line item.)
+*Associative Attribute* (Quantity: The number of units of the product ordered in this line item.)
 
 ### Customer Has Order Details
 
-This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
+<p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
 
 
 <p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Relationship Set") </p>
@@ -117,21 +117,21 @@ Each Product is classified under a specific Category where products can belong t
 
 ### Category Self-Reference Relation 
 
-A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, "Home Appliances" is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers ...etc.
+<p> A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, "Home Appliances" is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers etc.</p>
 
 
 <p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Relationship Set") </p>
 
 ### Product Supplied By Supplier
 
-This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
+<p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
 
 
 <p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Relationship Set") </p>
 
 ### Product Qualifies For Discount
 
-The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
+<p> The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.</p>
 
 
 <p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Relationship Set") </p> 
@@ -180,7 +180,7 @@ Order_Items ($\underline{\text{Order\_ID, Product\_ID}}$, Quantity)
 
 ## Physical Schema Creation 
 
-```{r}
+```{r echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
 #Creating the db schema in SQL
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
 
@@ -197,26 +197,19 @@ for (sql_command in sql_file) {
 
 ## Normalisation
 
-1NF Def : ,,,,,,,, 
-2 NF  Def : ,,,,,,,,, and it is already 
+- First Normal Form (1NF) requires a table to have atomic values, unique rows through a primary key, and no duplicate columns.
 
-For a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key.
+- Second Normal Form (2NF) is achieved when a table is in 1NF and all non-key attributes are fully functional and dependent on the primary key, eliminating partial dependency on any part of a composite key. 
+
+- For a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key.
 
 ### Customers:
 
 Looking at the table, we can identify the following dependencies:
 
-Cust_ID	→ Cust_First_Name	
-Cust_ID	→ Cust_Last_Name	
-Cust_ID	→ Cust_Building_Number	
-Cust_ID	→ Cust_Building_Name	
-Cust_ID	→ Cust_Street_Name	
-Cust_ID	→ Cust_Country_Code	
-Cust_ID	→ Cust_Email	
-Cust_ID	→ Cust_Phone_Number	
-Cust_ID	→ Cust_Country_Code
+Cust_ID	→ Cust_First_Name \newline Cust_ID	→ Cust_Last_Name \newline Cust_ID → Cust_Building_Number \newline Cust_ID	→ Cust_Building_Name \newline Cust_ID	→ Cust_Street_Name \newline Cust_ID	→ Cust_Country_Code	\newline Cust_ID	→ Cust_Email \newline Cust_ID	→ Cust_Phone_Number	
 
-Based on this analysis, the table appears to be in 3NF. Each non-key attribute depends only on the primary key (Cust_ID), and there are no transitive dependencies.
+- Based on this analysis, the table appears to be in 3NF. Each non-key attribute depends only on the primary key (Cust_ID), and there are no transitive dependencies.
 
 ### Order_items:
 
@@ -228,22 +221,11 @@ All non-prime attributes are fully functionally dependent on the primary key.
 
 ### Order_details:
 
-*[Each in one line]*
-Order_ID → Order_Date
-Order_ID → Order_Status
-Order_ID → Payment_Type
-Order_ID → Payment_Status
-Order_ID → Cust_ID
-Order_ID → Shipping_Building_Name
-Order_ID → Shipping_Street_Name
-Order_ID → Shipping_Zip_Code
-Order_ID → Billing_Building_Name
-Order_ID → Billing_Street_Name
-Order_ID → Billing_Zip_Code
+Order_ID → Order_Date \newline Order_ID → Order_Status \newline Order_ID → Payment_Type \newline Order_ID → Payment_Status \newline Order_ID → Cust_ID \newline Order_ID → Shipping_Building_Name \newline Order_ID → Shipping_Street_Name \newline Order_ID → Shipping_Zip_Code \newline Order_ID → Billing_Building_Name \newline Order_ID → Billing_Street_Name \newline Order_ID → Billing_Zip_Code
 
-Given that Cust_ID is a foreign key in this table and that there is a separate Customers table where Cust_ID serves as the primary key, it suggests that Cust_ID is not functionally dependent on any other attribute within this table. It is merely referencing the primary key of another table.
+<p> Given that Cust_ID is a foreign key in this table and that there is a separate Customers table where Cust_ID serves as the primary key, it suggests that Cust_ID is not functionally dependent on any other attribute within this table. It is merely referencing the primary key of another table.</p>
 
-Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3NF). The table appears to be in 3NF as long as all other attributes are functionally dependent on the primary key (Order_ID) and not on any non-key attributes.
+<p> Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3NF). The table appears to be in 3NF as long as all other attributes are functionally dependent on the primary key (Order_ID) and not on any non-key attributes.</p>
 
 ### Product Category
 
@@ -253,8 +235,7 @@ Category_ID is the primary key and it uniquely identifies Category_Name.
 
 ### Product Discount
 
-Discount_Code → Discount_Amount	
-Discount_Code → Discount_Status
+Discount_Code → Discount_Amount	\newline Discount_Code → Discount_Status
 
 Analyzing the functional dependencies, it is found that Discount_Code is the primary key and it uniquely identifies Discount_Amount and Discount_Status. 
 
@@ -262,30 +243,21 @@ Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status
 
 ### Products
 
-Product_ID → Product_Name	
-Product_ID → Product_Price	
-Product_ID → Product_Availability
-[Missed FKs]
+Product_ID → Product_Name	\newline Product_ID → Product_Price	\newline Product_ID → Product_Availability
+
+*Missed FKs*
 
 Examining the attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
 
 ### Reviews
 
-Review_ID → Review_Timestamp	
-Review_ID → Product_Rating	
-Review_ID → Review_Text	
-Review_ID → Review_Likes
+Review_ID → Review_Timestamp \newline Review_ID → Product_Rating \newline Review_ID → Review_Text \newline Review_ID → Review_Likes
 
 In the Reviews table, Review_ID acts as the primary key, ensuring uniqueness. Attributes like Review_Timestamp, Product_Rating, Review_Text and Review_Likes are dependent on Review_ID. 
 
 ### Suppliers
 
-Supplier_ID → Supplier_Name	
-Supplier_ID → Supplier_Building_Name	
-Supplier_ID → Supplier_Building_Number	
-Supplier_ID → Supplier_Street_Name	
-Supplier_ID → Supplier_Zip_Code	
-Supplier_ID → Supplier_Email	
+Supplier_ID → Supplier_Name	\newline Supplier_ID → Supplier_Building_Name \newline Supplier_ID → Supplier_Building_Number \newline Supplier_ID → Supplier_Street_Name \newline Supplier_ID → Supplier_Zip_Code	\newline Supplier_ID → Supplier_Email	\newline
 Supplier_ID → Supplier_Status
 
 In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as Supplier_Name,	Supplier_Building_Name,	Supplier_Building_Number,	Supplier_Street_Name,	Supplier_Zip_Code,	Supplier_Email and	Supplier_Status are dependent on Supplier_ID.
@@ -299,7 +271,9 @@ In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as 
 
 After the agreement on the schema mentioned in the previous section, the team started to generate synthetic data that to some extent, imitated realistic e-commerce as much as possible.
 
-ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. **[Appendix 1,2]**. For tables consisting of foreign keys, R code has been used for assignment based of logic set by the team.[Appendix --- Take Snippt from data_update file ]
+ChatGPT has been used as the main tool for this step as an alternative to Mockaroo, as the former produces more structural and logical data than the latter. **[Appendix 1,2]**. For tables consisting of foreign keys, R code has been used for assignment based of logic set by the team.
+
+*Appendix --- Take Snippt from data_update file*
 
 ## Data Import and Quality Assurance
 
@@ -318,8 +292,9 @@ This method focused on refining datasets for accurate analysis by identifying an
 
 To efficiently collaborate on this assignment, we have uploaded the project to Github. This was done so that the team could track changes, follow progress, collaborate on bug fixes etc. Moving the project to Github also allowed for implementation of version control and continuous integration.
 
-Using Github Workflows, we were able to automate the process of validating data, updating ‎data and data analysis. The workflow is triggered on pushing new data to the project. Once ‎all 3 steps are completed successfully, the new files are committed and pushed to the ‎project.‎
-Figure below shows the new data reflecting in our analyses and sql db after being picked up ‎by the workflow.‎
+Using Github Workflows, we were able to automate the process of validating data, updating data and data analysis. The workflow is triggered on pushing new data to the project. Once all 3 steps are completed successfully, the new files are committed and pushed to the project.
+
+Figure below shows the new data reflecting in our analyses and sql db after being picked up by the workflow.
 
 
 ## Github Repository Creation
@@ -328,7 +303,7 @@ Figure below shows the new data reflecting in our analyses and sql db after bein
  
 ## Automated Workflow 
  
-<p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in Figures[..] .</p>
+<p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in *Figures* .</p>
 
 <p> ![The histogram of customers data for 50 records](Images/Workflow1.png "The histogram of customers data for 50 records") </p>
 
