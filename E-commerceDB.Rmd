@@ -156,7 +156,7 @@ Products ($\underline{\text{Product\_id}}$, *Discount_Code*, *Category_id*, Prod
 
 ### Suppliers
 
-Suppliers ($\underline{Supplier_id}$, Supplier_Email, Supplier_Name, Supplier_Status, Sup_Building_Name, Sup_Street_Name, Sup_Zip_Code)
+Suppliers ($\underline{\text{Supplier\_ID}}$, Supplier_Name Supplier_Email, Supplier_Status, Supplier_Building_Name, Supplier_Street_Name, Supplier_Zip_Code)
 
 ### Order_Details
 
@@ -164,7 +164,7 @@ Order_Details ($\underline{Order_id}$, *Customer_id*, Order_Date, Order_Total, O
 
 ### Discounts
 
-Discounts ($\underline{Discount_Code}$, Discount_Status, Discount_Amount)
+Discounts ($\underline{\text{Discount\_Code}}$, Discount_Status, Discount_Amount)
 
 ### Reviews
 
@@ -172,7 +172,7 @@ Reviews ($\underline{Review_id}$, *Product_id*, Review_Rating, Review_Timestamp,
 
 ### Categories
 
-Categories ($\underline{Category_id}$, Category_Name)
+Categories ($\underline{\text{Category\_ID}}$, Category_Name)
 
 ### SupplierProduct
 
@@ -279,7 +279,7 @@ Supplier_ID → Supplier_Status
 
 In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as Supplier_Name,	Supplier_Building_Name,	Supplier_Building_Number,	Supplier_Street_Name,	Supplier_Zip_Code,	Supplier_Email and	Supplier_Status are dependent on Supplier_ID.
 
-Given these functional dependencies where each attribute seems to be functionally dependent on the primary key, with no non-key attributes determining other, all tables appears to adhere to the principles of 3rd Normal Form (3NF). 
+<p> Given these functional dependencies where each attribute seems to be functionally dependent on the primary key, with no non-key attributes determining other, all tables appears to adhere to the principles of 3rd Normal Form (3NF).</p> 
 
 
 # Part 2: Data Generation and Management
