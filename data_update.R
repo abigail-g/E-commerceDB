@@ -94,7 +94,7 @@ assign_category_id <- function(Product_Name) {
     return("CAT2")
   } else if (grepl("Phone|Galaxy|Mi|P Series|OnePlus", Product_Name, ignore.case = TRUE)) {
     return("CAT3")
-  } else if (grepl("Refrigerator|Washing Machine|Home Appliance|Microwave|Vacuum|Dishwasher", Product_Name, ignore.case = TRUE)){
+  } else if (grepl("Washing Machine|Home Appliance|Vacuum|Dishwasher", Product_Name, ignore.case = TRUE)){
     return("CAT4")
   } else if (grepl("Headphones|Speakers|Sound System|Earbuds|Speaker|Technica|Soundbar", Product_Name, ignore.case = TRUE)) {
     return("CAT5")
@@ -104,10 +104,20 @@ assign_category_id <- function(Product_Name) {
     return("CAT7")
   } else if (grepl("Smart Home|Echo|Smart Lock|Steam Deck|Hue Light", Product_Name, ignore.case = TRUE)) {
     return("CAT8")
-  } else if (grepl("Watch|Wearable|Quest|Tracker|Gear|Band|Glasses", Product_Name, ignore.case = TRUE)) {
+  } else if (grepl("Wearable|Quest|Tracker|Gear|Band|Glasses", Product_Name, ignore.case = TRUE)) {
     return("CAT9")
   } else if (grepl("Keyboard|Mouse|Peripheral|Thermostat", Product_Name, ignore.case = TRUE)) {
     return("CAT10")
+  } else if (grepl("Refrigerator", Product_Name, ignore.case = TRUE)){
+    return("CAT11")
+  } else if (grepl("Microwave", Product_Name, ignore.case = TRUE)){
+    return("CAT12")
+  } else if (grepl("Smart Tech", Product_Name, ignore.case = TRUE)){
+    return("CAT13")
+  } else if (grepl("Watch", Product_Name, ignore.case = TRUE)) {
+    return("CAT14")
+  } else if (grepl("Projectors", Product_Name, ignore.case = TRUE)) {
+    return("CAT15")
   } else {
     return(NA) # For products that do not match any category
   }
