@@ -98,7 +98,7 @@ Contains Written comments and rating of product sold by verified buyers, the lik
 
 A Customer initiates an Order when they purchase products or services. It is considered for customer management, processing transactions, and tracking order history. One customer can place multiple orders over time, each uniquely associated with one customer.
 
-![RMS](Images/Cust_Order_Products.png "Relationship Set")
+<p> ![Customer Orders Products](Images/Cust_Order_Products.png "Relationship Set") </p>
 
 **Associative Attributes**: (Quantity: The number of units of the product ordered in this line item.), (Unit Price: The price per unit of the product at the time of the order. This is important as product prices can vary over time), (Unit_Sub_Total : The total cost for this line item (typically calculated as (Quantity * Unit Price)).
 
@@ -107,41 +107,41 @@ A Customer initiates an Order when they purchase products or services. It is con
 This relation will be created when customers order their first product or service. They will be linked with a particular Order Status indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 
 
-![RMS](Images/Cust_Orders_OrderDetails.png "Relationship Set")
+<p> ![Customer Has Order Details](Images/Cust_Orders_OrderDetails.png "Relationship Set") </p>
 
 ### Product Belongs to Category
 
 Each Product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
 
-![RMS](Images/Product_BelongTo_Cat.png "Relationship Set")
+<p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Relationship Set") </p>
 
 ### Category Self-Reference Relation 
 
 A category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, the "Phones" category might have "Apple” and "Samsung" as subcategories, which in turn could have their own subcategories of different phone models.
 
 
-![RMS](Images/Cat_Has_SubCat.png "Relationship Set")
+<p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Relationship Set") </p>
 
 ### Product Supplied_By Supplier
 
 The relationship creates a link between the products and their suppliers. Thereby indicating multiple vendors can supply a product, as well as supply multiple different products. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 
 
-![RMS](Images/Product_SuppliedBy_Supplier.png "Relationship Set")
+<p> ![Product Supplied By Supplier](Images/Product_SuppliedBy_Supplier.png "Relationship Set") </p>
 
 ### Product Qualifies_For Discount
 
 The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products.
 
 
-![RMS](Images/Product_Qualify_Discount.png "Relationship Set")
+<p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Relationship Set") </p> 
 
 ### Product Has Reviews
 
 A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time.
 
-![RMS](Images/Product_Has_Reviews.png "Relationship Set")
+<p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Relationship Set") </p> 
 
 
 ## Logical Schema
@@ -302,16 +302,18 @@ To enhance data quality for e-commerce analysis, a validation process was applie
  
 <p>Second phase was the automation process utilising workflow that trigger on specific events like push and pull requests to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in Figures.</p>
 
-![The histogram of customers data for 50 records](Images/Workflow1.png "The histogram of customers data for 50 records")
-![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "The histogram after workflow run and inserted additional 100 records")
-The below figure shows the record count after 1st run of workflow (49) and then after second run of workflow (150). 
+<p> ![The histogram of customers data for 50 records](Images/Workflow1.png "The histogram of customers data for 50 records") </p>
 
-![Console Output](Images/Console_Workflow.png "Console Output")
+<p> ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "The histogram after workflow run and inserted additional 100 records")</P>
+
+<p> The below figure shows the record count after 1st run of workflow (49) and then after second run of workflow (150).</p>
+
+<p> ![Console Output](Images/Console_Workflow.png "Console Output") </p>
 
 
 Following snippet is Timestamps that showed as an evidence.
 
-![Workflow Timestamps](Images/WorkflowTimestamps.png "Workflow Timestamps")
+<p> ![Workflow Timestamps](Images/WorkflowTimestamps.png "Workflow Timestamps")</p>
 
 
 # Part 4: Data Analysis and Reporting with Quarto in R
@@ -321,7 +323,7 @@ Following snippet is Timestamps that showed as an evidence.
 <p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
 
 
-![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Top 5 Products by Revenue")
+<p> ![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Top 5 Products by Revenue") </p>
 
 The graph shows the distribution of product ratings from 0 to 5 coloured by category name.
 
@@ -351,8 +353,8 @@ Upon completion of this project, valuable insights are gained regarding the chal
 ## Appendix 1
 
 
-![ChatGPT_1](Images/ChatGPT-GenerateDataPrompt1.png "ChatGPT_1")
+<p> ![ChatGPT_1](Images/ChatGPT-GenerateDataPrompt1.png "ChatGPT_1") </p>
 
 ## Appendix 2
 
-![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "ChatGPT_2")
+<p> ![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "ChatGPT_2") </p>
