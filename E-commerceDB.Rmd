@@ -476,7 +476,7 @@ Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3N
 
 ### Product Category
 
-Category_ID	→ Category_Name
+Category_ID → Category_Name
 
 Category_ID is the primary key and it uniquely identifies Category_Name.
 
