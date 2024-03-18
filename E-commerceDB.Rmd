@@ -444,8 +444,8 @@ Based on this analysis, the table appears to be in 3NF. Each non-key attribute d
 
 ### Order_items:
 
-Product_ID -> Quantity, Sum_Price
-Order_ID -> Product_ID
+Product_ID → Quantity, Sum_Price
+Order_ID → Product_ID
 
 Product_ID is the primary key, and Quantity and Sum_Price are functionally dependent on Product_ID. There are no transitive dependencies here.
 
@@ -469,6 +469,51 @@ Given that Cust_ID is a foreign key in this table and that there is a separate C
 
 Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3NF). The table appears to be in 3NF as long as all other attributes are functionally dependent on the primary key (Order_ID) and not on any non-key attributes.
 
+### Product Category
+
+Category_ID	→ Category_Name
+
+Category_ID is the primary key and it uniquely identifies Category_Name.
+
+### Product Discount
+
+Discount_Code → Discount_Amount	
+Discount_Code → Discount_Status
+
+Analyzing the functional dependencies, it is found that Discount_Code is the primary key and it uniquely identifies Discount_Amount and Discount_Status. 
+
+Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status, ensuring that the table adheres to the principles of 3rd Normal Form (3NF). There are also no transitive dependencies or non-key attributes determining other attributes within the table.
+
+### Products
+
+Product_ID → Product_Name	
+Product_ID → Product_Price	
+Product_ID → Product_Availability
+
+Examining the attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
+
+### Reviews
+
+Review_ID → Review_Timestamp	
+Review_ID → Product_Rating	
+Review_ID → Review_Text	
+Review_ID → Review_Likes
+
+In the Reviews table, Review_ID acts as the primary key, ensuring uniqueness. Attributes like Review_Timestamp, Product_Rating, Review_Text and Review_Likes are dependent on Review_ID. 
+
+### Suppliers
+
+Supplier_ID → Supplier_Name	
+Supplier_ID → Supplier_Building_Name	
+Supplier_ID → Supplier_Building_Number	
+Supplier_ID → Supplier_Street_Name	
+Supplier_ID → Supplier_Zip_Code	
+Supplier_ID → Supplier_Email	
+Supplier_ID → Supplier_Status
+
+In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as Supplier_Name,	Supplier_Building_Name,	Supplier_Building_Number,	Supplier_Street_Name,	Supplier_Zip_Code,	Supplier_Email and	Supplier_Status are dependent on Supplier_ID.
+
+Given these functional dependencies where each attribute seems to be functionally dependent on the primary key, with no non-key attributes determining other, all tables appears to adhere to the principles of 3rd Normal Form (3NF). 
 
 
 # Part 2: Data Generation and Management
