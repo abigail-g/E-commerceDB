@@ -95,11 +95,11 @@ This section describes and illustrates the entities in the above ERD and their r
 
 ### Order Detail Contains Products 
 
-<p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been placed by the customer. It aid to track the date , status , addresses, and payment method used in the transaction.</p>
+<p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been placed by the customer. It aids to track the date , status , addresses, and payment method used in the transaction.</p>
 
 <p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Figure 2 - OrderDetails Contains Products") </p>
 
-*Associative Attribute* (Quantity: The number of units of the product ordered in this line item.)
+**Associative Attribute** (Quantity: The number of units of the product ordered in this line item.)
 
 ### Customer Has Order Details
 
@@ -126,7 +126,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 <p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
 
-*Associative Attributes* 
+**Associative Attributes : ** 
 
 - Supply_Contracts : Legal agreements that outline the terms and conditions under which one party will provide goods or services to another.
 
@@ -190,9 +190,7 @@ Order_Items ($\underline{\text{Order\_ID, Product\_ID}}$, Quantity)
 ```{r echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
 #Creating the db schema in SQL
 con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
-
 sql_file <- readLines("dbScript.sql")
-
 for (sql_command in sql_file) {
   if (sql_command!=""){
     print(sql_command)
@@ -204,11 +202,11 @@ for (sql_command in sql_file) {
 
 ## Normalisation
 
-- First Normal Form (1NF) requires a table to have atomic values, unique rows through a primary key, and no duplicate columns.
+<p> First Normal Form (1NF) requires a table to have atomic values, unique rows through a primary key, and no duplicate columns.Thus , based on this definition the tables have been checked and considered to have atomic values with no duplicated columns. </p>
 
-- Second Normal Form (2NF) is achieved when a table is in 1NF and all non-key attributes are fully functional and dependent on the primary key, eliminating partial dependency on any part of a composite key. 
+<p> Next, the team  considered the Second Normal Form (2NF) which can be achieved when a table is in 1NF and all non-key attributes are fully functional and dependent on the primary key, eliminating partial dependency on any part of a composite key. </p>
 
-- For a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key.
+<p> As a last normal form to be considered and for a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key. The team perfoemed the required checks until all requirements of (3NF) are met as clarified in details in the following sections. </p> 
 
 ### Customers:
 
@@ -252,7 +250,7 @@ Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status
 
 Product_ID → Product_Name	\newline Product_ID → Product_Price	\newline Product_ID → Product_Availability
 
-*Missed FKs*
+**Missed FKs** Please consider them
 
 Examining the attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
 
@@ -307,43 +305,40 @@ Figure below shows the new data reflecting in our analyses and sql db after bein
  
 ## Automated Workflow 
  
-<p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in *Figures* .</p>
+<p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in **Figures 9, 10 , and 11** In **Figure 12** the snippet is Timestamps that showed as an evidence of a working workflow </p>
 
-<p> ![The histogram of customers data for 50 records](Images/Workflow1.png "The histogram of customers data for 50 records") </p>
+<p> ![The histogram of customers data for 50 records](Images/Workflow1.png "Figure 9 - The histogram of customers data for 50 records") </p>
 
-<p> ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "The histogram after workflow run and inserted additional 100 records")</P>
+<p> ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "Figure 10 -The histogram after workflow run and inserted additional 100 records")</P>
 
 <p> The below figure shows the record count after 1st run of workflow (49) and then after second run of workflow (150).</p>
 
-<p> ![Record count after data update using workflow](Images/Console_Workflow.png "Console Output") </p>
+<p> ![Record count after data update using workflow](Images/Console_Workflow.png "Figure 11 - Console Output") </p>
 
 
-Following snippet is Timestamps that showed as an evidence.
-
-<p> ![Workflow Timestamps](Images/WorkflowTimestamps.png "Workflow Timestamps")</p>
+<p> ![Workflow Timestamps](Images/WorkflowTimestamps.png "Figure 12 - Workflow Timestamps")</p>
 
 
 # Part 4: Data Analysis and Reporting with Quarto in R
 
-<p> ![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Distribution of Product Ratings by Category")</p>
-
 <p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
 
+The graph in **Figure 13** shows the distribution of product ratings from 0 to 5 coloured by category name. Followed by **Figure 14** reflecting Top 5 Products Sorted by total Revenue. [How Revenue is calculated by using join statement]
 
-<p> ![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Top 5 Products by Revenue") </p>
-
-The graph shows the distribution of product ratings from 0 to 5 coloured by category name.
+<p> ![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Figure 13 - Distribution of Product Ratings by Category")</p>
 
 
-The graph above shows the top 5 products in terms of revenue. [How Revenue is calculated by using join statement]
+<p> ![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Figure 14 - Top 5 Products by Revenue") </p>
 
-<p> ![Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Distribution of Customers by Phone Country Code")</p>
 
-The graph above shows the distribution of customers by phone country code.
+The graph in **Figure 15**  shows the distribution of customers by phone country codes.
+ 
 
-<p> ![Order Status Count](Images/Order_Status_Distribution.png "Order Status Count") </p>
+<p> ![Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Figure 15- Distribution of Customers by Phone Country Code")</p>
 
-The graph above shows the order status count of shipped, processing, delivered and cancelled orders. 
+**Figure 16** displays the order status count of shipped, processing, delivered and cancelled orders. 
+
+<p> ![Order Status Count](Images/Order_Status_Distribution.png "Figure 16- Order Status Count") </p>
 
 
 # Conclusion
@@ -352,7 +347,7 @@ Upon completion of this project, valuable insights are gained regarding the chal
 
 # References 
 
-[1][Github Repo](https://github.com/abigail-g/E-commerceDB)
+1. [Github Repo](https://github.com/abigail-g/E-commerceDB)
 
 
 # Appendices 
@@ -360,16 +355,12 @@ Upon completion of this project, valuable insights are gained regarding the chal
 ## Appendix 1
 
 
-<p> ![ChatGPT_1](Images/ChatGPT-GenerateDataPrompt1.png "ChatGPT_1") </p>
+<p> ![ChatGPT_1](Images/ChatGPT-GenerateDataPrompt1.png "A.1 - ChatGPT_1") </p>
 
 ## Appendix 2
 
-<p> ![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "ChatGPT_2") </p>
-
+# <p> ![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "A.2 - ChatGPT_2") </p>
 
 ## Appendix 3
 
-<p> ![Data Update](Images/Data_Update.png "Data Update") </p>
-
-
-
+<p> ![Data Update](Images/Data_Update.png "A.3 - Data Update") </p>
