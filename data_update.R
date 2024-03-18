@@ -152,7 +152,7 @@ Product_Discounts <- Product_Discounts %>%
   left_join(discounted_cat, by = "Discount_Code")
 
 
-RSQLite::dbWriteTable(con, "Product_Discounts", Product_Discounts, overwrite = TRUE)
+RSQLite::dbWriteTable(con, "Discounts", Product_Discounts, overwrite = TRUE)
 
 # Reviews
 
