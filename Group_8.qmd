@@ -97,7 +97,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 <p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been placed by the customer. It aids to track the date , status , addresses, and payment method used in the transaction.</p>
 
-<p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Figure 2 - OrderDetails Contains Products") </p>
+<p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Figure 2 - OrderDetails Contains Products"){width=400px height=400px} </p>
 
 **Associative Attribute** (Quantity: The number of units of the product ordered in this line item.)
 
@@ -106,25 +106,27 @@ This section describes and illustrates the entities in the above ERD and their r
 <p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time as illustrated in **Figure 3**. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
 
 
-<p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details") </p>
+<p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details"){width=400px height=400px} </p>
 
 ### Product Belongs to Category
 
 **Figure 4** specify that each product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
 
-<p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Figure 4 - Product Belong to Category") </p>
+<p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Figure 4 - Product Belong to Category"){width=400px height=400px} </p>
 
 ### Category Self-Reference Relation 
 
 <p> As reflected in **Figure 5**, category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, "Home Appliances" is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers etc.</p>
 
 
-<p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Figure 5 - Category Has Sub-Category") </p>
+<p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Figure 5 - Category Has Sub-Category"){width=400px height=400px} </p>
 
 ### Product Supplied By Supplier
 
 <p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
+
+<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier"){width=400px height=400px} </p>
 
 **Associative Attributes : ** 
 
@@ -134,20 +136,18 @@ This section describes and illustrates the entities in the above ERD and their r
 
 - Pricing_ Agreements : Conditions in a contract that define the responsibilities, costs, and risk transfer points related to the transportation of goods from the seller to the buyer.
 
-<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier") </p>
 
 ### Product Qualifies For Discount
 
 <p> The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products **Figure 7**.</p>
 
-
-<p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Figure 7 - Product Qualifies For Discount") </p> 
+<p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Figure 7 - Product Qualifies For Discount"){width=400px height=400px} </p> 
 
 ### Product Has Reviews
 
 A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time as shown in **Figure 8**.
 
-<p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Figure 8 - Product Has Reviews") </p> 
+<p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Figure 8 - Product Has Reviews"){width=400px height=400px} </p> 
 
 
 ## Logical Schema
@@ -307,42 +307,46 @@ Figure below shows the new data reflecting in our analyses and sql db after bein
  
 ## Automated Workflow 
  
-<p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis as illustrated in **Figures 9, 10 , and 11** In **Figure 12** the snippet is Timestamps that showed as an evidence of a working workflow </p>
+<p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis. 
 
-<p> ![The histogram of customers data for 50 records](Images/Workflow1.png "Figure 9 - The histogram of customers data for 50 records") </p>
+<p> **Figures 9, 10** shows the record count after 1st run of workflow (49) and then after second run of workflow (150).</p>
 
-<p> ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "Figure 10 -The histogram after workflow run and inserted additional 100 records")</P>
+<p> ![The histogram of customers data for 50 records](Images/Workflow1.png "Figure 9 - The histogram of customers data for 50 records"){width=450px height=450px} </p>
 
-<p> The below figure shows the record count after 1st run of workflow (49) and then after second run of workflow (150).</p>
+<p> ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "Figure 10 -The histogram after workflow run and inserted additional 100 records"){width=450px height=450px} </P>
 
-<p> ![Record count after data update using workflow](Images/Console_Workflow.png "Figure 11 - Console Output") </p>
+**Figure 11** illustrate console output showing the record count after data update using the workflow.
 
+<p> ![Record count after data update using workflow](Images/Console_Workflow.png "Figure 11 - Console Output"){width=450px height=450px} </p>
 
-<p> ![Workflow Timestamps](Images/WorkflowTimestamps.png "Figure 12 - Workflow Timestamps")</p>
+<p> In **Figure 12** the snippet is Timestamps that showed as an evidence of a working workflow </p>
+
+<p> ![Workflow Timestamps](Images/WorkflowTimestamps.png "Figure 12 - Workflow Timestamps"){width=450px height=450px} </p>
 
 
 # Part 4: Data Analysis and Reporting with Quarto in R
 
+<p> ![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Figure 13 - Distribution of Product Ratings by Category"){width=450px height=450px} </p>
+
 <p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
 
-The graph in **Figure 13** shows the distribution of product ratings from 0 to 5 coloured by category name. Followed by **Figure 14** reflecting Top 5 Products Sorted by total Revenue. 
+<p> The graph in **Figure 13** shows the distribution of product ratings from 0 to 5 coloured by category name. </p>
+
+<p> ![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Figure 14 - Top 5 Products by Revenue"){width=450px height=450px} </p>
+
+<p> **Figure 14** reflecting Top 5 Products Sorted by total Revenue.</p>
+
 
 <p> After joining the "Order_Items", "Discounts", and “Products” tables, the derived value, which is the “Total Revenue”, is calculated by multiplying “Order_Item” quantity and “Product_Price” and deducting it with “Discount_Amount.</p>
 
-<p> ![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Figure 13 - Distribution of Product Ratings by Category")</p>
+<p> ![Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Figure 15- Distribution of Customers by Phone Country Code"){width=400px height=400px} </p>
 
-
-<p> ![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Figure 14 - Top 5 Products by Revenue") </p>
-
-
-The graph in **Figure 15**  shows the distribution of customers by phone country codes.
+<p> The graph in **Figure 15**  shows the distribution of customers by phone country codes.</p>
  
 
-<p> ![Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Figure 15- Distribution of Customers by Phone Country Code")</p>
+<p> **Figure 16** displays the order status count of shipped, processing, delivered and cancelled orders. </p>
 
-**Figure 16** displays the order status count of shipped, processing, delivered and cancelled orders. 
-
-<p> ![Order Status Count](Images/Order_Status_Distribution.png "Figure 16- Order Status Count") </p>
+<p> ![Order Status Count](Images/Order_Status_Distribution.png "Figure 16- Order Status Count"){width=400px height=400px} </p>
 
 
 # Conclusion
@@ -351,20 +355,18 @@ Upon completion of this project, valuable insights are gained regarding the chal
 
 # References 
 
-1. [Github Repo](https://github.com/abigail-g/E-commerceDB)
-
+1. To be redirected to the project repository click [here](https://github.com/abigail-g/E-commerceDB)
 
 # Appendices 
 
 ## Appendix 1
 
-
-<p> ![ChatGPT_1](Images/ChatGPT-GenerateDataPrompt1.png "A.1 - ChatGPT_1") </p>
+<p> ![ChatGPT_1](Images/ChatGPT-GenerateDataPrompt1.png "A.1 - ChatGPT_1"){width=400px height=400px} </p>
 
 ## Appendix 2
 
-# <p> ![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "A.2 - ChatGPT_2") </p>
+<p> ![ChatGPT_2](Images/ChatGPT-GenerateDataPrompt2.png "A.2 - ChatGPT_2"){width=450px height=450px} </p>
 
 ## Appendix 3
 
-<p> ![Data Update](Images/Data_Update.png "A.3 - Data Update") </p>
+<p>![Data Update](Images/Data_Update.png "A.3 - Data Update")</p>
