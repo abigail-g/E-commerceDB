@@ -10,9 +10,11 @@ output:
 header-includes:
   \usepackage{pdfpages}
 ---
-\newpage
 
 \includepdf{Cover-sheet-Group-Work.pdf}
+
+\newpage
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NA)
