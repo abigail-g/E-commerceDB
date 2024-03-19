@@ -51,51 +51,46 @@ This section describes and illustrates the entities in the above ERD and their r
 
 - Customer 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, phone numbers , and addresses.
+&nbsp;&nbsp;&nbsp;&nbsp;Shows us the users who have placed orders in the past. Attributes include name , email, phone number and address of the customer.
 
 - Supplier 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Vendors who provide products. Represent the source of the product items.The entity store contains attributes of names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).
+&nbsp;&nbsp;&nbsp;&nbsp;Vendors who supply products.This entity contains attributes of names, addresses, emails and status of whether the supplier is currently supplying product or not (Active/Inactive).
 
 - Product 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Describes all products in the stock and available for sale.Its attributes are name, price, and availability of the products.
+&nbsp;&nbsp;&nbsp;&nbsp;Describes all products in the stock and available for sale. Attributes include name, price, and availability of the products.
 
 - Order Details
 
-&nbsp;&nbsp;&nbsp;&nbsp;Emphasises all details related to placed orders. Some of its attributes including order total , billing and shipping addresses, type and status of payment , date and status of the order. 
+&nbsp;&nbsp;&nbsp;&nbsp;Emphasises all details related to placed orders. Some of its attributes including billing and shipping addresses, type and status of payment, date and status of the order. 
 
 - Category and Sub-Category
 
 &nbsp;&nbsp;&nbsp;&nbsp;Category is the broad classification of products that share common features or are  intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Sub-categories fall under a primary category and help to further organise products into narrower groups, making the product search process even more straightforward for customers. 
-
-
 - Product Discounts 
 
-&nbsp;&nbsp;&nbsp;&nbsp;The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.
+&nbsp;&nbsp;&nbsp;&nbsp;The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the attributes included.
 
 - Reviews 
 
-&nbsp;&nbsp;&nbsp;&nbsp;Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.
+&nbsp;&nbsp;&nbsp;&nbsp;Contains Written comments and rating of product bought by customers, the likes recieved as well as the time stamp of when the review was written.
 
 
 ## Design Considerations
 
 ### Absence of an Order Entity
 
-<p> The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods. Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.</P>
+<p> The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.
 
 <p> Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval.</p>
-
-<p> Including Payment methods without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.</p>
 
 ## Relationships and Cardinalities 
 
 ### Order Detail Contains Products 
 
-<p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been placed by the customer. It aids to track the date , status , addresses, and payment method used in the transaction.</p>
+<p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been placed by the customer.</p>
 
 <p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Figure 2 - OrderDetails Contains Products"){width=400px height=400px} </p>
 
@@ -103,7 +98,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 ### Customer Has Order Details
 
-<p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order details at any given time as illustrated in **Figure 3**. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
+<p> This relation will be created when customers order one or more products. They will be linked with a particular order detail indicating the order status throughout the process. One customer can be associated with multiple order details at any given time as illustrated in **Figure 3**. Moreover, it aids in tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
 
 
 <p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details"){width=400px height=400px} </p>
@@ -117,35 +112,26 @@ This section describes and illustrates the entities in the above ERD and their r
 
 ### Category Self-Reference Relation 
 
-<p> As reflected in **Figure 5**, category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, "Home Appliances" is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers etc.</p>
+<p> As reflected in **Figure 5**, category can have multiple subcategories. For example, "Home Appliances" is the parent category containing subcategories like Washing Machines, Food Processors, Dishwashers etc.</p>
 
 
 <p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Figure 5 - Category Has Sub-Category"){width=400px height=400px} </p>
 
 ### Product Supplied By Supplier
 
-<p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
+<p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
 
 <p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier"){width=400px height=400px} </p>
 
-**Associative Attributes : ** 
-
-- Supply_Contracts : Legal agreements that outline the terms and conditions under which one party will provide goods or services to another.
-
-- Delivery_Terms : Agreements that specify the price, or method for determining the price, at which goods or services will be sold or provided.
-
-- Pricing_ Agreements : Conditions in a contract that define the responsibilities, costs, and risk transfer points related to the transportation of goods from the seller to the buyer.
-
-
 ### Product Qualifies For Discount
 
-<p> The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products **Figure 7**.</p>
+<p> This relation signifies that a product can be eligible for a promotional discount. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products **Figure 7**.</p>
 
 <p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Figure 7 - Product Qualifies For Discount"){width=400px height=400px} </p> 
 
 ### Product Has Reviews
 
-A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time as shown in **Figure 8**.
+A product’s reviews are provided by Customers reflecting feedback or evaluation for a specific product or service. One product can have multiple reviews over time as shown in **Figure 8**.
 
 <p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Figure 8 - Product Has Reviews"){width=400px height=400px} </p> 
 
@@ -168,11 +154,11 @@ Suppliers ($\underline{\text{Supplier\_ID}}$, Supplier_Name, Supplier_Building_N
 
 ### Order_Details
 
-Order_Details ($\underline{\text{Order\_ID}}$, *Customer_ID*, *Discount_Code*, Order_Date, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Order_Total, Order_Status, Payment_Type, Payment_Status, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code)
+Order_Details ($\underline{\text{Order\_ID}}$, *Customer_ID*, Order_Date, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Order_Status, Payment_Type, Payment_Status, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code)
 
 ### Discounts
 
-Discounts ($\underline{\text{Discount\_Code}}$, *Category_ID*, *Product_ID*, Discount_Amount, Discount_Status)
+Discounts ($\underline{\text{Discount\_Code}}$, *Product_ID*, Discount_Amount, Discount_Status)
 
 ### Reviews
 
@@ -204,7 +190,7 @@ for (sql_command in sql_file) {
 
 ## Normalisation
 
-<p> The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria. For Second Normal Form (2NF), achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys. Finally, the Third Normal Form (3NF) is met when there are no transitive dependencies, with all attributes fully dependent on the primary key. The team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.</p>
+<p> The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria. Second Normal Form (2NF) is achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys. Finally, the Third Normal Form (3NF) is met when there are no transitive dependencies, with all attributes fully dependent on the primary key. The team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.</p>
 
 ### Customers:
 
