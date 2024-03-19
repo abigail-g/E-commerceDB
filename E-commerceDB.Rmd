@@ -2,11 +2,14 @@
 title: "E-Commerce Database Management System Project"
 author: "Group 8"
 output:
-  pdf_document: 
-   toc: yes
-   number_sections: yes
+  html_document:
+    toc: true
+    df_print: paged
   editor_options:
     chunk_output_type: inline
+  pdf_document:
+    toc: true
+    number_sections: true
 ---
 \newpage
 
@@ -33,9 +36,9 @@ library(stringr)
 
 ## Entity Relationship Diagram
 
-![E-Commerce Entity Relationship Diagram](Images/ERD.jpg "Figure 1- Entity Relationship Diagram")
-
 <p> **Figure 1** shows the E-R diagram that simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments. </p>
+
+![Figure 1: E-Commerce Entity Relationship Diagram](Images/ERD.png "Figure 1- Entity Relationship Diagram")
 
 ### Assumptions
 
@@ -92,7 +95,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 <p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been bought by the customer.</p>
 
-<p> ![Order Details Contains Products](Images/Order_Details_Contains_Products.png "Figure 2 - OrderDetails Contains Products"){width=400px height=400px} </p>
+<p> ![Figure 2: Order Details Contains Products](Images/Order_Details_Contains_Products.png "Figure 2 - OrderDetails Contains Products"){width=400px height=300px} </p>
 
 **Associative Attribute** (Quantity: The number of units of the product ordered in this line item.)
 
@@ -101,75 +104,44 @@ This section describes and illustrates the entities in the above ERD and their r
 <p> This relation will be created when customers orders one or more products. They will be linked with a particular order detail indicating the order status throughout the process. One customer can be associated with multiple order details at any given time as illustrated in **Figure 3**. Moreover, it aids in tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
 
 
-<p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details"){width=400px height=400px} </p>
+<p> ![Figure 3: Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details"){width=400px height=300px} </p>
 
 ### Product Belongs to Category
 
 **Figure 4** specify that each product is classified under a specific Category where products can belong to only one category. This enables customers to browse products by category and helps retailers manage product listings more efficiently.
 
-<p> ![Product Belong to Category](Images/Product_BelongTo_Cat.png "Figure 4 - Product Belong to Category"){width=400px height=400px} </p>
+<p> ![Figure 4: Product Belong to Category](Images/Product_BelongTo_Cat.png "Figure 4 - Product Belong to Category"){width=400px height=300px} </p>
 
 ### Category Self-Reference Relation 
 
 <p> As reflected in **Figure 5**, category can have multiple subcategories. For example, "Home Appliances" is the parent category containing subcategories like Washing Machines, Food Processors, Dishwashers etc.</p>
 
-<p> ![Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Figure 5 - Category Has Sub-Category"){width=400px height=400px} </p>
+<p> ![Figure 5: Category Has Sub-Categories](Images/Cat_Has_SubCat.png "Figure 5 - Category Has Sub-Category"){width=400px height=300px} </p>
 
 ### Product Supplied By Supplier
 
 <p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
 
-<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier"){width=400px height=400px} </p>
+<p> ![Figure 6: Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier"){width=400px height=300px} </p>
 
 ### Product Qualifies For Discount
 
 <p> This relation signifies that a product can be eligible for a promotional discount. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products **Figure 7**.</p>
 
-<p> ![Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Figure 7 - Product Qualifies For Discount"){width=400px height=400px} </p> 
+<p> ![Figure 7: Product Qualifies For Discount](Images/Product_Qualify_Discount.png "Figure 7 - Product Qualifies For Discount"){width=400px height=300px} </p> 
 
 ### Product Has Reviews
 
 A product’s reviews are provided by Customers reflecting feedback or evaluation for a specific product or service. One product can have multiple reviews over time as shown in **Figure 8**.
 
-<p> ![Product Has Reviews](Images/Product_Has_Reviews.png "Figure 8 - Product Has Reviews"){width=400px height=400px} </p> 
+<p> ![Figure 8: Product Has Reviews](Images/Product_Has_Reviews.png "Figure 8 - Product Has Reviews"){width=400px height=300px} </p> 
 
 
 ## Logical Schema
 
-Legend$\footnote{Italic attributes indicate foreign keys}$
+The table below describes the logical schema of our E-commerce database. Italic attributes signify foreign keys.
 
-### Customers 
-
-Customers ($\underline{\text{Cust\_ID}}$, Cust_First_Name, Cust_Last_Name, Cust_Building_Name, Cust_Street_Name, Cust_Zip_Code, Cust_Email, Cust_Phone_Number, Cust_Country_Code)
-
-### Products 
-
-Products ($\underline{\text{Product\_ID}}$, *Discount_Code*, *Category_ID*, *Supplier_ID* ,Product_Name, Product_Availability, Product_Price)
-
-### Suppliers
-
-Suppliers ($\underline{\text{Supplier\_ID}}$, Supplier_Name, Supplier_Building_Name, Supplier_Street_Name, Supplier_Zip_Code, Supplier_Email, Supplier_Status)
-
-### Order_Details
-
-Order_Details ($\underline{\text{Order\_ID}}$, *Customer_ID*, Order_Date, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Order_Status, Payment_Type, Payment_Status, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code)
-
-### Discounts
-
-Discounts ($\underline{\text{Discount\_Code}}$, *Product_ID*, Discount_Amount, Discount_Status)
-
-### Reviews
-
-Reviews ($\underline{\text{Review\_ID}}$, *Product_ID*, Review_Timestamp, Product_Rating, Review_Text, Review_Likes)
-
-### Categories
-
-Categories ($\underline{\text{Category\_ID}}$, *Sub_Cat_ID*, Category_Name)
-
-
-### Many to Many : Order_details - Product
-
-Order_Items ($\underline{\text{Order\_ID, Product\_ID}}$, Quantity)
+<p>![](Images/logical_schema.png){width=590px height=500px}</p>
 
 ## Physical Schema Creation 
 
@@ -190,25 +162,25 @@ for (sql_command in sql_file) {
 
 <p> The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria. Second Normal Form (2NF) is achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys which has also been achieved. Finally, the team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.</p>
 
-### Customers:
+### Customers
 
 Looking at the table, we can identify the following dependencies:
 
-<p> ![Depedencies in Customers table](Images/Customers_Norm.png){width=200px height=200px} </p> 	
+<p> ![](Images/Customers_Norm.png){width=200px height=200px} </p> 	
 
 - Based on this analysis, the table appears to be in 3NF. Each non-key attribute depends only on the primary key (Cust_ID), and there are no transitive dependencies.
 
-### Order_Items:
+### Order_Items
 
 
-<p> ![Depedencies in Order_Items table](Images/Order_Items_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Order_Items_Norm.png){width=200px height=50px} </p>
 
 Product_ID and Order_ID combined are representing composite key, and Quantity is functionally dependent on Product_ID and Order_ID. There are no transitive dependencies here.
 
 
-### Order_Details:
+### Order_Details
 
-<p> ![Depedencies in Order_Details table](Images/Order_details_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Order_details_Norm.png){width=200px height=250px} </p>
 
 <p> Given that Cust_ID is a foreign key in this table and that there is a separate Customers table where Cust_ID serves as the primary key, it suggests that Cust_ID is not functionally dependent on any other attribute within this table. It is merely referencing the primary key of another table.</p>
 
@@ -216,38 +188,38 @@ Product_ID and Order_ID combined are representing composite key, and Quantity is
 
 ### Product Category
 
-<p> ![Depedencies in Category table](Images/Product_cat_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Product_cat_Norm.png){width=200px height=50px} </p>
 
 Category_ID is the primary key and it uniquely identifies Category_Name.
 
-### Product Discount
+### Discount
 
-<p> ![Depedencies in Discounts table](Images/Discount_code_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Discount_code_Norm.png){width=200px height=50px} </p>
 
 Analyzing the functional dependencies, it is found that Discount_Code is the primary key and it uniquely identifies Discount_Amount and Discount_Status. Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status, ensuring that the table adheres to the principles of 3rd Normal Form (3NF). There are also no transitive dependencies or non-key attributes determining other attributes within the table.
 
 ### Products
 
-<p> ![Depedencies in Products table](Images/Products_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Products_Norm.png){width=200px height=200px} </p>
 
 The table also contains foreign keys, namely Supplier_ID, Discount_Code, and Category_ID. These foreign keys are merely referencing the primary key of their respective tables and are not functionally dependent on any other attribute within this table. Examining the non key attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
 
 ### Reviews
 
-<p> ![Depedencies in Reviews table](Images/Reviews_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Reviews_Norm.png){width=200px height=100px} </p>
 
 In the Reviews table, Review_ID acts as the primary key, ensuring uniqueness. Attributes like Review_Timestamp, Product_Rating, Review_Text and Review_Likes are dependent on Review_ID. 
 
 ### Suppliers
 
-<p> ![Depedencies in Suppliers table](Images/Suppliers_Norm.png){width=200px height=200px} </p>
+<p> ![](Images/Suppliers_Norm.png){width=200px height=200px} </p>
 
 In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as Supplier_Name,	Supplier_Building_Name,	Supplier_Building_Number,	Supplier_Street_Name,	Supplier_Zip_Code,	Supplier_Email and	Supplier_Status are dependent on Supplier_ID.
 
 <p> Given these functional dependencies where each attribute seems to be functionally dependent on the primary key, with no non-key attributes determining other, all tables appears to adhere to the principles of 3rd Normal Form (3NF).</p> 
 
 
-# Part 2: Data Generation and Management
+# Data Generation and Management
 
 ## Synthetic Data Generation 
 
@@ -257,19 +229,19 @@ ChatGPT has been used as the main tool for this step as an alternative to Mockar
 
 ## Data Import and Quality Assurance
 
-To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks **[Refer data_validate.R]**:
+To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks as shown in Figure 9 **[Refer data_validate.R]**:
 
 - Primary key integrity check
 - Duplicate entry check
 - Email id pattern check
 - Phone number pattern check
 
-<p> ![Data validation of CSV files](Images/data_validate.png "Figure 9 - Data validation of CSV files"){width=300px height=300px} </p>
+<p> ![Figure 9: Data validation of CSV files](Images/data_validate.png "Figure 9 - Data validation of CSV files"){width=300px height=300px} </p>
 
 <p> Once the data has gone through all the checks, the updated csv files will be used to import into SQL. Importing the data into SQL is also done in R **[Refer data_update.R]**. This method focused on refining datasets for accurate analysis by identifying and eliminating invalid entries and duplicates, thereby maintaining the dataset's uniqueness and reliability before inserting into Data Base.</p>
 
 
-# Part 3: Data Pipeline Generation
+# Data Pipeline Generation
 
 To efficiently collaborate on this assignment, we have uploaded the project to Github. This was done so that the team could track changes, follow progress, collaborate on bug fixes etc. Moving the project to Github also allowed for implementation of version control and continuous integration.
 
@@ -279,46 +251,39 @@ To efficiently collaborate on this assignment, we have uploaded the project to G
  
 ## Automated Workflow 
  
-<p>Second phase was the automating our workflow. Using Github Workflows, we were able to automate the process of validating data, updating data and data analysis. The workflow is triggered on pushing new data to the project. Once all 3 steps are completed successfully, the new files are committed and pushed to the project.</p>
+<p>Second phase was the automating our workflow. Using Github Workflows, we were able to automate the process of validating data, updating data and data analysis. The workflow is triggered on pushing new data to the project. Once all 3 steps are completed successfully, the new files are committed and pushed to the project. Figures 10, 11, 12, 13 show how the db and analyses carried out is automatically updated after a workflow run</p> 
 
-<p> **Figures 10, 11** shows the updated analysis after 1st run of workflow (49) and then after second run of workflow (150).</p>
+<p> ![Figure 10: The histogram of Customer data for 50 records](Images/Workflow1.png "Figure 10 - Histogram of customers data for 49 records"){width=450px height=300px} </p>
 
-<p> ![The histogram of customers data for 50 records](Images/Workflow1.png "Figure 10 - The histogram of customers data for 49 records"){width=450px height=450px} </p>
+<p> ![Figure 11: The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "Figure 11 Histogram after workflow run and inserted additional 100 records"){width=450px height=300px} </P>
 
-<p> ![The histogram after workflow run and inserted additional 100 records](Images/Workflow2.png "Figure 11 -The histogram after workflow run and inserted additional 100 records"){width=450px height=450px} </P>
+<p> ![Figure 12: Record count after data update using workflow](Images/Console_Workflow.png "Figure 12 - Console Output"){width=450px height=250px} </p>
 
-**Figure 12** illustrate console output showing the record count in the sql database after data update using the workflow.
-
-<p> ![Record count after data update using workflow](Images/Console_Workflow.png "Figure 12 - Console Output"){width=450px height=450px} </p>
-
-<p> In **Figure 13** the snippet is Timestamps that showed as an evidence of a working workflow </p>
-
-<p> ![Workflow Timestamps](Images/WorkflowTimestamps.png "Figure 13 - Workflow Timestamps"){width=450px height=450px} </p>
+<p> ![Figure 13: Workflow Timestamps as evidence of a successful workflow](Images/WorkflowTimestamps.png "Figure 13 - Workflow Timestamps"){width=400px height=200px} </p>
 
 
-# Part 4: Data Analysis and Reporting with Quarto in R
+# Data Analysis and Reporting with Quarto in R
 
-<p> ![Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Figure 14 - Distribution of Product Ratings by Category"){width=450px height=450px} </p>
+### Distribution of product ratings from 0 to 5 coloured by category name
 
 <p> Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.</p>
 
-<p> The graph in **Figure 14** shows the distribution of product ratings from 0 to 5 coloured by category name. </p>
+<p> ![Figure 14: Distribution of Product Ratings by Category](Images/Product_Rating_By_Category.jpeg "Figure 14 - Distribution of Product Ratings by Category"){width=450px height=450px} </p>
 
-<p> ![Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Figure 15 - Top 5 Products by Revenue"){width=450px height=450px} </p>
-
-<p> **Figure 15** reflecting Top 5 Products Sorted by total Revenue.</p>
-
+### Top 5 Products Sorted by total Revenue
 
 <p> After joining the "Order_Items", "Discounts", and “Products” tables, the derived value, which is the “Total Revenue”, is calculated by multiplying “Order_Item” quantity and “Product_Price” and deducting it with “Discount_Amount.</p>
 
-<p> ![Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Figure 16- Distribution of Customers by Phone Country Code"){width=400px height=400px} </p>
+<p> ![Figure 15: Top 5 Products by Revenue](Images/Top_5_Products_Revenue.png "Figure 15 - Top 5 Products by Revenue"){width=450px height=450px} </p>
 
-<p> The graph in **Figure 16**  shows the distribution of customers by phone country codes.</p>
+### Distribution of customers by phone country codes
+
+<p> ![Figure 16: Distribution of Customers by Phone Country Code](Images/Cust_Phone_Country_Code_Distribution.png "Figure 16- Distribution of Customers by Phone Country Code"){width=400px height=400px} </p>
  
 
-<p> **Figure 17** displays the order status count of shipped, processing, delivered and cancelled orders. </p>
+### Order status count of shipped, processing, delivered and cancelled orders
 
-<p> ![Order Status Count](Images/Order_Status_Distribution.png "Figure 17- Order Status Count"){width=400px height=400px} </p>
+<p> ![Figure 17: Order Status Count](Images/Order_Status_Distribution.png "Figure 17- Order Status Count"){width=400px height=400px} </p>
 
 
 # Conclusion
