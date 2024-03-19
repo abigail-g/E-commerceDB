@@ -1,5 +1,5 @@
 ---
-title: "Data Managment E-commerce Data Base Project"
+title: "E-Commerce Database Management System Project"
 author: "Group 8"
 output:
   pdf_document: 
@@ -103,7 +103,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 ### Customer Has Order Details
 
-<p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time as illustrated in **Figure 3**. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
+<p> This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order details at any given time as illustrated in **Figure 3**. Moreover, it is good for tracking an order's life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.</p>
 
 
 <p> ![Customer Has Order Details](Images/Cust_Has_OrderDetails.png "Figure 3 - Customer Has Order Details"){width=400px height=400px} </p>

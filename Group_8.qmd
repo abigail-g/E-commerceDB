@@ -1,5 +1,5 @@
 ---
-title: "Data Managment E-commerce Data Base Project"
+title: "E-Commerce Database Management System Project"
 author: "Group 8"
 output:
   pdf_document: 
