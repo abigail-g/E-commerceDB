@@ -250,7 +250,7 @@ Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status
 
 ### Products
 
-Product_ID → Product_Name	\newline Product_ID → Product_Price	\newline Product_ID → Product_Availability \newline Product_ID → Supplier_ID \newline Product_ID → Discount_Code \newline Product_ID → Category_ID
+Product_ID → Product_Brand \newline Product_ID → Product_Name	\newline Product_ID → Product_Model \newline Product_ID → Product_Price	\newline Product_ID → Product_Availability \newline Product_ID → Supplier_ID \newline Product_ID → Discount_Code \newline Product_ID → Category_ID
 
 The table also contains foreign keys, namely Supplier_ID, Discount_Code, and Category_ID. These foreign keys are merely referencing the primary key of their respective tables and are not functionally dependent on any other attribute within this table.
 
