@@ -7,8 +7,12 @@ output:
    number_sections: yes
   editor_options:
     chunk_output_type: inline
+header-includes:
+  \usepackage{pdfpages}
 ---
 \newpage
+
+\includepdf{Cover-sheet-Group-Work.pdf}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NA)
