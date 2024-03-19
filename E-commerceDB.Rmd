@@ -92,7 +92,7 @@ This section describes and illustrates the entities in the above ERD and their r
 
 <p> This relation as can be seen in **Figure 2** indicates that each order detail contains multiple products that have been bought by the customer.</p>
 
-<p> ![Order Details Contains Products](Images/Order_Detail_Contains_Products.png "Figure 2 - OrderDetails Contains Products"){width=400px height=400px} </p>
+<p> ![Order Details Contains Products](Images/Order_Details_Contains_Products.png "Figure 2 - OrderDetails Contains Products"){width=400px height=400px} </p>
 
 **Associative Attribute** (Quantity: The number of units of the product ordered in this line item.)
 
