@@ -10,8 +10,14 @@ output:
   pdf_document:
     toc: true
     number_sections: true
+header-includes:
+  \usepackage{pdfpages}
 ---
+
+\includepdf{Cover-sheet-Group-Work.pdf}
+
 \newpage
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE,comment = NA)
@@ -317,4 +323,4 @@ Upon completion of this project, valuable insights are gained regarding the chal
 
 ## Appendix 3
 
-<p>![Data Update](Images/Data_Update.png "A.3 - Data Update")</p>
+<p>![Data Update](Images/Data_Update.png "A.3 - Data Update"){width=450px height=450px} </p>
