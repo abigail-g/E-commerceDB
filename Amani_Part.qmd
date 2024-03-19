@@ -1,0 +1,102 @@
+---
+title: "E-Commerce Database Management System Project"
+author: "Group 8"
+output:
+  pdf_document: 
+   toc: yes
+   number_sections: yes
+  editor_options:
+    chunk_output_type: inline
+---
+\newpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment = NA)
+library(readr)
+```
+
+**Load Necessary Libraries**
+
+```{r Libraries, echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
+library(DBI)
+library(readr)
+library(RSQLite)
+library(dplyr)
+library(stringr)
+```
+
+# Introduction 
+
+<p> This project simulates a real-world e-commerce data environment, including all stages of data management, from database configuration to data analysis and reporting. The database is created and managed by SQLite while GitHub Actions are used to automate processes enhancing workflow efficiency. In addition, Quarto is used in conjunction with R to conduct comprehensive data analysis and generate reports. Through this approach, technical skills and competencies necessary for effective data management are examined in-depth, mirroring the complexities and dynamics encountered in e-commerce.</p>
+
+# Database Design and Implementation
+
+## Entity Relationship Diagram
+
+![E-Commerce Entity Relationship Diagram](Images/ERD.jpg "Figure 1- Entity Relationship Diagram")
+
+<p> **Figure 1** shows the E-R diagram that simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments. </p>
+
+
+## Relationships and Cardinalities 
+
+
+### Product Supplied By Supplier
+
+<p> This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier **Figure 6**. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.</p>
+
+<p> ![Products Supplied By Supplier](Images/Products_SuppliedBy_Supplier.png "Figure 6 - Products Supplied By Supplier"){width=400px height=400px} </p>
+
+
+## Logical Schema
+
+Legend$\footnote{Italic attributes indicate foreign keys}$
+
+### Customers 
+
+Customers ($\underline{\text{Cust\_ID}}$, Cust_First_Name, Cust_Last_Name, Cust_Building_Name, Cust_Street_Name, Cust_Zip_Code, Cust_Email, Cust_Phone_Number, Cust_Country_Code)
+
+### Products 
+
+Products ($\underline{\text{Product\_ID}}$, *Discount_Code*, *Category_ID*, *Supplier_ID* ,Product_Name, Product_Availability, Product_Price)
+
+### Suppliers
+
+Suppliers ($\underline{\text{Supplier\_ID}}$, Supplier_Name, Supplier_Building_Name, Supplier_Street_Name, Supplier_Zip_Code, Supplier_Email, Supplier_Status)
+
+### Order_Details
+
+Order_Details ($\underline{\text{Order\_ID}}$, *Customer_ID*, *Discount_Code*, Order_Date, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Order_Total, Order_Status, Payment_Type, Payment_Status, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code)
+
+### Discounts
+
+Discounts ($\underline{\text{Discount\_Code}}$, *Category_ID*, *Product_ID*, Discount_Amount, Discount_Status)
+
+### Reviews
+
+Reviews ($\underline{\text{Review\_ID}}$, *Product_ID*, Review_Timestamp, Product_Rating, Review_Text, Review_Likes)
+
+### Categories
+
+Categories ($\underline{\text{Category\_ID}}$, *Sub_Cat_ID*, Category_Name)
+
+
+### Many to Many : Order_details - Product
+
+Order_Items ($\underline{\text{Order\_ID, Product\_ID}}$, Quantity)
+
+## Physical Schema Creation 
+
+```{r echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
+#Creating the db schema in SQL
+con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+sql_file <- readLines("dbScript.sql")
+for (sql_command in sql_file) {
+  if (sql_command!=""){
+    print(sql_command)
+    dbExecute(con,sql_command)
+    print("-------------DONE---------")
+  }
+}
+```
+
