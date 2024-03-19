@@ -347,4 +347,4 @@ Upon completion of this project, valuable insights are gained regarding the chal
 
 ## Appendix 3
 
-<p>![Data Update](Images/Data_Update.png "A.3 - Data Update")</p>
+<p>![Data Update](Images/Data_Update.png "A.3 - Data Update"){width=450px height=450px} </p>
