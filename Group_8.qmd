@@ -220,9 +220,9 @@ Cust_ID	→ Cust_First_Name \newline Cust_ID	→ Cust_Last_Name \newline Cust_ID
 
 ### Order_items:
 
-Product_ID , Order_ID → Quantity 
+Product_ID , Order_ID → Order_Item 
 
-Product_ID and Order_ID combined are representing composite key, and Quantity is functionally dependent on Product_ID and Order_ID. There are no transitive dependencies here.
+Product_ID and Order_ID combined are representing composite key, and Order_Item is functionally dependent on Product_ID and Order_ID. There are no transitive dependencies here.
 
 All non-prime attributes are fully functionally dependent on the primary key.
 
@@ -236,7 +236,7 @@ Order_ID → Order_Date \newline Order_ID → Order_Status \newline Order_ID →
 
 ### Product Category
 
-Category_ID → Category_Name
+Category_ID → Category_Name \newline Category_ID → Sub_Cat_ID
 
 Category_ID is the primary key and it uniquely identifies Category_Name.
 
@@ -250,11 +250,11 @@ Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status
 
 ### Products
 
-Product_ID → Product_Name	\newline Product_ID → Product_Price	\newline Product_ID → Product_Availability
+Product_ID → Product_Name	\newline Product_ID → Product_Price	\newline Product_ID → Product_Availability \newline Product_ID → Supplier_ID \newline Product_ID → Discount_Code \newline Product_ID → Category_ID
 
-The table also contains foreign keys, namely Supplier_ID, Discount_Code, and Category_ID. These foreign keys are fully functionally dependent on the primary key and not on any other non-key attributes.
+The table also contains foreign keys, namely Supplier_ID, Discount_Code, and Category_ID. These foreign keys are merely referencing the primary key of their respective tables and are not functionally dependent on any other attribute within this table.
 
-Examining the attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
+Examining the non key attributes' functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.
 
 ### Reviews
 
