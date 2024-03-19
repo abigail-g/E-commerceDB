@@ -220,7 +220,7 @@ Cust_ID	→ Cust_First_Name \newline Cust_ID	→ Cust_Last_Name \newline Cust_ID
 
 ### Order_items:
 
-Product_ID , Order_ID → Quantity 
+Product_ID , Order_ID → Order_Item 
 
 Product_ID and Order_ID combined are representing composite key, and Quantity is functionally dependent on Product_ID and Order_ID. There are no transitive dependencies here.
 
@@ -236,7 +236,7 @@ Order_ID → Order_Date \newline Order_ID → Order_Status \newline Order_ID →
 
 ### Product Category
 
-Category_ID → Category_Name
+Category_ID → Category_Name \newline Category_ID → Sub_Cat_ID
 
 Category_ID is the primary key and it uniquely identifies Category_Name.
 
