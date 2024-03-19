@@ -284,10 +284,12 @@ ChatGPT has been used as the main tool for this step as an alternative to Mockar
 
 To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks **[Refer data_validate.R]**:
 
-- Primary key integrity check
-- Duplicate entry check
 - Email id pattern check
 - Phone number pattern check
+- Duplicate entry check
+- Primary key integrity check
+
+<p> ![data validate steps](Images/data_validate.PNG){width=250px height=300px} </p>
 
 <p> Once the data has gone through all the checks, the updated csv files will be used to import into SQL. Importing the data into SQL is also done in R **[Refer data_update.R]**. This method focused on refining datasets for accurate analysis by identifying and eliminating invalid entries and duplicates, thereby maintaining the dataset's uniqueness and reliability before inserting into Data Base.</p>
 
