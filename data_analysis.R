@@ -80,12 +80,6 @@ ORDER BY Count DESC;
 ')
 
 # Create Plot 3
-
-plot3 <- ggplot(country_code , aes(x = factor(Cust_Country_Code), y = Count))  +
-  geom_col(fill = "blue") + 
-  theme_minimal() + 
-  labs(title = "Customers Distribution by Phone Country Codes", x = "Customers Phone Numbers Country Codes", y = "Number of Customers") +
-
 plot3 <- ggplot(country_code, aes(x = factor(Cust_Country_Code), y = Count)) +
   geom_col(fill = "skyblue", color = "black", size = 0.5) +  # Set fill color to skyblue and add a black border with size 0.5
   theme_minimal() +
