@@ -204,11 +204,7 @@ for (sql_command in sql_file) {
 
 ## Normalisation
 
-<p> First Normal Form (1NF) requires a table to have atomic values, unique rows through a primary key, and no duplicate columns.Thus , based on this definition the tables have been checked and considered to have atomic values with no duplicated columns. </p>
-
-<p> Next, the team  considered the Second Normal Form (2NF) which can be achieved when a table is in 1NF and all non-key attributes are fully functional and dependent on the primary key, eliminating partial dependency on any part of a composite key. </p>
-
-<p> As a last normal form to be considered and for a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key. The team perfoemed the required checks until all requirements of (3NF) are met as clarified in details in the following sections. </p> 
+<p> The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria. For Second Normal Form (2NF), achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys. Finally, the Third Normal Form (3NF) is met when there are no transitive dependencies, with all attributes fully dependent on the primary key. The team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.</p>
 
 ### Customers:
 
