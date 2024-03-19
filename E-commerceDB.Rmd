@@ -160,7 +160,18 @@ for (sql_command in sql_file) {
 
 ## Normalisation
 
-<p> The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria. Second Normal Form (2NF) is achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys which has also been achieved. Finally, the team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.</p>
+<p> The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria with the exception of Product_Name in Products table. To correct this Product_Name has be converted to Product_Brand, Product_Name, Product_Model.
+
+```{r echo=TRUE, results='hide' , message=FALSE, warning=FALSE}
+con <- dbConnect(RSQLite::SQLite(), "ecommerce.db")
+
+sql_count_customer <- dbGetQuery(con, 'ALTER TABLE Products ADD Product_Brand VARCHAR(250) NOT NULL')
+sql_count_customer <- dbGetQuery(con, 'ALTER TABLE Products ADD Product_Model VARCHAR(250) NOT NULL')
+
+```
+
+
+Second Normal Form (2NF) is achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys which has also been achieved. Finally, the team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.</p>
 
 ### Customers
 

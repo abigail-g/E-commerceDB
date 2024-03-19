@@ -55,9 +55,9 @@ Products <- Products %>%
   mutate(Supplier_ID = NA)
 
 # Create a function to find matching supplier ID or assign randomly if no match is found
-assign_supplier_id <- function(Product_Name, Suppliers) {
+assign_supplier_id <- function(Product_Brand, Suppliers) {
   for (i in 1:nrow(Suppliers)) {
-    if (str_detect(Product_Name, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
+    if (str_detect(Product_Brand, regex(Suppliers$Supplier_Name[i], ignore_case = TRUE))) {
       return(Suppliers$Supplier_ID[i])
     }
   }
@@ -67,7 +67,7 @@ assign_supplier_id <- function(Product_Name, Suppliers) {
 }
 
 # Assign Suppliers ID using sapply 
-Products$Supplier_ID <- sapply(Products$Product_Name, function(x) assign_supplier_id(x, Suppliers))
+Products$Supplier_ID <- sapply(Products$Product_Brand, function(x) assign_supplier_id(x, Suppliers))
 
 # Adding Discount_Code column into Products 
 set.seed(123) # This is to ensure reproducibility
@@ -92,13 +92,13 @@ assign_category_id <- function(Product_Name) {
     return("CAT1")
   } else if (grepl("Laptop|Tablet|Computing|Book|Surface|Monitor", Product_Name, ignore.case = TRUE)) {
     return("CAT2")
-  } else if (grepl("Phone|Galaxy|Mi|P Series|OnePlus", Product_Name, ignore.case = TRUE)) {
+  } else if (grepl("Phone|Galaxy|Mi|P Series|Nord", Product_Name, ignore.case = TRUE)) {
     return("CAT3")
   } else if (grepl("Washing Machine|Home Appliance|Vacuum|Dishwasher", Product_Name, ignore.case = TRUE)){
     return("CAT4")
   } else if (grepl("Headphones|Speakers|Sound System|Earbuds|Speaker|Technica|Soundbar", Product_Name, ignore.case = TRUE)) {
     return("CAT5")
-  } else if (grepl("Camera|Photography|GoPro|Mirrorless|Nikon|Camcorder|Compact", Product_Name, ignore.case = TRUE)) {
+  } else if (grepl("Camera|Photography|Action|Mirrorless|Nikon|Camcorder|Compact", Product_Name, ignore.case = TRUE)) {
     return("CAT6")
   } else if (grepl("Xbox|PS|Gaming|Switch", Product_Name, ignore.case = TRUE)) {
     return("CAT7")
