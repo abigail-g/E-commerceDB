@@ -152,6 +152,8 @@ A product’s reviews are generated or provided by Customers reflecting the acti
 
 ## Logical Schema
 
+Legend$\footnote{Italic attributes indicate foreign keys}$
+
 ### Customers 
 
 Customers ($\underline{\text{Cust\_ID}}$, Cust_First_Name, Cust_Last_Name, Cust_Building_Name, Cust_Street_Name, Cust_Zip_Code, Cust_Email, Cust_Phone_Number, Cust_Country_Code)
