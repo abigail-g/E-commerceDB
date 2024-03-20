@@ -132,7 +132,6 @@ window.Quarto = {
 </header>
 
 
-<div style="page-break-after: always;"></div>
 <p><strong>Load Necessary Libraries</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
@@ -144,22 +143,22 @@ window.Quarto = {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>
-This project simulates a real-world e-commerce data environment, including all stages of data management, from database configuration to data analysis and reporting. As the database is created and managed with SQLite, GitHub Actions are used to automate processes enhancing workflow efficiency. In addition, Quarto is used in conjunction with R to conduct comprehensive data analysis and generate reports. Through this approach, technical skills and competencies necessary for effective data management are examined in-depth, mirroring the complexities and dynamics encountered in e-commerce.
+This project simulates a real-world e-commerce data environment, including all stages of data management, from database configuration to data analysis and reporting. The database is created and managed with SQLite while GitHub Actions are used to automate processes enhancing workflow efficiency. In addition, Quarto is used in conjunction with R to conduct comprehensive data analysis and generate reports. Through this approach, technical skills and competencies necessary for effective data management are examined in-depth, mirroring the complexities and dynamics encountered in e-commerce.
 </p>
 </section>
 <section id="database-design-and-implementation" class="level1">
 <h1>Database Design and Implementation</h1>
 <section id="entity-relationship-diagram" class="level2">
 <h2 class="anchored" data-anchor-id="entity-relationship-diagram">Entity Relationship Diagram</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/ERD.jpg" title="Figure 1- Entity Relationship Diagram" class="img-fluid figure-img"></p>
-<figcaption>E-Commerce Entity Relationship Diagram</figcaption>
-</figure>
-</div>
 <p>
 <strong>Figure 1</strong> shows the E-R diagram that simulates a real-world e-commerce data ecosystem, capturing the detailed relationships between entities and attributes essential for facilitating online transactions. In addition, it provides a comprehensive view of the e-commerce system, which serves as a platform for users to browse products, make purchases, and securely complete their payments.
 </p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/ERD.png" title="Figure 1- Entity Relationship Diagram" class="img-fluid figure-img"></p>
+<figcaption>Figure 1: E-Commerce Entity Relationship Diagram</figcaption>
+</figure>
+</div>
 <section id="assumptions" class="level3">
 <h3 class="anchored" data-anchor-id="assumptions">Assumptions</h3>
 <ul>
@@ -174,32 +173,31 @@ This project simulates a real-world e-commerce data environment, including all s
 <ul>
 <li>Customer</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Shows us the users who previously have at least once purchased products and placed an order. Its attributes including names , emails, phone numbers , and addresses.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Shows us the users who have placed orders in the past. Attributes include name , email, phone number and address of the customer.</p>
 <ul>
 <li>Supplier</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Vendors who provide products. Represent the source of the product items.The entity store contains attributes of names , addresses, emails, and status that indicates Whether the supplier is currently supplying items or not (Active/Inactive).</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Vendors who supply products.This entity contains attributes of names, addresses, emails and status of whether the supplier is currently supplying product or not (Active/Inactive).</p>
 <ul>
 <li>Product</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Describes all products in the stock and available for sale.Its attributes are name, price, and availability of the products.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Describes all products in the stock and available for sale. Attributes include name, price, and availability of the products.</p>
 <ul>
 <li>Order Details</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Emphasises all details related to placed orders. Some of its attributes including order total , billing and shipping addresses, type and status of payment , date and status of the order.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Emphasises all details related to placed orders. Some of its attributes includes billing and shipping addresses, type and status of payment, date and status of the order.</p>
 <ul>
 <li>Category and Sub-Category</li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;Category is the broad classification of products that share common features or are intended for a similar purpose. A sub-category is a more specific grouping of products within a category based on finer distinctions or attributes.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Sub-categories fall under a primary category and help to further organise products into narrower groups, making the product search process even more straightforward for customers.</p>
 <ul>
 <li>Product Discounts</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the main attributes.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;The voucher number or offer code to be applied to eligible products. The amount of discount it offers as well as the status of the discount are the attributes included.</p>
 <ul>
 <li>Reviews</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;Contains Written comments and rating of product sold by verified buyers, the likes of the top reviews as well as the time stamp of when the review was made.</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Contains Written comments and rating of product bought by customers, the likes recieved as well as the time stamp of when the review was written.</p>
 </section>
 </section>
 <section id="design-considerations" class="level2">
@@ -207,13 +205,9 @@ This project simulates a real-world e-commerce data environment, including all s
 <section id="absence-of-an-order-entity" class="level3">
 <h3 class="anchored" data-anchor-id="absence-of-an-order-entity">Absence of an Order Entity</h3>
 <p>
-The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods. Additionally, This consideration will guarantee that products purchased by customers are not tracked or stored by the system to align with privacy policies.
-</p>
+</p><p>The model intentionally skips direct order management. Instead, it focuses on product management and customer interactions through reviews and payment methods.</p>
 <p>
 Order Entity not considered in this ER design in order to follow best practices by not having to include orderId as part of product table which might affect the overall performance of DB retrieval.
-</p>
-<p>
-Including Payment methods without an Order entity suggests a pre-registration of payment preferences or a simplified wallet storage that could be expanded in the future.
 </p>
 </section>
 </section>
@@ -222,13 +216,13 @@ Including Payment methods without an Order entity suggests a pre-registration of
 <section id="order-detail-contains-products" class="level3">
 <h3 class="anchored" data-anchor-id="order-detail-contains-products">Order Detail Contains Products</h3>
 <p>
-This relation as can be seen in <strong>Figure 2</strong> indicates that each order detail contains multiple products that have been placed by the customer. It aids to track the date , status , addresses, and payment method used in the transaction.
+This relation as can be seen in <strong>Figure 2</strong> indicates that each order detail contains multiple products that have been bought by the customer.
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Order_Detail_Contains_Products.png" title="Figure 2 - OrderDetails Contains Products" width="400" height="400" class="figure-img"></p>
-<figcaption>Order Details Contains Products</figcaption>
+<p><img src="Images/Order_Details_Contains_Products.png" title="Figure 2 - OrderDetails Contains Products" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 2: Order Details Contains Products</figcaption>
 </figure>
 </div>
 <p></p>
@@ -237,13 +231,13 @@ This relation as can be seen in <strong>Figure 2</strong> indicates that each or
 <section id="customer-has-order-details" class="level3">
 <h3 class="anchored" data-anchor-id="customer-has-order-details">Customer Has Order Details</h3>
 <p>
-This relation will be created when customers order their first product or service. They will be linked with a particular order detail indicating what they ordered, reflecting the current state or progression throughout the process. One customer can be associated with multiple order statuses at any given time as illustrated in <strong>Figure 3</strong>. Moreover, it is good for tracking an order’s life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
+This relation will be created when customers orders one or more products. They will be linked with a particular order detail indicating the order status throughout the process. One customer can be associated with multiple order details at any given time as illustrated in <strong>Figure 3</strong>. Moreover, it aids in tracking an order’s life cycle, allowing for updates, customer notifications, and management of the order fulfillment process.
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Cust_Has_OrderDetails.png" title="Figure 3 - Customer Has Order Details" width="400" height="400" class="figure-img"></p>
-<figcaption>Customer Has Order Details</figcaption>
+<p><img src="Images/Cust_Has_OrderDetails.png" title="Figure 3 - Customer Has Order Details" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 3: Customer Has Order Details</figcaption>
 </figure>
 </div>
 <p></p>
@@ -254,8 +248,8 @@ This relation will be created when customers order their first product or servic
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Product_BelongTo_Cat.png" title="Figure 4 - Product Belong to Category" width="400" height="400" class="figure-img"></p>
-<figcaption>Product Belong to Category</figcaption>
+<p><img src="Images/Product_BelongTo_Cat.png" title="Figure 4 - Product Belong to Category" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 4: Product Belong to Category</figcaption>
 </figure>
 </div>
 <p></p>
@@ -263,13 +257,13 @@ This relation will be created when customers order their first product or servic
 <section id="category-self-reference-relation" class="level3">
 <h3 class="anchored" data-anchor-id="category-self-reference-relation">Category Self-Reference Relation</h3>
 <p>
-As reflected in <strong>Figure 5</strong>, category can have multiple subcategories, creating a hierarchically nested structure and making it easier for users to navigate the product catalogue. For example, “Home Appliances” is the parent category contains subcategories like Washing Machines , Food Processors, Dishwashers etc.
+As reflected in <strong>Figure 5</strong>, category can have multiple subcategories. For example, “Home Appliances” is the parent category containing subcategories like Washing Machines, Food Processors, Dishwashers etc.
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Cat_Has_SubCat.png" title="Figure 5 - Category Has Sub-Category" width="400" height="400" class="figure-img"></p>
-<figcaption>Category Has Sub-Categories</figcaption>
+<p><img src="Images/Cat_Has_SubCat.png" title="Figure 5 - Category Has Sub-Category" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 5: Category Has Sub-Categories</figcaption>
 </figure>
 </div>
 <p></p>
@@ -277,45 +271,39 @@ As reflected in <strong>Figure 5</strong>, category can have multiple subcategor
 <section id="product-supplied-by-supplier" class="level3">
 <h3 class="anchored" data-anchor-id="product-supplied-by-supplier">Product Supplied By Supplier</h3>
 <p>
-This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier <strong>Figure 6</strong>. It is essential to understand how products are sourced in a database model, where tracking the source of each product is crucial. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
+This relation is important for inventory management, reflecting the real-world scenario where a single supplier might provide various products, but each product is supplied by only one specific supplier <strong>Figure 6</strong>. The relation helps track inventory sources, manage supplier relationships, and ensure product availability.
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Products_SuppliedBy_Supplier.png" title="Figure 6 - Products Supplied By Supplier" width="400" height="400" class="figure-img"></p>
-<figcaption>Products Supplied By Supplier</figcaption>
+<p><img src="Images/Products_SuppliedBy_Supplier.png" title="Figure 6 - Products Supplied By Supplier" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 6: Products Supplied By Supplier</figcaption>
 </figure>
 </div>
 <p></p>
-<p><strong>Associative Attributes : </strong></p>
-<ul>
-<li><p>Supply_Contracts : Legal agreements that outline the terms and conditions under which one party will provide goods or services to another.</p></li>
-<li><p>Delivery_Terms : Agreements that specify the price, or method for determining the price, at which goods or services will be sold or provided.</p></li>
-<li><p>Pricing_ Agreements : Conditions in a contract that define the responsibilities, costs, and risk transfer points related to the transportation of goods from the seller to the buyer.</p></li>
-</ul>
 </section>
 <section id="product-qualifies-for-discount" class="level3">
 <h3 class="anchored" data-anchor-id="product-qualifies-for-discount">Product Qualifies For Discount</h3>
 <p>
-The relation signifying that the product is eligible for certain promotional discount enabling dynamic pricing strategies, encouraging sales, and providing customers with various savings opportunities on different products. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products <strong>Figure 7</strong>.
+This relation signifies that a product can be eligible for a promotional discount. In this context and for simplicity the relation representing one discount code or voucher that is valid to apply on multiple eligible products <strong>Figure 7</strong>.
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Product_Qualify_Discount.png" title="Figure 7 - Product Qualifies For Discount" width="400" height="400" class="figure-img"></p>
-<figcaption>Product Qualifies For Discount</figcaption>
+<p><img src="Images/Product_Qualify_Discount.png" title="Figure 7 - Product Qualifies For Discount" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 7: Product Qualifies For Discount</figcaption>
 </figure>
 </div>
 <p></p>
 </section>
 <section id="product-has-reviews" class="level3">
 <h3 class="anchored" data-anchor-id="product-has-reviews">Product Has Reviews</h3>
-<p>A product’s reviews are generated or provided by Customers reflecting the action of providing feedback or evaluation for a specific product or service to improve product offerings and customer service. However, one product can have multiple reviews over time as shown in <strong>Figure 8</strong>.</p>
+<p>A product’s reviews are provided by Customers reflecting feedback or evaluation for a specific product or service. One product can have multiple reviews over time as shown in <strong>Figure 8</strong>.</p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Product_Has_Reviews.png" title="Figure 8 - Product Has Reviews" width="400" height="400" class="figure-img"></p>
-<figcaption>Product Has Reviews</figcaption>
+<p><img src="Images/Product_Has_Reviews.png" title="Figure 8 - Product Has Reviews" width="400" height="300" class="figure-img"></p>
+<figcaption>Figure 8: Product Has Reviews</figcaption>
 </figure>
 </div>
 <p></p>
@@ -323,39 +311,10 @@ The relation signifying that the product is eligible for certain promotional dis
 </section>
 <section id="logical-schema" class="level2">
 <h2 class="anchored" data-anchor-id="logical-schema">Logical Schema</h2>
-<p>Legend<span class="math inline">\(\footnote{Italic attributes indicate foreign keys}\)</span></p>
-<section id="customers" class="level3">
-<h3 class="anchored" data-anchor-id="customers">Customers</h3>
-<p>Customers (<span class="math inline">\(\underline{\text{Cust\_ID}}\)</span>, Cust_First_Name, Cust_Last_Name, Cust_Building_Name, Cust_Street_Name, Cust_Zip_Code, Cust_Email, Cust_Phone_Number, Cust_Country_Code)</p>
-</section>
-<section id="products" class="level3">
-<h3 class="anchored" data-anchor-id="products">Products</h3>
-<p>Products (<span class="math inline">\(\underline{\text{Product\_ID}}\)</span>, <em>Discount_Code</em>, <em>Category_ID</em>, <em>Supplier_ID</em> ,Product_Name, Product_Availability, Product_Price)</p>
-</section>
-<section id="suppliers" class="level3">
-<h3 class="anchored" data-anchor-id="suppliers">Suppliers</h3>
-<p>Suppliers (<span class="math inline">\(\underline{\text{Supplier\_ID}}\)</span>, Supplier_Name, Supplier_Building_Name, Supplier_Street_Name, Supplier_Zip_Code, Supplier_Email, Supplier_Status)</p>
-</section>
-<section id="order_details" class="level3">
-<h3 class="anchored" data-anchor-id="order_details">Order_Details</h3>
-<p>Order_Details (<span class="math inline">\(\underline{\text{Order\_ID}}\)</span>, <em>Customer_ID</em>, <em>Discount_Code</em>, Order_Date, Shipping_Building_Name, Shipping_Street_Name, Shipping_Zip_Code, Order_Total, Order_Status, Payment_Type, Payment_Status, Billing_Building_Name, Billing_Street_Name, Billing_Zip_Code)</p>
-</section>
-<section id="discounts" class="level3">
-<h3 class="anchored" data-anchor-id="discounts">Discounts</h3>
-<p>Discounts (<span class="math inline">\(\underline{\text{Discount\_Code}}\)</span>, <em>Category_ID</em>, <em>Product_ID</em>, Discount_Amount, Discount_Status)</p>
-</section>
-<section id="reviews" class="level3">
-<h3 class="anchored" data-anchor-id="reviews">Reviews</h3>
-<p>Reviews (<span class="math inline">\(\underline{\text{Review\_ID}}\)</span>, <em>Product_ID</em>, Review_Timestamp, Product_Rating, Review_Text, Review_Likes)</p>
-</section>
-<section id="categories" class="level3">
-<h3 class="anchored" data-anchor-id="categories">Categories</h3>
-<p>Categories (<span class="math inline">\(\underline{\text{Category\_ID}}\)</span>, <em>Sub_Cat_ID</em>, Category_Name)</p>
-</section>
-<section id="many-to-many-order_details---product" class="level3">
-<h3 class="anchored" data-anchor-id="many-to-many-order_details---product">Many to Many : Order_details - Product</h3>
-<p>Order_Items (<span class="math inline">\(\underline{\text{Order\_ID, Product\_ID}}\)</span>, Quantity)</p>
-</section>
+<p>The table below describes the logical schema of our E-commerce database. Italic attributes signify foreign keys.</p>
+<p>
+<img src="Images/logical_schema.png" width="590" height="500">
+</p>
 </section>
 <section id="physical-schema-creation" class="level2">
 <h2 class="anchored" data-anchor-id="physical-schema-creation">Physical Schema Creation</h2>
@@ -375,63 +334,70 @@ The relation signifying that the product is eligible for certain promotional dis
 <section id="normalisation" class="level2">
 <h2 class="anchored" data-anchor-id="normalisation">Normalisation</h2>
 <p>
-First Normal Form (1NF) requires a table to have atomic values, unique rows through a primary key, and no duplicate columns.Thus , based on this definition the tables have been checked and considered to have atomic values with no duplicated columns.
+The First Normal Form (1NF) mandates atomic values and unique rows via a primary key without duplicate columns. The tables were verified to meet these criteria. Second Normal Form (2NF) is achieved when a table in 1NF has all non-key attributes fully dependent on the primary key, thus avoiding partial dependencies on composite keys which has also been achieved. Finally, the team conducted thorough checks to ensure all tables comply with 3NF requirements, as detailed in subsequent sections.
 </p>
-<p>
-Next, the team considered the Second Normal Form (2NF) which can be achieved when a table is in 1NF and all non-key attributes are fully functional and dependent on the primary key, eliminating partial dependency on any part of a composite key.
-</p>
-<p>
-As a last normal form to be considered and for a table to be in third normal form (3NF), it should not have any transitive dependencies, and all non-prime attributes are fully functionally dependent on the primary key. The team perfoemed the required checks until all requirements of (3NF) are met as clarified in details in the following sections.
-</p>
-<section id="customers-1" class="level3">
-<h3 class="anchored" data-anchor-id="customers-1">Customers:</h3>
+<section id="customers" class="level3">
+<h3 class="anchored" data-anchor-id="customers">Customers</h3>
 <p>Looking at the table, we can identify the following dependencies:</p>
-<p>Cust_ID → Cust_First_Name Cust_ID → Cust_Last_Name Cust_ID → Cust_Building_Number Cust_ID → Cust_Building_Name Cust_ID → Cust_Street_Name Cust_ID → Cust_Country_Code Cust_ID → Cust_Email Cust_ID → Cust_Phone_Number</p>
+<p>
+<img src="Images/Customers_Norm.png" width="200" height="200">
+</p>
 <ul>
 <li>Based on this analysis, the table appears to be in 3NF. Each non-key attribute depends only on the primary key (Cust_ID), and there are no transitive dependencies.</li>
 </ul>
 </section>
 <section id="order_items" class="level3">
-<h3 class="anchored" data-anchor-id="order_items">Order_items:</h3>
-<p>Product_ID , Order_ID → Quantity</p>
+<h3 class="anchored" data-anchor-id="order_items">Order_Items</h3>
+<p>
+<img src="Images/Order_Items_Norm.png" width="200" height="50">
+</p>
 <p>Product_ID and Order_ID combined are representing composite key, and Quantity is functionally dependent on Product_ID and Order_ID. There are no transitive dependencies here.</p>
-<p>All non-prime attributes are fully functionally dependent on the primary key.</p>
 </section>
-<section id="order_details-1" class="level3">
-<h3 class="anchored" data-anchor-id="order_details-1">Order_details:</h3>
-<p>Order_ID → Order_Date Order_ID → Order_Status Order_ID → Payment_Type Order_ID → Payment_Status Order_ID → Cust_ID Order_ID → Shipping_Building_Name Order_ID → Shipping_Street_Name Order_ID → Shipping_Zip_Code Order_ID → Billing_Building_Name Order_ID → Billing_Street_Name Order_ID → Billing_Zip_Code</p>
+<section id="order_details" class="level3">
+<h3 class="anchored" data-anchor-id="order_details">Order_Details</h3>
+<p>
+<img src="Images/Order_details_Norm.png" width="200" height="250">
+</p>
 <p>
 Given that Cust_ID is a foreign key in this table and that there is a separate Customers table where Cust_ID serves as the primary key, it suggests that Cust_ID is not functionally dependent on any other attribute within this table. It is merely referencing the primary key of another table.
 </p>
 <p>
-Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3NF). The table appears to be in 3NF as long as all other attributes are functionally dependent on the primary key (Order_ID) and not on any non-key attributes.
+Therefore, the dependency involving Cust_ID does not violate 3rd Normal Form (3NF). The table appears to be in 3NF as all other attributes are functionally dependent only on the primary key (Order_ID)
 </p>
 </section>
 <section id="product-category" class="level3">
 <h3 class="anchored" data-anchor-id="product-category">Product Category</h3>
-<p>Category_ID → Category_Name</p>
+<p>
+<img src="Images/Product_cat_Norm.png" width="200" height="50">
+</p>
 <p>Category_ID is the primary key and it uniquely identifies Category_Name.</p>
 </section>
-<section id="product-discount" class="level3">
-<h3 class="anchored" data-anchor-id="product-discount">Product Discount</h3>
-<p>Discount_Code → Discount_Amount Discount_Code → Discount_Status</p>
-<p>Analyzing the functional dependencies, it is found that Discount_Code is the primary key and it uniquely identifies Discount_Amount and Discount_Status.</p>
-<p>Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status, ensuring that the table adheres to the principles of 3rd Normal Form (3NF). There are also no transitive dependencies or non-key attributes determining other attributes within the table.</p>
+<section id="discount" class="level3">
+<h3 class="anchored" data-anchor-id="discount">Discount</h3>
+<p>
+<img src="Images/Discount_code_Norm.png" width="200" height="50">
+</p>
+<p>Analyzing the functional dependencies, it is found that Discount_Code is the primary key and it uniquely identifies Discount_Amount and Discount_Status. Each Discount_Code corresponds to a specific Discount_Amount and Discount_Status, ensuring that the table adheres to the principles of 3rd Normal Form (3NF). There are also no transitive dependencies or non-key attributes determining other attributes within the table.</p>
 </section>
-<section id="products-1" class="level3">
-<h3 class="anchored" data-anchor-id="products-1">Products</h3>
-<p>Product_ID → Product_Name Product_ID → Product_Price Product_ID → Product_Availability</p>
-<p>The table also contains foreign keys, namely Supplier_ID, Discount_Code, and Category_ID. These foreign keys are fully functionally dependent on the primary key and not on any other non-key attributes.</p>
-<p>Examining the attributes’ functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.</p>
+<section id="products" class="level3">
+<h3 class="anchored" data-anchor-id="products">Products</h3>
+<p>
+<img src="Images/Products_Norm.png" width="200" height="200">
+</p>
+<p>The table also contains foreign keys, namely Supplier_ID, Discount_Code, and Category_ID. These foreign keys are merely referencing the primary key of their respective tables and are not functionally dependent on any other attribute within this table. Examining the non key attributes’ functional dependencies, Product_ID emerges as the primary key, in which Product_Name, Product_Price and Product_Availability appears to be functionally dependent on it.</p>
 </section>
-<section id="reviews-1" class="level3">
-<h3 class="anchored" data-anchor-id="reviews-1">Reviews</h3>
-<p>Review_ID → Review_Timestamp Review_ID → Product_Rating Review_ID → Review_Text Review_ID → Review_Likes</p>
+<section id="reviews" class="level3">
+<h3 class="anchored" data-anchor-id="reviews">Reviews</h3>
+<p>
+<img src="Images/Reviews_Norm.png" width="200" height="100">
+</p>
 <p>In the Reviews table, Review_ID acts as the primary key, ensuring uniqueness. Attributes like Review_Timestamp, Product_Rating, Review_Text and Review_Likes are dependent on Review_ID.</p>
 </section>
-<section id="suppliers-1" class="level3">
-<h3 class="anchored" data-anchor-id="suppliers-1">Suppliers</h3>
-<p>Supplier_ID → Supplier_Name Supplier_ID → Supplier_Building_Name Supplier_ID → Supplier_Building_Number Supplier_ID → Supplier_Street_Name Supplier_ID → Supplier_Zip_Code Supplier_ID → Supplier_Email Supplier_ID → Supplier_Status</p>
+<section id="suppliers" class="level3">
+<h3 class="anchored" data-anchor-id="suppliers">Suppliers</h3>
+<p>
+<img src="Images/Suppliers_Norm.png" width="200" height="200">
+</p>
 <p>In the Suppliers table, Supplier_ID acts as the primary key. Attributes such as Supplier_Name, Supplier_Building_Name, Supplier_Building_Number, Supplier_Street_Name, Supplier_Zip_Code, Supplier_Email and Supplier_Status are dependent on Supplier_ID.</p>
 <p>
 Given these functional dependencies where each attribute seems to be functionally dependent on the primary key, with no non-key attributes determining other, all tables appears to adhere to the principles of 3rd Normal Form (3NF).
@@ -439,8 +405,8 @@ Given these functional dependencies where each attribute seems to be functionall
 </section>
 </section>
 </section>
-<section id="part-2-data-generation-and-management" class="level1">
-<h1>Part 2: Data Generation and Management</h1>
+<section id="data-generation-and-management" class="level1">
+<h1>Data Generation and Management</h1>
 <section id="synthetic-data-generation" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-data-generation">Synthetic Data Generation</h2>
 <p>After the agreement on the schema mentioned in the previous section, the team started to generate synthetic data that to some extent, imitated realistic e-commerce as much as possible.</p>
@@ -448,18 +414,18 @@ Given these functional dependencies where each attribute seems to be functionall
 </section>
 <section id="data-import-and-quality-assurance" class="level2">
 <h2 class="anchored" data-anchor-id="data-import-and-quality-assurance">Data Import and Quality Assurance</h2>
-<p>To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks <strong>[Refer data_validate.R]</strong>:</p>
+<p>To enhance data quality for e-commerce analysis and validate the csv data generated, we use R to perform 4 main checks as shown in Figure 9 <strong>[Refer data_validate.R]</strong>:</p>
 <ul>
+<li>Primary key integrity check</li>
+<li>Duplicate entry check</li>
 <li>Email id pattern check</li>
 <li>Phone number pattern check</li>
-<li>Duplicate entry check</li>
-<li>Primary key integrity check</li>
 </ul>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/data_validate.PNG" width="250" height="300" class="figure-img"></p>
-<figcaption>data validate steps</figcaption>
+<p><img src="Images/data_validate.png" title="Figure 9 - Data validation of CSV files" width="300" height="300" class="figure-img"></p>
+<figcaption>Figure 9: Data validation of CSV files</figcaption>
 </figure>
 </div>
 <p></p>
@@ -468,11 +434,9 @@ Once the data has gone through all the checks, the updated csv files will be use
 </p>
 </section>
 </section>
-<section id="part-3-data-pipeline-generation" class="level1">
-<h1>Part 3: Data Pipeline Generation</h1>
+<section id="data-pipeline-generation" class="level1">
+<h1>Data Pipeline Generation</h1>
 <p>To efficiently collaborate on this assignment, we have uploaded the project to Github. This was done so that the team could track changes, follow progress, collaborate on bug fixes etc. Moving the project to Github also allowed for implementation of version control and continuous integration.</p>
-<p>Using Github Workflows, we were able to automate the process of validating data, updating data and data analysis. The workflow is triggered on pushing new data to the project. Once all 3 steps are completed successfully, the new files are committed and pushed to the project.</p>
-<p>Figure below shows the new data reflecting in our analyses and sql db after being picked up by the workflow.</p>
 <section id="github-repository-creation" class="level2">
 <h2 class="anchored" data-anchor-id="github-repository-creation">Github Repository Creation</h2>
 <p>
@@ -482,100 +446,94 @@ The pipeline generation process consists of two phases. In the first phase, gith
 <section id="automated-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="automated-workflow">Automated Workflow</h2>
 <p>
-</p><p>Second phase was the automation process utilising workflow that trigger on specific events like push request to perform data updates, validation, and analysis. This will pick up any new data added to the data base and subsequently perform the required validation and analysis.</p>
-<p>
-<strong>Figures 9, 10</strong> shows the record count after 1st run of workflow (49) and then after second run of workflow (150).
+Second phase was the automating our workflow. Using Github Workflows, we were able to automate the process of validating data, updating data and data analysis. The workflow is triggered on pushing new data to the project. Once all 3 steps are completed successfully, the new files are committed and pushed to the project. Figures 10, 11, 12, 13 show how the db and analyses carried out is automatically updated after a workflow run
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Workflow1.png" title="Figure 9 - The histogram of customers data for 50 records" width="450" height="450" class="figure-img"></p>
-<figcaption>The histogram of customers data for 50 records</figcaption>
+<p><img src="Images/Workflow1.png" title="Figure 10 - Histogram of customers data for 49 records" width="450" height="300" class="figure-img"></p>
+<figcaption>Figure 10: The histogram of Customer data for 50 records</figcaption>
 </figure>
 </div>
 <p></p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Workflow2.png" title="Figure 10 -The histogram after workflow run and inserted additional 100 records" width="450" height="450" class="figure-img"></p>
-<figcaption>The histogram after workflow run and inserted additional 100 records</figcaption>
-</figure>
-</div>
-<p></p>
-<p><strong>Figure 11</strong> illustrate console output showing the record count after data update using the workflow.</p>
-<p>
-</p><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Console_Workflow.png" title="Figure 11 - Console Output" width="450" height="450" class="figure-img"></p>
-<figcaption>Record count after data update using workflow</figcaption>
+<p><img src="Images/Workflow2.png" title="Figure 11 Histogram after workflow run and inserted additional 100 records" width="450" height="300" class="figure-img"></p>
+<figcaption>Figure 11: The histogram after workflow run and inserted additional 100 records</figcaption>
 </figure>
 </div>
 <p></p>
 <p>
-In <strong>Figure 12</strong> the snippet is Timestamps that showed as an evidence of a working workflow
-</p>
+</p><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Console_Workflow.png" title="Figure 12 - Console Output" width="450" height="250" class="figure-img"></p>
+<figcaption>Figure 12: Record count after data update using workflow</figcaption>
+</figure>
+</div>
+<p></p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/WorkflowTimestamps.png" title="Figure 12 - Workflow Timestamps" width="450" height="450" class="figure-img"></p>
-<figcaption>Workflow Timestamps</figcaption>
+<p><img src="Images/WorkflowTimestamps.png" title="Figure 13 - Workflow Timestamps" width="400" height="200" class="figure-img"></p>
+<figcaption>Figure 13: Workflow Timestamps as evidence of a successful workflow</figcaption>
 </figure>
 </div>
 <p></p>
 </section>
 </section>
-<section id="part-4-data-analysis-and-reporting-with-quarto-in-r" class="level1">
-<h1>Part 4: Data Analysis and Reporting with Quarto in R</h1>
-<p>
-</p><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/Product_Rating_By_Category.jpeg" title="Figure 13 - Distribution of Product Ratings by Category" width="450" height="450" class="figure-img"></p>
-<figcaption>Distribution of Product Ratings by Category</figcaption>
-</figure>
-</div>
-<p></p>
+<section id="data-analysis-and-reporting-with-quarto-in-r" class="level1">
+<h1>Data Analysis and Reporting with Quarto in R</h1>
+<section id="distribution-of-product-ratings-from-0-to-5-coloured-by-category-name" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-product-ratings-from-0-to-5-coloured-by-category-name">Distribution of product ratings from 0 to 5 coloured by category name</h3>
 <p>
 Information regarding product ratings, sales revenue, customer distribution, and order status was obtained through the establishment of a connection to an SQLite database and the execution of SQL queries. Subsequently, data visualisation techniques were used to identify the distribution and patterns within the data, offering insights into e-commerce operational dimensions.
 </p>
 <p>
-The graph in <strong>Figure 13</strong> shows the distribution of product ratings from 0 to 5 coloured by category name.
-</p>
-<p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Top_5_Products_Revenue.png" title="Figure 14 - Top 5 Products by Revenue" width="450" height="450" class="figure-img"></p>
-<figcaption>Top 5 Products by Revenue</figcaption>
+<p><img src="Images/Product_Rating_By_Category.jpeg" title="Figure 14 - Distribution of Product Ratings by Category" width="450" height="450" class="figure-img"></p>
+<figcaption>Figure 14: Distribution of Product Ratings by Category</figcaption>
 </figure>
 </div>
 <p></p>
-<p>
-<strong>Figure 14</strong> reflecting Top 5 Products Sorted by total Revenue.
-</p>
+</section>
+<section id="top-5-products-sorted-by-total-revenue" class="level3">
+<h3 class="anchored" data-anchor-id="top-5-products-sorted-by-total-revenue">Top 5 Products Sorted by total Revenue</h3>
 <p>
 After joining the “Order_Items”, “Discounts”, and “Products” tables, the derived value, which is the “Total Revenue”, is calculated by multiplying “Order_Item” quantity and “Product_Price” and deducting it with “Discount_Amount.
 </p>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Cust_Phone_Country_Code_Distribution.png" title="Figure 15- Distribution of Customers by Phone Country Code" width="400" height="400" class="figure-img"></p>
-<figcaption>Distribution of Customers by Phone Country Code</figcaption>
+<p><img src="Images/Top_5_Products_Revenue.png" title="Figure 15 - Top 5 Products by Revenue" width="450" height="450" class="figure-img"></p>
+<figcaption>Figure 15: Top 5 Products by Revenue</figcaption>
 </figure>
 </div>
 <p></p>
-<p>
-The graph in <strong>Figure 15</strong> shows the distribution of customers by phone country codes.
-</p>
-<p>
-<strong>Figure 16</strong> displays the order status count of shipped, processing, delivered and cancelled orders.
-</p>
+</section>
+<section id="distribution-of-customers-by-phone-country-codes" class="level3">
+<h3 class="anchored" data-anchor-id="distribution-of-customers-by-phone-country-codes">Distribution of customers by phone country codes</h3>
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Order_Status_Distribution.png" title="Figure 16- Order Status Count" width="400" height="400" class="figure-img"></p>
-<figcaption>Order Status Count</figcaption>
+<p><img src="Images/Cust_Phone_Country_Code_Distribution.png" title="Figure 16- Distribution of Customers by Phone Country Code" width="400" height="400" class="figure-img"></p>
+<figcaption>Figure 16: Distribution of Customers by Phone Country Code</figcaption>
 </figure>
 </div>
 <p></p>
+</section>
+<section id="order-status-count-of-shipped-processing-delivered-and-cancelled-orders" class="level3">
+<h3 class="anchored" data-anchor-id="order-status-count-of-shipped-processing-delivered-and-cancelled-orders">Order status count of shipped, processing, delivered and cancelled orders</h3>
+<p>
+</p><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Order_Status_Distribution.png" title="Figure 17- Order Status Count" width="400" height="400" class="figure-img"></p>
+<figcaption>Figure 17: Order Status Count</figcaption>
+</figure>
+</div>
+<p></p>
+</section>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
@@ -616,7 +574,7 @@ The graph in <strong>Figure 15</strong> shows the distribution of customers by p
 <p>
 </p><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/Data_Update.png" title="A.3 - Data Update" class="img-fluid figure-img"></p>
+<p><img src="Images/Data_Update.png" title="A.3 - Data Update" width="450" height="450" class="figure-img"></p>
 <figcaption>Data Update</figcaption>
 </figure>
 </div>
